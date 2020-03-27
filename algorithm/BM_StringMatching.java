@@ -1,7 +1,7 @@
 package algorithm;
 
 // BM字符串匹配算法
-public class BMStringMatching {
+public class BM_StringMatching {
 
 	// 假设字符集为ascii比较简单
 	private static final int SIZE = 256;
@@ -84,7 +84,7 @@ public class BMStringMatching {
 	}
 
 	public static void main(String[] args) {
-		BMStringMatching c = new BMStringMatching();
+		BM_StringMatching c = new BM_StringMatching();
 		char[] a = "acjacjamcjdjsdmc".toCharArray();
 		char[] b = "cjamc".toCharArray();
 		System.out.println(c.bm(a, b));
