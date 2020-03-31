@@ -107,9 +107,9 @@ public class TestHashMap {
 	}
 
 	public static void main(String[] args) {
-		// testCompare();
+		testCompare();
 		// testTreeify();
 		// testResize();
-		testLinkedHashMap();
+		// testLinkedHashMap();
 	}
 }
