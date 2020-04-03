@@ -1,6 +1,7 @@
 package algorithm.sort;
 
 //¿ìËÙÅÅĞò
+@SuppressWarnings("unused")
 public class QuickSort {
 
 	private static int swapCount = 0;
