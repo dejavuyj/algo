@@ -13,13 +13,7 @@ public class Code435_non_overlapping_intervals {
 	static Comparator comp = new Comparator() {
 		@Override
 		public int compare(Object o1, Object o2) {
-			Integer i1 = (Integer) o1;
-			Integer i2 = (Integer) o2;
-			if (mIntervals[i1][0] <= mIntervals[i2][0]) {
-				return -1;
-			} else {
-				return 1;
-			}
+			return mIntervals[(Integer) o1][0] - mIntervals[(Integer) o2][0];
 		}
 	};
 
@@ -43,7 +37,7 @@ public class Code435_non_overlapping_intervals {
 			int curEnd = intervals[l.get(i)][1];
 
 			if (curBegin < preEnd) {
-				if(curEnd < preEnd) {
+				if (curEnd < preEnd) {
 					preIndex = l.get(i);
 				}
 				count++;
@@ -62,8 +56,8 @@ public class Code435_non_overlapping_intervals {
 		// int[][] intervals = {};
 		// int[][] intervals = { { 1, 100 }, { 11, 22 }, { 1, 11 }, { 2, 12 } };
 		int[][] intervals = { { 0, 1 }, { 3, 4 }, { 1, 2 } };
-		//tbd
-		//[[0,2],[1,3],[2,4],[3,5],[4,6]]
+		// tbd
+		// [[0,2],[1,3],[2,4],[3,5],[4,6]]
 		System.out.println(c.eraseOverlapIntervals(intervals));
 	}
 }
