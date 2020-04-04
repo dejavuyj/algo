@@ -1,7 +1,7 @@
 package leetcode.algorithm.dynamicProgramming;
 
 //等价于0-1背包问题
-public class Code415_partition_equal_subset_sum {
+public class Code416_partition_equal_subset_sum {
 
 	boolean ret = false;
 
@@ -41,7 +41,7 @@ public class Code415_partition_equal_subset_sum {
 	}
 
 	public static void main(String[] args) {
-		Code415_partition_equal_subset_sum c = new Code415_partition_equal_subset_sum();
+		Code416_partition_equal_subset_sum c = new Code416_partition_equal_subset_sum();
 		int[] a = { 1, 5, 11, 5 };
 		System.out.println(c.canPartition(a));
 	}
