@@ -32,30 +32,35 @@ public class QuickSort {
 	}
 
 	// Ëæ»ú·¨
-	private int getPivotRandom(int[] a, int p, int r) {
-		int random = p + (int) (Math.random() * (r - p));
-		return a[random];
+	private int getRandomPivotIndex(int[] a, int p, int r) {
+		int pivotIndex = p + (int) (Math.random() * (r - p));
+		return 0;
+	}
+
+	private void swap(int[] nums, int a, int b) {
+		int tmp = nums[a];
+		nums[a] = nums[b];
+		nums[b] = tmp;
 	}
 
 	private int partition(int[] a, int p, int r) {
-		int pivot = -1;
+		int pivotIndex = -1;
 		// pivot = getPivotMid(a, p, r);
-		pivot = getPivotRandom(a, p, r);
+		pivotIndex = getRandomPivotIndex(a, p, r);
+		int pivot = a[pivotIndex];
+		swap(a, pivotIndex, r);
 
 		int i = p;
-		for (int j = p; j <= r; j++) {
+		for (int j = p; j < r; j++) {
 			if (a[j] < pivot) {
-				int tmp = a[i];
-				a[i] = a[j];
-				a[j] = tmp;
+				swap(a, i, j);
 				i++;
 
 				swapCount++;
 				System.out.println("swap " + i + ", " + j);
 			}
 		}
-		a[r] = a[i];
-		a[i] = pivot;
+		swap(a, i, r);
 		return i;
 	}
 
