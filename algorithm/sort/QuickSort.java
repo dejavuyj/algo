@@ -1,5 +1,7 @@
 package algorithm.sort;
 
+import java.util.Stack;
+
 //快速排序
 @SuppressWarnings("unused")
 public class QuickSort {
@@ -16,17 +18,41 @@ public class QuickSort {
 		quickSort(a, q + 1, r);
 	}
 
+	private void quickSortNoRecurse(int[] a) {
+		int p = 0;
+		int r = a.length - 1;
+		Stack<Integer> stack = new Stack<Integer>();
+		paritionNoRecurse(a, p, r, stack);
+		while(!stack.empty()) {
+			r = stack.pop();
+			p = stack.pop();
+			paritionNoRecurse(a, p, r, stack);
+		}
+	}
+
+	private void paritionNoRecurse(int[] a, int p, int r, Stack<Integer> stack) {
+		int q = partition(a, p, r);
+		if(p < q - 1) {
+			stack.push(p);
+			stack.push(q - 1);
+		}
+		if(q + 1< r) {
+			stack.push(q + 1);
+			stack.push(r);
+		}
+	}
+
 	// 三数取中法
 	private int getPivotMid(int[] a, int p, int r) {
 		int pivot;
 		int mid = p + ((r - p) >> 1);
 		if (a[p] > Math.min(a[mid], a[r]) && a[p] <= Math.max(a[mid], a[r])) {
-			pivot = a[p];
+			pivot = p;
 		} else if (a[mid] > Math.min(a[p], a[r])
 				&& a[mid] <= Math.max(a[p], a[r])) {
-			pivot = a[mid];
+			pivot = mid;
 		} else {
-			pivot = a[r];
+			pivot = r;
 		}
 		return pivot;
 	}
@@ -72,7 +98,9 @@ public class QuickSort {
 		QuickSort c = new QuickSort();
 		int[] a = { 3, 2, 7, 6, 9, 5, 1, 8, 4 };
 		// int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		c.quickSort(a);
+//		c.quickSort(a);
+		c.quickSortNoRecurse(a);
+
 		for (int i : a) {
 			System.out.print(i + ", ");
 		}
