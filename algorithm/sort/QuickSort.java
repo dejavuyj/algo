@@ -34,7 +34,7 @@ public class QuickSort {
 	// Ëæ»ú·¨
 	private int getRandomPivotIndex(int[] a, int p, int r) {
 		int pivotIndex = p + (int) (Math.random() * (r - p));
-		return 0;
+		return pivotIndex;
 	}
 
 	private void swap(int[] nums, int a, int b) {
@@ -76,6 +76,7 @@ public class QuickSort {
 		for (int i : a) {
 			System.out.print(i + ", ");
 		}
+		System.out.println();
 		System.out.println("total swapCount is " + swapCount);
 	}
 }
