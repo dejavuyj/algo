@@ -9,13 +9,13 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 class ConflictObject {
-	
+
 }
 
 class ConflictObject1 extends ConflictObject {
 	@Override
 	public int hashCode() {
-		return 1;
+		return 17;
 	}
 }
 
@@ -33,10 +33,10 @@ public class TestHashMap {
 	static Comparator comp = new Comparator() {
 		@Override
 		public int compare(Object o1, Object o2) {
-			Entry<String, Integer> e1 = (Entry<String, Integer>)o1;
-			Entry<String, Integer> e2 = (Entry<String, Integer>)o2;
+			Entry<String, Integer> e1 = (Entry<String, Integer>) o1;
+			Entry<String, Integer> e2 = (Entry<String, Integer>) o2;
 			return e1.getValue() - e2.getValue();
-//			return 0;
+			// return 0;
 		}
 	};
 
@@ -53,9 +53,9 @@ public class TestHashMap {
 		Set<Entry<String, Integer>> set = m.entrySet();
 		Object[] a = set.toArray();
 		Arrays.sort(a, comp);
-		for(Object o:a) {
-			Entry<String, Integer> e = (Entry<String, Integer>)(o);
-			System.out.println(e.getKey()+", "+e.getValue());
+		for (Object o : a) {
+			Entry<String, Integer> e = (Entry<String, Integer>) (o);
+			System.out.println(e.getKey() + ", " + e.getValue());
 		}
 	}
 
@@ -79,14 +79,16 @@ public class TestHashMap {
 			}
 			ConflictObject1 c1 = new ConflictObject1();
 			m.put(c1, i);
+			System.out.println(m.size());
+			System.out.println(m);
 		}
-//		for (Integer i = 0; i <= 6; i++) {
-//			if (i == 6) {
-//				System.out.println(i);
-//			}
-//			ConflictObject2 c2 = new ConflictObject2();
-//			m.put(c2, i);
-//		}
+		// for (Integer i = 0; i <= 6; i++) {
+		// if (i == 6) {
+		// System.out.println(i);
+		// }
+		// ConflictObject2 c2 = new ConflictObject2();
+		// m.put(c2, i);
+		// }
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -102,14 +104,14 @@ public class TestHashMap {
 		m.get(5);
 
 		for (Map.Entry e : m.entrySet()) {
-		  System.out.println(e.getKey());
+			System.out.println(e.getKey());
 		}
 	}
 
 	public static void main(String[] args) {
-		testCompare();
+		// testCompare();
 		// testTreeify();
-		// testResize();
+		testResize();
 		// testLinkedHashMap();
 	}
 }

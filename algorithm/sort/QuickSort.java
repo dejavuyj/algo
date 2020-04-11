@@ -23,7 +23,7 @@ public class QuickSort {
 		int r = a.length - 1;
 		Stack<Integer> stack = new Stack<Integer>();
 		paritionNoRecurse(a, p, r, stack);
-		while(!stack.empty()) {
+		while (!stack.empty()) {
 			r = stack.pop();
 			p = stack.pop();
 			paritionNoRecurse(a, p, r, stack);
@@ -32,11 +32,11 @@ public class QuickSort {
 
 	private void paritionNoRecurse(int[] a, int p, int r, Stack<Integer> stack) {
 		int q = partition(a, p, r);
-		if(p < q - 1) {
+		if (p < q - 1) {
 			stack.push(p);
 			stack.push(q - 1);
 		}
-		if(q + 1< r) {
+		if (q + 1 < r) {
 			stack.push(q + 1);
 			stack.push(r);
 		}
@@ -48,8 +48,7 @@ public class QuickSort {
 		int mid = p + ((r - p) >> 1);
 		if (a[p] > Math.min(a[mid], a[r]) && a[p] <= Math.max(a[mid], a[r])) {
 			pivot = p;
-		} else if (a[mid] > Math.min(a[p], a[r])
-				&& a[mid] <= Math.max(a[p], a[r])) {
+		} else if (a[mid] > Math.min(a[p], a[r]) && a[mid] <= Math.max(a[p], a[r])) {
 			pivot = mid;
 		} else {
 			pivot = r;
@@ -98,7 +97,7 @@ public class QuickSort {
 		QuickSort c = new QuickSort();
 		int[] a = { 3, 2, 7, 6, 9, 5, 1, 8, 4 };
 		// int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-//		c.quickSort(a);
+		// c.quickSort(a);
 		c.quickSortNoRecurse(a);
 
 		for (int i : a) {

@@ -1,11 +1,8 @@
 package test;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.Random;
 
 // final
 class FinalTestClass {
@@ -92,8 +89,14 @@ public class Test {
 //		Map m = new ConcurrentHashMap<String, String>(10);
 //		m.put("", "");
 //		simulation();
-		int i = (0-1)/2;
-		System.out.println(i);
+		Random random = new Random();
+		for(int i=0; i<100; i++) {
+			int r = random.nextInt(100);
+			if(r < 0) {
+				System.out.println("--------negative");
+			}
+			System.out.println("r is "+r);
+		}
+		
 	}
-
 }
