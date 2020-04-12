@@ -9,9 +9,7 @@ public class Code518_coin_change_2 {
 		dp[0] = 1;
 		for (int coin : coins) {
 			for (int i = coin; i <= amount; i++) {
-				if (coin <= i) {
-					dp[i] += dp[i - coin];
-				}
+				dp[i] += dp[i - coin];
 			}
 		}
 		return dp[amount];

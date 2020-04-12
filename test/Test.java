@@ -91,7 +91,7 @@ public class Test {
 //		simulation();
 		Random random = new Random();
 		for(int i=0; i<100; i++) {
-			int r = random.nextInt(100);
+			int r = random.nextInt(0);
 			if(r < 0) {
 				System.out.println("--------negative");
 			}
