@@ -7,7 +7,7 @@ import java.util.Queue;
 public class Graph_BFS_DFS {
 
 	private int v; // 顶点个数
-	private LinkedList<Integer> adj[]; // 邻接表
+	private LinkedList<Integer>[] adj; // 邻接表
 
 	@SuppressWarnings("unchecked")
 	public Graph_BFS_DFS(int v) {
@@ -96,10 +96,12 @@ public class Graph_BFS_DFS {
 	}
 
 	public static void main(String[] args) {
+		// https://time.geekbang.org/column/article/70891
 		Graph_BFS_DFS g = new Graph_BFS_DFS(8);
 		g.addEdge(0, 1);
 		g.addEdge(0, 3);
 		g.addEdge(1, 2);
+		g.addEdge(1, 4);
 		g.addEdge(3, 4);
 		g.addEdge(2, 5);
 		g.addEdge(4, 5);
