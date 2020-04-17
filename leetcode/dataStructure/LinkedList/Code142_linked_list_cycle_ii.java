@@ -4,15 +4,6 @@ import java.util.HashSet;
 
 public class Code142_linked_list_cycle_ii {
 
-	public static class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
-
 	public static ListNode detectCycle1(ListNode head) {
 		if(head == null || head.next == null) {
 			return null;
