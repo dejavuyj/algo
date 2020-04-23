@@ -83,7 +83,7 @@ public class Code208_implement_trie_prefix_tree {
 		return true;
 	}
 
-	// 返回以prefix开头的words
+	// 前缀提示功能,返回以prefix开头的words
 	public List<String> getWordsWithPrefix(String prefix) {
 		List<String> l = new ArrayList<String>();
 		TrieNode[] ptr = root.children;
