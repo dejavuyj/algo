@@ -1,8 +1,9 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 // final
 class FinalTestClass {
@@ -34,14 +35,14 @@ class YieldTest extends Thread {
 			}
 			System.out.println("" + this.getName() + "-----" + i);
 			// 当i为30时，该线程就会把CPU时间让掉，让其他或者自己的线程执行（也就是谁先抢到谁执行）
-//			if (i == 30) {
-//				this.yield();
-//			}
+			// if (i == 30) {
+			// this.yield();
+			// }
 		}
 	}
 
 	public static void main(String[] args) {
-		//hash();
+		// hash();
 		YieldTest yt1 = new YieldTest("张三");
 		YieldTest yt2 = new YieldTest("李四");
 		yt1.start();
@@ -49,6 +50,7 @@ class YieldTest extends Thread {
 	}
 }
 
+@SuppressWarnings("unused")
 public class Test {
 
 	private static void hash() {
@@ -70,33 +72,47 @@ public class Test {
 
 	private static void simulation() {
 		double total = 0;
-		int anual = 30; //每年存
-		double rate = 1.1; //每年收益率
-		int startYear = 2020; //起始
-		
-		System.out.println("每年存"+anual+", 年收益率"+rate);
-		int i=10;
-		for(int j=0;j<10;j++,i--) {
+		int anual = 30; // 每年存
+		double rate = 1.1; // 每年收益率
+		int startYear = 2020; // 起始
+
+		System.out.println("每年存" + anual + ", 年收益率" + rate);
+		int i = 10;
+		for (int j = 0; j < 10; j++, i--) {
 			int currYear = startYear + j;
-			double currYearPow = anual*Math.pow(rate, i);
+			double currYearPow = anual * Math.pow(rate, i);
 			total += currYearPow;
-			System.out.println(currYear+"年的"+anual+",累积"+i+"年后,金额是"+currYearPow+",  总金额是"+total);
+			System.out.println(currYear + "年的" + anual + ",累积" + i + "年后,金额是" + currYearPow + ",  总金额是" + total);
 		}
 	}
 
-	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
-		//hash();
-//		Map m = new ConcurrentHashMap<String, String>(10);
-//		m.put("", "");
-//		simulation();
-		Random random = new Random();
-		for(int i=0; i<100; i++) {
-			int r = random.nextInt(0);
-			if(r < 0) {
-				System.out.println("--------negative");
+	public static void testHoldsLock() throws Exception {
+		Object o = new Object();
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				synchronized (o) {
+					System.out.println("child thread: holdLock: " + Thread.holdsLock(o));
+				}
 			}
-			System.out.println("r is "+r);
-		}
-		
+		}).start();
+		System.out.println("main thread: holdLock: " + Thread.holdsLock(o));
+		// o.wait();
+		Thread.sleep(2000);
+	}
+
+	private static void testTypeErasure() {
+		List<String> ls = new ArrayList<String>();
+		List<Integer> li = new ArrayList<Integer>();
+		System.out.println(ls.equals(li));
+	}
+
+	public static void main(String[] args) throws Exception {
+		// hash();
+		// Map m = new ConcurrentHashMap<String, String>(10);
+		// m.put("", "");
+		// simulation();
+		// testHoldsLock();
+		testTypeErasure();
 	}
 }
