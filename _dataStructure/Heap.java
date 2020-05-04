@@ -1,6 +1,5 @@
 package _dataStructure;
 
-//大顶堆
 public class Heap {
 	private int[] a; // 从1开始存储数据
 	private int n; // 堆可以存储的最大数据个数
@@ -31,11 +30,11 @@ public class Heap {
 		count++;
 		int cur = count;
 		a[cur] = data;
-		int parent = cur * 2;
+		int parent = cur / 2;
 		while (parent >= 1 && a[parent] < a[cur]) {
 			swap(a, cur, parent);
-			parent = cur;
-			cur = cur * 2;
+			cur = parent;
+			parent = cur / 2;
 		}
 	}
 
