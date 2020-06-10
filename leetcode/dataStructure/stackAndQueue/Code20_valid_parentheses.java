@@ -57,27 +57,8 @@ public class Code20_valid_parentheses {
         return leftStack.empty();
     }
 
-    public static boolean isValid3(String s) {
-    	Stack<Character> leftStack = new Stack<Character>();
-    	Map<Character, Character> m = new HashMap<Character, Character>();
-    	m.put(')', '(');
-    	m.put(']', '[');
-    	m.put('}', '{');
-    	for(int i=0;i<s.length();i++) {
-    		char c = s.charAt(i);
-    		if(!m.containsKey(c)) {
-    			leftStack.push(c);
-    		} else {
-    			if(leftStack.isEmpty() || leftStack.pop() != m.get(c)) {
-    				return false;
-    			}
-    		}
-    	}
-    	return leftStack.isEmpty();
-    }
-
     public static void main(String[] args) {
     	String s = "{[]}";
-    	System.out.println(isValid3(s));
+    	System.out.println(isValid2(s));
     }
 }
