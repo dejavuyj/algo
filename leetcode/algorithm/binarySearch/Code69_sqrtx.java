@@ -25,7 +25,7 @@ public class Code69_sqrtx {
 		return r;
 	}
 
-	//precision 精确到小数点后多少位
+	//precision 绮剧‘鍒板皬鏁扮偣鍚庡灏戜綅
 	public double mySqrt3(int x, int precision) {
 		double left = 0;
 		double right = x/2 +1;
