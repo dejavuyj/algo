@@ -2,7 +2,7 @@ package algorithm;
 
 public class BinarySearch {
 
-	// ÎŞÖØ¸´ÔªËØ-µİ¹é
+	// æ— é‡å¤å…ƒç´ -é€’å½’
 	public int binarySearchNonRepeatRecursion(int[] a, int value) {
 		if (a == null || a.length == 0) {
 			return -1;
@@ -15,7 +15,7 @@ public class BinarySearch {
 			return -1;
 		}
 
-		// int mid = (s + e) / 2; // ¿ÉÄÜ»áÒç³ö
+		// int mid = (s + e) / 2; // å¯èƒ½ä¼šæº¢å‡º
 		int mid = s + ((e - s) >> 1);
 		if (a[mid] == value) {
 			return mid;
@@ -26,7 +26,7 @@ public class BinarySearch {
 		}
 	}
 
-	// ÎŞÖØ¸´ÔªËØ-·Çµİ¹é
+	// æ— é‡å¤å…ƒç´ -éé€’å½’
 	public int binarySearchNonRepeat(int[] a, int value) {
 		if (a == null || a.length == 0) {
 			return -1;
@@ -34,7 +34,7 @@ public class BinarySearch {
 		int s = 0;
 		int e = a.length - 1;
 		while (s <= e) {
-			// int mid = (s + e) / 2; // ¿ÉÄÜ»áÒç³ö
+			// int mid = (s + e) / 2; // å¯èƒ½ä¼šæº¢å‡º
 			int mid = s + ((e - s) >> 1);
 			if (a[mid] == value) {
 				return mid;
@@ -47,7 +47,7 @@ public class BinarySearch {
 		return -1;
 	}
 
-	// ±äÌåÒ»£º²éÕÒµÚÒ»¸öÖµµÈÓÚ¸ø¶¨ÖµµÄÔªËØ
+	// å˜ä½“ä¸€ï¼šæŸ¥æ‰¾ç¬¬ä¸€ä¸ªå€¼ç­‰äºç»™å®šå€¼çš„å…ƒç´ 
 	public int bsearch1(int[] a, int value) {
 		int low = 0;
 		int high = a.length - 1;
@@ -67,7 +67,7 @@ public class BinarySearch {
 		return -1;
 	}
 
-	// ±äÌå¶ş£º²éÕÒ×îºóÒ»¸öÖµµÈÓÚ¸ø¶¨ÖµµÄÔªËØ
+	// å˜ä½“äºŒï¼šæŸ¥æ‰¾æœ€åä¸€ä¸ªå€¼ç­‰äºç»™å®šå€¼çš„å…ƒç´ 
 	public int bsearch2(int[] a, int value) {
 		int low = 0;
 		int high = a.length - 1;
@@ -87,7 +87,7 @@ public class BinarySearch {
 		return -1;
 	}
 
-	// ±äÌåÈı£º²éÕÒµÚÒ»¸ö´óÓÚµÈÓÚ¸ø¶¨ÖµµÄÔªËØ
+	// å˜ä½“ä¸‰ï¼šæŸ¥æ‰¾ç¬¬ä¸€ä¸ªå¤§äºç­‰äºç»™å®šå€¼çš„å…ƒç´ 
 	public int bsearch3(int[] a, int value) {
 		int low = 0;
 		int high = a.length - 1;
@@ -105,7 +105,7 @@ public class BinarySearch {
 		return -1;
 	}
 
-	// ±äÌåËÄ£º²éÕÒ×îºóÒ»¸öĞ¡ÓÚµÈÓÚ¸ø¶¨ÖµµÄÔªËØ
+	// å˜ä½“å››ï¼šæŸ¥æ‰¾æœ€åä¸€ä¸ªå°äºç­‰äºç»™å®šå€¼çš„å…ƒç´ 
 	public int bsearch4(int[] a, int value) {
 		int low = 0;
 		int high = a.length - 1;
