@@ -2,7 +2,7 @@ package algorithm.sort;
 
 import java.util.Stack;
 
-//¿ìËÙÅÅĞò
+//å¿«é€Ÿæ’åº
 @SuppressWarnings("unused")
 public class QuickSort {
 
@@ -42,7 +42,7 @@ public class QuickSort {
 		}
 	}
 
-	// ÈıÊıÈ¡ÖĞ·¨
+	// ä¸‰æ•°å–ä¸­æ³•
 	private int getPivotMid(int[] a, int p, int r) {
 		int pivot;
 		int mid = p + ((r - p) >> 1);
@@ -56,7 +56,7 @@ public class QuickSort {
 		return pivot;
 	}
 
-	// Ëæ»ú·¨
+	// éšæœºæ³•
 	private int getRandomPivotIndex(int[] a, int p, int r) {
 		int pivotIndex = p + (int) (Math.random() * (r - p));
 		return pivotIndex;

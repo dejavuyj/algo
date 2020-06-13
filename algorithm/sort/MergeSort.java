@@ -1,6 +1,6 @@
 package algorithm.sort;
 
-//归并排序
+//褰掑苟鎺掑簭
 public class MergeSort {
 
 	private void mergeSort(int[] a, int start, int end) {
@@ -19,7 +19,7 @@ public class MergeSort {
 	// p-start q-mid r-end
 	// i-left j-right
 	private void merge(int[] a, int start, int end, int mid) {
-		// 合并数据
+		// 鍚堝苟鏁版嵁
 		int[] tmp = new int[end - start + 1];
 
 		int left = start;

@@ -1,9 +1,9 @@
 package algorithm.sort;
 
-//选择排序
+//閫夋嫨鎺掑簭
 public class SelectionSort {
 
-	// 每次把最小的移动到最前面
+	// 姣忔鎶婃渶灏忕殑绉诲姩鍒版渶鍓嶉潰
 	public void selectionSort(int[] a) {
 		if (a == null || a.length <= 1) {
 			return;
