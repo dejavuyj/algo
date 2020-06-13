@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-// AC×Ô¶¯»ú ¶àÄ£Ê½´®Æ¥Åä
+// ACè‡ªåŠ¨æœº å¤šæ¨¡å¼ä¸²åŒ¹é…
 public class AcStateMachine {
 
 	static final int ALPHABET_SIZE = 26;
@@ -15,8 +15,8 @@ public class AcStateMachine {
 		char data;
 		AcNode[] children = new AcNode[ALPHABET_SIZE];
 		public boolean isEndingChar = false;
-		public int length = -1; // µ±isEndingChar=trueÊ±,¼ÇÂ¼Ä£Ê½´®³¤¶È
-		public AcNode fail; // Ê§°ÜÖ¸Õë
+		public int length = -1; // å½“isEndingChar=trueæ—¶,è®°å½•æ¨¡å¼ä¸²é•¿åº¦
+		public AcNode fail; // å¤±è´¥æŒ‡é’ˆ
 		String word;
 
 		AcNode(char c) {
@@ -86,7 +86,7 @@ public class AcStateMachine {
 		return true;
 	}
 
-	// ·µ»ØÒÔprefix¿ªÍ·µÄwords
+	// è¿”å›ä»¥prefixå¼€å¤´çš„words
 	public List<String> getWordsWithPrefix(String prefix) {
 		List<String> l = new ArrayList<String>();
 		AcNode[] ptr = root.children;
@@ -150,45 +150,45 @@ public class AcStateMachine {
 		}
 	}
 
-	public void match(char[] text) { // textÊÇÖ÷´®
+	public void match(char[] text) { // textæ˜¯ä¸»ä¸²
 		int n = text.length;
 		AcNode p = root;
 		for (int i = 0; i < n; ++i) {
 			int idx = text[i] - 'a';
 			while (p.children[idx] == null && p != root) {
-				p = p.fail; // Ê§°ÜÖ¸Õë·¢»Ó×÷ÓÃµÄµØ·½
+				p = p.fail; // å¤±è´¥æŒ‡é’ˆå‘æŒ¥ä½œç”¨çš„åœ°æ–¹
 			}
 			p = p.children[idx];
 			if (p == null)
-				p = root; // Èç¹ûÃ»ÓĞÆ¥ÅäµÄ£¬´Óroot¿ªÊ¼ÖØĞÂÆ¥Åä
+				p = root; // å¦‚æœæ²¡æœ‰åŒ¹é…çš„ï¼Œä»rootå¼€å§‹é‡æ–°åŒ¹é…
 			AcNode tmp = p;
-			while (tmp != root) { // ´òÓ¡³ö¿ÉÒÔÆ¥ÅäµÄÄ£Ê½´®
+			while (tmp != root) { // æ‰“å°å‡ºå¯ä»¥åŒ¹é…çš„æ¨¡å¼ä¸²
 				if (tmp.isEndingChar == true) {
 					int pos = i - tmp.length + 1;
-					System.out.println("Æ¥ÅäÆğÊ¼ÏÂ±ê" + pos + "; ³¤¶È" + tmp.length);
+					System.out.println("åŒ¹é…èµ·å§‹ä¸‹æ ‡" + pos + "; é•¿åº¦" + tmp.length);
 				}
 				tmp = tmp.fail;
 			}
 		}
 	}
 
-	// ½«¹Ø¼ü´ÊÌæ»»³É*
-	public void replaceMatchs(char[] text) { // textÊÇÖ÷´®
+	// å°†å…³é”®è¯æ›¿æ¢æˆ*
+	public void replaceMatchs(char[] text) { // textæ˜¯ä¸»ä¸²
 		int n = text.length;
 		AcNode p = root;
 		for (int i = 0; i < n; ++i) {
 			int idx = text[i] - 'a';
 			while (p.children[idx] == null && p != root) {
-				p = p.fail; // Ê§°ÜÖ¸Õë·¢»Ó×÷ÓÃµÄµØ·½
+				p = p.fail; // å¤±è´¥æŒ‡é’ˆå‘æŒ¥ä½œç”¨çš„åœ°æ–¹
 			}
 			p = p.children[idx];
 			if (p == null)
-				p = root; // Èç¹ûÃ»ÓĞÆ¥ÅäµÄ£¬´Óroot¿ªÊ¼ÖØĞÂÆ¥Åä
+				p = root; // å¦‚æœæ²¡æœ‰åŒ¹é…çš„ï¼Œä»rootå¼€å§‹é‡æ–°åŒ¹é…
 			AcNode tmp = p;
-			while (tmp != root) { // ´òÓ¡³ö¿ÉÒÔÆ¥ÅäµÄÄ£Ê½´®
+			while (tmp != root) { // æ‰“å°å‡ºå¯ä»¥åŒ¹é…çš„æ¨¡å¼ä¸²
 				if (tmp.isEndingChar == true) {
 					int pos = i - tmp.length + 1;
-					System.out.println("Æ¥ÅäÆğÊ¼ÏÂ±ê" + pos + "; ³¤¶È" + tmp.length);
+					System.out.println("åŒ¹é…èµ·å§‹ä¸‹æ ‡" + pos + "; é•¿åº¦" + tmp.length);
 					for (int j = pos; j <= i; j++) {
 						text[j] = '*';
 					}
@@ -212,11 +212,11 @@ public class AcStateMachine {
 		c.insert("delta");
 		c.insert("program");
 		c.insert("see");
-		// System.out.println(trie.search("apple")); // ·µ»Ø true
-		// System.out.println(trie.search("app")); // ·µ»Ø false
-		// System.out.println(trie.startsWith("app")); // ·µ»Ø true
+		// System.out.println(trie.search("apple")); // è¿”å› true
+		// System.out.println(trie.search("app")); // è¿”å› false
+		// System.out.println(trie.startsWith("app")); // è¿”å› true
 		// trie.insert("app");
-		// System.out.println(trie.search("app")); // ·µ»Ø true
+		// System.out.println(trie.search("app")); // è¿”å› true
 		// List<String> l = trie.getWordsWithPrefix("a");
 		// for (String s : l) {
 		// System.out.println(s);
