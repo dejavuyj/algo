@@ -9,7 +9,7 @@ import java.io.InputStream;
 class TestClassLoad {
     @Override
     public String toString() {
-        return "Àà¼ÓÔØ³É¹¦¡£";
+        return "ç±»åŠ è½½æˆåŠŸã€‚";
     }
 }
 public class PathClassLoader extends ClassLoader {
@@ -50,10 +50,10 @@ public class PathClassLoader extends ClassLoader {
 
     public static void main(String args[]) throws ClassNotFoundException,
             InstantiationException, IllegalAccessException {
-    	//É¾³ıF:\YJ\project\test\bin\test\classLoaderÄ¿Â¼ÏÂµÄTestClassLoad.class,ÈÃAppClassLoaderÕÒ²»µ½
+    	//åˆ é™¤F:\YJ\project\test\bin\test\classLoaderç›®å½•ä¸‹çš„TestClassLoad.class,è®©AppClassLoaderæ‰¾ä¸åˆ°
     	//F:\YJ\project\test\src\test\classLoader\test\classLoader\TestClassLoad.class
         ClassLoader pcl = new PathClassLoader("F:\\YJ\\project\\test\\src\\");
-        Class c = pcl.loadClass("test.classLoader.TestClassLoad");//×¢ÒâÒª°üÀ¨°üÃû
-        System.out.println(c.newInstance());//´òÓ¡Àà¼ÓÔØ³É¹¦.
+        Class c = pcl.loadClass("test.classLoader.TestClassLoad");//æ³¨æ„è¦åŒ…æ‹¬åŒ…å
+        System.out.println(c.newInstance());//æ‰“å°ç±»åŠ è½½æˆåŠŸ.
     }
 }

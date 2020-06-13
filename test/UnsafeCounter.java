@@ -34,9 +34,9 @@ public class UnsafeCounter {
 //				}
 //			}
 //		});
-		Thread thread1 = new Thread(UnsafeCounter::count1, "线程1");
+		Thread thread1 = new Thread(UnsafeCounter::count1, "绾跨▼1");
         thread1.start();
-		Thread thread2 = new Thread(UnsafeCounter::count2, "线程2");
+		Thread thread2 = new Thread(UnsafeCounter::count2, "绾跨▼2");
         thread2.start();
         thread1.join();
         thread2.join();

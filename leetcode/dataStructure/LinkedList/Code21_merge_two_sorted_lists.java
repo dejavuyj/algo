@@ -51,7 +51,7 @@ public class Code21_merge_two_sorted_lists {
 	}
 
 	public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-		// ÊØ»¤Õß/ÉÚ±ø
+		// å®ˆæŠ¤è€…/å“¨å…µ
 		ListNode head = new ListNode(-1);
 
 		ListNode prev = head;
@@ -71,7 +71,7 @@ public class Code21_merge_two_sorted_lists {
 		return head.next;
 	}
 
-	// µÝ¹é
+	// é€’å½’
 	public ListNode mergeTwoLists3(ListNode l1, ListNode l2) {
 		if (l1 == null) {
 			return l2;

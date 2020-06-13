@@ -23,7 +23,6 @@ public class Code622_design_circular_queue {
 	 */
 	public boolean enQueue(int value) {
 		if (size == cap) {
-			// 队列已满
 			return false;
 		}
 		tail = (tail + 1) % cap;
@@ -41,7 +40,6 @@ public class Code622_design_circular_queue {
 	 */
 	public boolean deQueue() {
 		if (size == 0) {
-			// 队列已空
 			return false;
 		}
 		if (size == 1) {
@@ -113,7 +111,6 @@ class MyCircularQueue {
 	 */
 	public boolean enQueue(int value) {
 		if (isFull()) {
-			// 队列已满
 			return false;
 		}
 		array[tail] = value;
@@ -127,7 +124,6 @@ class MyCircularQueue {
 	 */
 	public boolean deQueue() {
 		if (isEmpty()) {
-			// 队列已空
 			return false;
 		}
 		head = (head + 1) % size;

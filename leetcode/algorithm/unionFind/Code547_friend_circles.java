@@ -31,7 +31,7 @@ public class Code547_friend_circles {
 		}
 	}
 
-	//并查集使用count
+	//骞舵煡闆嗕娇鐢╟ount
 	public int findCircleNum(int[][] M) {
 		int n = M.length;
 		if (n == 0) {

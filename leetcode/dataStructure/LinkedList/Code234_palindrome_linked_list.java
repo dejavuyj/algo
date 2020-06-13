@@ -16,7 +16,7 @@ public class Code234_palindrome_linked_list {
 
 	public boolean isPalindrome(ListNode head) {
 		boolean ret = true;
-		//ÓÃ¿ìÂıÖ¸ÕëÕÒ³öÖĞ¼ä½áµã
+		//ç”¨å¿«æ…¢æŒ‡é’ˆæ‰¾å‡ºä¸­é—´ç»“ç‚¹
 		ListNode slow = head;
 		ListNode fast = head;
 		while(fast != null) {
@@ -29,7 +29,7 @@ public class Code234_palindrome_linked_list {
 		}
 
 		ListNode l1 = head;
-		//·´×ªºó°ë²¿·ÖÁ´±í
+		//åè½¬ååŠéƒ¨åˆ†é“¾è¡¨
 		ListNode l2 = reverseList(slow);
 		while(l2 != null) {
 			if(l1.val != l2.val) {

@@ -3,7 +3,7 @@ package test.classLoader;
 public class Test {
     static {
         i=0;
-        // System.out.println(i); //这句编译器会报错：Illegal forward reference (不合法的向前引用)
+        // System.out.println(i); //杩欏彞缂栬瘧鍣ㄤ細鎶ラ敊锛欼llegal forward reference (涓嶅悎娉曠殑鍚戝墠寮曠敤)
     }
     static int i=1;
 

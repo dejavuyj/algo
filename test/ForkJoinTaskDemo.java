@@ -24,14 +24,14 @@ public class ForkJoinTaskDemo {
 		}
 
 		/**
-		 * Ğ¡¼Æ
+		 * å°è®¡
 		 */
 		private Integer subtotal() {
 			Integer sum = 0;
 			for (int i = start; i < end; i++) {
 				sum += arr[i];
 			}
-			System.out.println(Thread.currentThread().getName() + ": ¡Æ(" + start + "~" + end + ")=" + sum);
+			System.out.println(Thread.currentThread().getName() + ": âˆ‘(" + start + "~" + end + ")=" + sum);
 			return sum;
 		}
 
@@ -60,7 +60,7 @@ public class ForkJoinTaskDemo {
 
 		ForkJoinPool pool = new ForkJoinPool();
 		ForkJoinTask<Integer> result = pool.submit(new ForkJoinTaskDemo().new SumTask(arr, 0, arr.length));
-		System.out.println("×îÖÕ¼ÆËã½á¹û: " + result.invoke());
+		System.out.println("æœ€ç»ˆè®¡ç®—ç»“æœ: " + result.invoke());
 		pool.shutdown();
 	}
 

@@ -3,7 +3,7 @@ package leetcode.dataStructure.SkipList;
 @SuppressWarnings("unused")
 public class Code1206_design_skiplist {
 
-	// 17  Ìø±í https://time.geekbang.org/column/article/42896
+	// 17  è·³è¡¨ https://time.geekbang.org/column/article/42896
 	// https://github.com/wangzheng0822/algo/tree/master/java/17_skiplist
 
 	private static final float SKIPLIST_P = 0.5f;
@@ -40,7 +40,7 @@ public class Code1206_design_skiplist {
 	//
 	// }
 
-	// ´ÓµÚ0²ãÍùÏÂ²éÕÒµÚlevel²ãË÷ÒıÖĞµÚÒ»¸öµÈÓÚnumµÄindexNode»ò×îºóÒ»¸öĞ¡ÓÚnumµÄindexNode
+	// ä»ç¬¬0å±‚å¾€ä¸‹æŸ¥æ‰¾ç¬¬levelå±‚ç´¢å¼•ä¸­ç¬¬ä¸€ä¸ªç­‰äºnumçš„indexNodeæˆ–æœ€åä¸€ä¸ªå°äºnumçš„indexNode
 	private IndexNode getNearestIndexNode(int num, int level) {
 		IndexNode currIdNode = idHead;
 		int i = 0;
@@ -58,7 +58,7 @@ public class Code1206_design_skiplist {
 			}
 		}
 
-		// ÒÑ¾­µ½ÁËµÚlevel²ã
+		// å·²ç»åˆ°äº†ç¬¬levelå±‚
 		while (true) {
 			IndexNode next = currIdNode.nextIdNode;
 			if (currIdNode.value == num || next == null || next.value > num) {
@@ -69,7 +69,7 @@ public class Code1206_design_skiplist {
 		return currIdNode;
 	}
 
-	// ²éÕÒµÚÒ»¸öµÈÓÚnumµÄnode»ò×îºóÒ»¸öĞ¡ÓÚnumµÄnode
+	// æŸ¥æ‰¾ç¬¬ä¸€ä¸ªç­‰äºnumçš„nodeæˆ–æœ€åä¸€ä¸ªå°äºnumçš„node
 	private Node getNearestNode(int num) {
 		IndexNode currIdNode = idHead;
 		while (true) {
@@ -77,7 +77,7 @@ public class Code1206_design_skiplist {
 			if (currIdNode.value == num || nextIdNode == null
 					|| nextIdNode.value > num) {
 				if (currIdNode.down != null) {
-					// ÒÑ¾­µ½ÁËµÚÒ»²ãË÷Òı
+					// å·²ç»åˆ°äº†ç¬¬ä¸€å±‚ç´¢å¼•
 					break;
 				} else {
 					currIdNode = currIdNode.downIdNode;
@@ -97,22 +97,22 @@ public class Code1206_design_skiplist {
 		return curr;
 	}
 
-	// ²»¹»ºÃµÄËæ»úº¯Êı,Ã»ÓĞ¿¼ÂÇµ½Ã¿Ò»²ãË÷ÒıµÄÊıÁ¿
+	// ä¸å¤Ÿå¥½çš„éšæœºå‡½æ•°,æ²¡æœ‰è€ƒè™‘åˆ°æ¯ä¸€å±‚ç´¢å¼•çš„æ•°é‡
 	private int getRandomLevels_old() {
-		// ÆÚÍûlevels log(n)
+		// æœŸæœ›levels log(n)
 		int expectedLevels = (int) (Math.log((double) count) / Math
 				.log((double) 2));
-		// Ëæ»úlevels
+		// éšæœºlevels
 		int randomLevels = (int) (Math.random() * expectedLevels);
 		return randomLevels;
 	}
 
-	// ÀíÂÛÀ´½²£¬Ò»¼¶Ë÷ÒıÖĞÔªËØ¸öÊıÓ¦¸ÃÕ¼Ô­Ê¼Êı¾İµÄ 50%£¬¶ş¼¶Ë÷ÒıÖĞÔªËØ¸öÊıÕ¼ 25%£¬Èı¼¶Ë÷Òı12.5% £¬Ò»Ö±µ½×î¶¥²ã¡£
-	// ÒòÎªÕâÀïÃ¿Ò»²ãµÄ½úÉı¸ÅÂÊÊÇ 50%¡£¶ÔÓÚÃ¿Ò»¸öĞÂ²åÈëµÄ½Úµã£¬¶¼ĞèÒªµ÷ÓÃ randomLevel Éú³ÉÒ»¸öºÏÀíµÄ²ãÊı¡£
-	// ¸Ã randomLevel ·½·¨»áËæ»úÉú³É 1~MAX_LEVEL Ö®¼äµÄÊı£¬ÇÒ £º
-	// 50%µÄ¸ÅÂÊ·µ»Ø 1
-	// 25%µÄ¸ÅÂÊ·µ»Ø 2
-	// 12.5%µÄ¸ÅÂÊ·µ»Ø 3 ...
+	// ç†è®ºæ¥è®²ï¼Œä¸€çº§ç´¢å¼•ä¸­å…ƒç´ ä¸ªæ•°åº”è¯¥å åŸå§‹æ•°æ®çš„ 50%ï¼ŒäºŒçº§ç´¢å¼•ä¸­å…ƒç´ ä¸ªæ•°å  25%ï¼Œä¸‰çº§ç´¢å¼•12.5% ï¼Œä¸€ç›´åˆ°æœ€é¡¶å±‚ã€‚
+	// å› ä¸ºè¿™é‡Œæ¯ä¸€å±‚çš„æ™‹å‡æ¦‚ç‡æ˜¯ 50%ã€‚å¯¹äºæ¯ä¸€ä¸ªæ–°æ’å…¥çš„èŠ‚ç‚¹ï¼Œéƒ½éœ€è¦è°ƒç”¨ randomLevel ç”Ÿæˆä¸€ä¸ªåˆç†çš„å±‚æ•°ã€‚
+	// è¯¥ randomLevel æ–¹æ³•ä¼šéšæœºç”Ÿæˆ 1~MAX_LEVEL ä¹‹é—´çš„æ•°ï¼Œä¸” ï¼š
+	// 50%çš„æ¦‚ç‡è¿”å› 1
+	// 25%çš„æ¦‚ç‡è¿”å› 2
+	// 12.5%çš„æ¦‚ç‡è¿”å› 3 ...
 	private int getRandomLevels() {
 		int level = 0;
 
@@ -128,7 +128,7 @@ public class Code1206_design_skiplist {
 		}
 
 		if (randomLevels > idLevels) {
-			// ²åÈëÃ¿²ãË÷ÒıµÄÍ·½Úµã
+			// æ’å…¥æ¯å±‚ç´¢å¼•çš„å¤´èŠ‚ç‚¹
 			int levelCount = randomLevels;
 			IndexNode preIdNode = idHead;
 			while (levelCount > idLevels) {
@@ -142,7 +142,7 @@ public class Code1206_design_skiplist {
 		}
 
 		IndexNode currHeadNode = idHead;
-		int currLevel = 0; // ´ÓÉÏÍùÏÂÊı Ä¿Ç°´¦ÓÚµÚ0²ãË÷Òı
+		int currLevel = 0; // ä»ä¸Šå¾€ä¸‹æ•° ç›®å‰å¤„äºç¬¬0å±‚ç´¢å¼•
 		int skipLevels = idLevels - randomLevels;
 		while (skipLevels > 0) {
 			currHeadNode = currHeadNode.downIdNode;
@@ -150,7 +150,7 @@ public class Code1206_design_skiplist {
 			currLevel++;
 		}
 
-		// ¿ªÊ¼²åÈëIndexNode
+		// å¼€å§‹æ’å…¥IndexNode
 		int value = node.value;
 		IndexNode preInsertIdNode = null;
 		while (currLevel < idLevels) {
@@ -165,18 +165,18 @@ public class Code1206_design_skiplist {
 			preInsertIdNode = insertIdNode;
 
 			if (currLevel == idLevels - 1) {
-				// µ½ÁËµÚÒ»²ãË÷Òı
+				// åˆ°äº†ç¬¬ä¸€å±‚ç´¢å¼•
 				insertIdNode.down = node;
 			}
 			currLevel++;
 		}
 	}
 
-	// ²åÈëĞÂµÄÍ·½Úµã
+	// æ’å…¥æ–°çš„å¤´èŠ‚ç‚¹
 	private void addHead(Node newHead) {
 		newHead.next = head;
 		head = newHead;
-		// Öğ²ã´¦ÀíË÷Òı
+		// é€å±‚å¤„ç†ç´¢å¼•
 		IndexNode currHeadNode = idHead;
 		while (currHeadNode.down == null) {
 			currHeadNode.value = newHead.value;
@@ -213,15 +213,15 @@ public class Code1206_design_skiplist {
 		}
 	}
 
-	// ´ÓµÚ0²ãÍùÏÂ,É¾³ıµÚlevel²ãË÷ÒıÖĞµÚÒ»¸öµÈÓÚnumµÄindexNode
+	// ä»ç¬¬0å±‚å¾€ä¸‹,åˆ é™¤ç¬¬levelå±‚ç´¢å¼•ä¸­ç¬¬ä¸€ä¸ªç­‰äºnumçš„indexNode
 	private void removeIndexNode(int num, int level) {
 		IndexNode prev = getNearestIndexNode(num - 1, level);
-		// numÇ°Ãæ¿ÉÄÜµÄÖµ¿ÉÄÜ»áÖØ¸´
+		// numå‰é¢å¯èƒ½çš„å€¼å¯èƒ½ä¼šé‡å¤
 		while (prev.nextIdNode != null && prev.nextIdNode.value < num) {
 			prev = prev.nextIdNode;
 		}
 		if (prev.nextIdNode != null && prev.nextIdNode.value == num) {
-			// ÕÒµ½µÚÒ»¸öµÈÓÚnumµÄÇ°¼Ì½áµã
+			// æ‰¾åˆ°ç¬¬ä¸€ä¸ªç­‰äºnumçš„å‰ç»§ç»“ç‚¹
 			prev.nextIdNode = prev.nextIdNode.nextIdNode;
 		}
 	}
@@ -241,29 +241,29 @@ public class Code1206_design_skiplist {
 		int currLevel = 0;
 		while (currHeadNode.down == null) {
 			if (idHead.value == num) {
-				// É¾³ıµÄÊÇÍ·½Úµã
+				// åˆ é™¤çš„æ˜¯å¤´èŠ‚ç‚¹
 				currHeadNode.value = nextValue;
 			} else {
-				// Öğ²ãÉ¾³ıË÷Òı
+				// é€å±‚åˆ é™¤ç´¢å¼•
 				removeIndexNode(num, currLevel);
 			}
 			currHeadNode = currHeadNode.downIdNode;
 			currLevel++;
 		}
 
-		// µ½ÁËµÚÒ»²ãË÷Òı
+		// åˆ°äº†ç¬¬ä¸€å±‚ç´¢å¼•
 		if (head.value == num) {
-			// É¾³ıµÄÊÇÍ·½Úµã
+			// åˆ é™¤çš„æ˜¯å¤´èŠ‚ç‚¹
 			currHeadNode.down = node.next;
 			head = node.next;
 		} else {
-			// É¾³ıµÚÒ»²ãË÷Òı
+			// åˆ é™¤ç¬¬ä¸€å±‚ç´¢å¼•
 			removeIndexNode(num, currLevel);
 
-			// É¾³ıÊı¾İÁ´±íÀïµÄnode
+			// åˆ é™¤æ•°æ®é“¾è¡¨é‡Œçš„node
 			Node preNode = getNearestNode(num - 1);
 			if (preNode.next != null) {
-				// numÇ°Ãæ¿ÉÄÜµÄÖµ¿ÉÄÜ»áÖØ¸´
+				// numå‰é¢å¯èƒ½çš„å€¼å¯èƒ½ä¼šé‡å¤
 				while (preNode.next != null && preNode.next.value < num) {
 					preNode = preNode.next;
 				}
@@ -280,16 +280,16 @@ public class Code1206_design_skiplist {
 		// skiplist.add(1);
 		// skiplist.add(2);
 		// skiplist.add(3);
-		// ret = skiplist.search(0); // ·µ»Ø false
+		// ret = skiplist.search(0); // è¿”å› false
 		// System.out.println(ret);
 		// skiplist.add(4);
-		// ret = skiplist.search(1); // ·µ»Ø true
+		// ret = skiplist.search(1); // è¿”å› true
 		// System.out.println(ret);
-		// ret = skiplist.erase(0); // ·µ»Ø false£¬0 ²»ÔÚÌø±íÖĞ
+		// ret = skiplist.erase(0); // è¿”å› falseï¼Œ0 ä¸åœ¨è·³è¡¨ä¸­
 		// System.out.println(ret);
-		// ret = skiplist.erase(1); // ·µ»Ø true
+		// ret = skiplist.erase(1); // è¿”å› true
 		// System.out.println(ret);
-		// ret = skiplist.search(1); // ·µ»Ø false£¬1 ÒÑ±»²Á³ı
+		// ret = skiplist.search(1); // è¿”å› falseï¼Œ1 å·²è¢«æ“¦é™¤
 		// System.out.println(ret);
 
 		// 2

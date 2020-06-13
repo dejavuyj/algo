@@ -54,7 +54,7 @@ public class DemoServer extends Thread {
 	}
 }
 
-// 简化实现，不做读取，直接发送字符串
+// 绠�鍖栧疄鐜帮紝涓嶅仛璇诲彇锛岀洿鎺ュ彂閫佸瓧绗︿覆
 class RequestHandler extends Thread {
 	private Socket socket;
 

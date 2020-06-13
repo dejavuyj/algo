@@ -30,11 +30,11 @@ class YieldTest extends Thread {
 	@Override
 	public void run() {
 		for (int i = 1; i <= 50; i++) {
-			if (this.getName().equals("ÕÅÈý")) {
+			if (this.getName().equals("å¼ ä¸‰")) {
 				this.yield();
 			}
 			System.out.println("" + this.getName() + "-----" + i);
-			// µ±iÎª30Ê±£¬¸ÃÏß³Ì¾Í»á°ÑCPUÊ±¼äÈÃµô£¬ÈÃÆäËû»òÕß×Ô¼ºµÄÏß³ÌÖ´ÐÐ£¨Ò²¾ÍÊÇË­ÏÈÇÀµ½Ë­Ö´ÐÐ£©
+			// å½“iä¸º30æ—¶ï¼Œè¯¥çº¿ç¨‹å°±ä¼šæŠŠCPUæ—¶é—´è®©æŽ‰ï¼Œè®©å…¶ä»–æˆ–è€…è‡ªå·±çš„çº¿ç¨‹æ‰§è¡Œï¼ˆä¹Ÿå°±æ˜¯è°å…ˆæŠ¢åˆ°è°æ‰§è¡Œï¼‰
 			// if (i == 30) {
 			// this.yield();
 			// }
@@ -43,8 +43,8 @@ class YieldTest extends Thread {
 
 	public static void main(String[] args) {
 		// hash();
-		YieldTest yt1 = new YieldTest("ÕÅÈý");
-		YieldTest yt2 = new YieldTest("ÀîËÄ");
+		YieldTest yt1 = new YieldTest("å¼ ä¸‰");
+		YieldTest yt2 = new YieldTest("æŽå››");
 		yt1.start();
 		yt2.start();
 	}
@@ -72,17 +72,17 @@ public class Test {
 
 	private static void simulation() {
 		double total = 0;
-		int anual = 30; // Ã¿Äê´æ
-		double rate = 1.1; // Ã¿ÄêÊÕÒæÂÊ
-		int startYear = 2020; // ÆðÊ¼
+		int anual = 30; // æ¯å¹´å­˜
+		double rate = 1.1; // æ¯å¹´æ”¶ç›ŠçŽ‡
+		int startYear = 2020; // èµ·å§‹
 
-		System.out.println("Ã¿Äê´æ" + anual + ", ÄêÊÕÒæÂÊ" + rate);
+		System.out.println("æ¯å¹´å­˜" + anual + ", å¹´æ”¶ç›ŠçŽ‡" + rate);
 		int i = 10;
 		for (int j = 0; j < 10; j++, i--) {
 			int currYear = startYear + j;
 			double currYearPow = anual * Math.pow(rate, i);
 			total += currYearPow;
-			System.out.println(currYear + "ÄêµÄ" + anual + ",ÀÛ»ý" + i + "Äêºó,½ð¶îÊÇ" + currYearPow + ",  ×Ü½ð¶îÊÇ" + total);
+			System.out.println(currYear + "å¹´çš„" + anual + ",ç´¯ç§¯" + i + "å¹´åŽ,é‡‘é¢æ˜¯" + currYearPow + ",  æ€»é‡‘é¢æ˜¯" + total);
 		}
 	}
 

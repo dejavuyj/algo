@@ -7,7 +7,7 @@ public class LinkedHashMapSample {
     public static void main(String[] args) {
         LinkedHashMap<String, String> accessOrderedMap = new LinkedHashMap<String, String>(16, 0.75F, true){
             @Override
-            protected boolean removeEldestEntry(Map.Entry<String, String> eldest) { // 实现自定义删除策略，否则行为就和普遍Map没有区别
+            protected boolean removeEldestEntry(Map.Entry<String, String> eldest) { // 瀹炵幇鑷畾涔夊垹闄ょ瓥鐣ワ紝鍚﹀垯琛屼负灏卞拰鏅亶Map娌℃湁鍖哄埆
                 return size() > 3;
             }
         };
@@ -17,7 +17,7 @@ public class LinkedHashMapSample {
         accessOrderedMap.forEach( (k,v) -> {
             System.out.println(k +":" + v);
         });
-        // 模拟访问
+        // 妯℃嫙璁块棶
         accessOrderedMap.get("Project2");
         accessOrderedMap.get("Project2");
         accessOrderedMap.get("Project3");
@@ -25,10 +25,10 @@ public class LinkedHashMapSample {
         accessOrderedMap.forEach( (k,v) -> {
             System.out.println(k +":" + v);
         });
-        // 触发删除
+        // 瑙﹀彂鍒犻櫎
         accessOrderedMap.put("Project4", "Mission Control");
         System.out.println("Oldest entry should be removed:");
-        accessOrderedMap.forEach( (k,v) -> {// 遍历顺序不变
+        accessOrderedMap.forEach( (k,v) -> {// 閬嶅巻椤哄簭涓嶅彉
             System.out.println(k +":" + v);
         });
     }

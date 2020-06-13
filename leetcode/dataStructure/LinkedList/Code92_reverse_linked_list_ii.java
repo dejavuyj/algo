@@ -3,7 +3,7 @@ package leetcode.dataStructure.LinkedList;
 public class Code92_reverse_linked_list_ii {
 
 	public ListNode reverseBetween(ListNode head, int m, int n) {
-		// head2×÷Îª·´×ªÇ°µÄ×îºóÒ»¸ö½Úµã
+		// head2ä½œä¸ºåè½¬å‰çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 		ListNode head2 = head;
 		ListNode cur = head;
 		int i = 1;
@@ -15,8 +15,8 @@ public class Code92_reverse_linked_list_ii {
 			i++;
 		}
 
-		// tailÊÇ·´×ª²¿·ÖÁ´±í½áÊøºóµÄÎ²½áµã
-		// pre½«³ÉÎª·´×ª²¿·ÖÁ´±í½áÊøºóµÄÍ·½áµã
+		// tailæ˜¯åè½¬éƒ¨åˆ†é“¾è¡¨ç»“æŸåçš„å°¾ç»“ç‚¹
+		// preå°†æˆä¸ºåè½¬éƒ¨åˆ†é“¾è¡¨ç»“æŸåçš„å¤´ç»“ç‚¹
 		ListNode tail = cur;
 		ListNode pre = null;
 		for (i = 0; i <= n - m; i++) {
@@ -27,7 +27,7 @@ public class Code92_reverse_linked_list_ii {
 		}
 		tail.next = cur;
 		if (m == 1) {
-			// head2ÎŞÓÃ,pre³ÉÎªĞÂµÄÍ·½Úµã
+			// head2æ— ç”¨,preæˆä¸ºæ–°çš„å¤´èŠ‚ç‚¹
 			return pre;
 		} else {
 			// head2->pre

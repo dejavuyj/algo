@@ -34,11 +34,11 @@ public class Code19_remove_nth_node_from_end_of_list {
 		dummy.next = head;
 		ListNode p = dummy;
 		ListNode q = dummy;
-		// 先让q向前移n+1
+		// 鍏堣q鍚戝墠绉籲+1
 		for (int i = 0; i < n + 1; i++) {
 			q = q.next;
 		}
-		// 把q移到null,删除p.next即可
+		// 鎶妐绉诲埌null,鍒犻櫎p.next鍗冲彲
 		while (q != null) {
 			p = p.next;
 			q = q.next;

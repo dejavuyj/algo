@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class Code23_merge_k_sorted_lists {
 
-	// ÖğÒ»±È½Ï,Ê±¼ä¸´ÔÓ¶È O(kN),kÊÇÁ´±íÌõÊı
+	// é€ä¸€æ¯”è¾ƒ,æ—¶é—´å¤æ‚åº¦ O(kN),kæ˜¯é“¾è¡¨æ¡æ•°
 	public ListNode mergeKLists(ListNode[] lists) {
 		if (lists == null || lists.length == 0) {
 			return null;
@@ -47,7 +47,7 @@ public class Code23_merge_k_sorted_lists {
 		return ans;
 	}
 
-	// ÓÅÏÈ¶ÓÁĞ,Ê±¼ä¸´ÔÓ¶È O(Nlogk),kÊÇÁ´±íÌõÊı
+	// ä¼˜å…ˆé˜Ÿåˆ—,æ—¶é—´å¤æ‚åº¦ O(Nlogk),kæ˜¯é“¾è¡¨æ¡æ•°
 	public ListNode mergeKLists2(ListNode[] lists) {
 		if (lists == null || lists.length == 0) {
 			return null;

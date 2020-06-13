@@ -22,7 +22,7 @@ public class Code141_linked_list_cycle {
         return false;
     }
 
-	//˫ָ��
+	//双指针
 	public static boolean hasCycle2(ListNode head) {
 		if (head == null || head.next == null) {
 			return false;

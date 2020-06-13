@@ -61,7 +61,7 @@ public class RecurseTree {
 		}
 	}
 
-	// °´²ã±éÀú
+	// æŒ‰å±‚éå†
 	private static void levelRecurse(TreeNode root) {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		queue.add(root);

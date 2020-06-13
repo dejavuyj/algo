@@ -8,11 +8,11 @@ public class MyDynamicProxy {
 	public static void main(String[] args) {
 		Hello hello = new HelloImpl();
 		MyInvocationHandler handler = new MyInvocationHandler(hello);
-		// ¹¹Ôì´úÂëÊµÀı
+		// æ„é€ ä»£ç å®ä¾‹
 		Hello proxyHello = (Hello) Proxy.newProxyInstance(
 				HelloImpl.class.getClassLoader(),
 				HelloImpl.class.getInterfaces(), handler);
-		// µ÷ÓÃ´úÀí·½·¨
+		// è°ƒç”¨ä»£ç†æ–¹æ³•
 		String returnStr = proxyHello.sayHello();
 		System.out.println("returnStr is " + returnStr);
 	}

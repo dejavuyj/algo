@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Code42_trapping_rain_water {
 
-	//ջ,ʱ�临�Ӷ�O(n),�ռ临�Ӷ�O(n)
+	//栈,时间复杂度O(n),空间复杂度O(n)
 	public int trap(int[] height) {
 		int sum = 0;
 		int current = 0;

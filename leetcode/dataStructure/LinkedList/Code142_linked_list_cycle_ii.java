@@ -22,7 +22,7 @@ public class Code142_linked_list_cycle_ii {
         return null;
     }
 
-	//双指针查找交叉点
+	//鍙屾寚閽堟煡鎵句氦鍙夌偣
 	public static ListNode getX(ListNode head) {
 		if (head == null || head.next == null) {
 			return null;

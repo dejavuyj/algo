@@ -53,7 +53,7 @@ public class Code18_4sum {
 		Arrays.sort(nums);
 
 		for (int i = 0; i < len - 3; i++) {
-			//去重
+			//鍘婚噸
 			if (i > 0 && nums[i] == nums[i - 1]) {
 				continue;
 			}
@@ -67,7 +67,7 @@ public class Code18_4sum {
 			}
 
 			for (int j = i + 1; j < len - 2; j++) {
-				//去重
+				//鍘婚噸
 				if(j>i+1 && nums[j] == nums[j-1]) {
 					continue;
 				}

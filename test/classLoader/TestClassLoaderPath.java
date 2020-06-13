@@ -1,17 +1,17 @@
 package test.classLoader;
 
 /**
- * ²âÊÔÀà¼ÓÔØÆ÷¼ÓÔØÄ¿Â¼
+ * æµ‹è¯•ç±»åŠ è½½å™¨åŠ è½½ç›®å½•
  */
 public class TestClassLoaderPath {
     public static void main(String[] args)throws  Exception{
-      	// BootStrap ClassLoader¼ÓÔØµÄÎÄ¼ş
+      	// BootStrap ClassLoaderåŠ è½½çš„æ–‡ä»¶
         System.out.println(System.getProperty("sun.boot.class.path"));
 
-      	// ExtClassLoader¼ÓÔØµÄÎÄ¼ş
+      	// ExtClassLoaderåŠ è½½çš„æ–‡ä»¶
       	System.out.println(System.getProperty("java.ext.dirs"));
 
-      	// AppClassLoader¼ÓÔØµÄÎÄ¼ş
+      	// AppClassLoaderåŠ è½½çš„æ–‡ä»¶
       	System.out.println(System.getProperty("java.class.path"));
     }
 }

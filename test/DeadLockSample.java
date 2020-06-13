@@ -50,9 +50,9 @@ public class DeadLockSample extends Thread {
 
 		ScheduledExecutorService scheduler = Executors
 				.newScheduledThreadPool(1);
-		// ÉÔµÈ5Ãë£¬È»ºóÃ¿10Ãë½øĞĞÒ»´ÎËÀËøÉ¨Ãè
+		// ç¨ç­‰5ç§’ï¼Œç„¶åæ¯10ç§’è¿›è¡Œä¸€æ¬¡æ­»é”æ‰«æ
 		scheduler.scheduleAtFixedRate(dlCheck, 2L, 2L, TimeUnit.SECONDS);
-		// ËÀËøÑùÀı´úÂë¡­
+		// æ­»é”æ ·ä¾‹ä»£ç â€¦
 
 		String lockA = "lockA";
 		String lockB = "lockB";

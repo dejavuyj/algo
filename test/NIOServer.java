@@ -17,19 +17,19 @@ import java.util.Set;
 public class NIOServer extends Thread {
 	public void run() {
 		try (Selector selector = Selector.open();
-				ServerSocketChannel serverSocket = ServerSocketChannel.open();) {// ´´½¨SelectorºÍChannel
+				ServerSocketChannel serverSocket = ServerSocketChannel.open();) {// åˆ›å»ºSelectorå’ŒChannel
 			serverSocket.bind(new InetSocketAddress(InetAddress.getLocalHost(),
 					8888));
 			serverSocket.configureBlocking(false);
-			// ×¢²áµ½Selector£¬²¢ËµÃ÷¹Ø×¢µã
+			// æ³¨å†Œåˆ°Selectorï¼Œå¹¶è¯´æ˜å…³æ³¨ç‚¹
 			serverSocket.register(selector, SelectionKey.OP_ACCEPT);
 			while (true) {
-				selector.select();// ×èÈûµÈ´ı¾ÍĞ÷µÄChannel£¬ÕâÊÇ¹Ø¼üµãÖ®Ò»
+				selector.select();// é˜»å¡ç­‰å¾…å°±ç»ªçš„Channelï¼Œè¿™æ˜¯å…³é”®ç‚¹ä¹‹ä¸€
 				Set<SelectionKey> selectedKeys = selector.selectedKeys();
 				Iterator<SelectionKey> iter = selectedKeys.iterator();
 				while (iter.hasNext()) {
 					SelectionKey key = iter.next();
-					// Éú²úÏµÍ³ÖĞÒ»°ã»á¶îÍâ½øĞĞ¾ÍĞ÷×´Ì¬¼ì²é
+					// ç”Ÿäº§ç³»ç»Ÿä¸­ä¸€èˆ¬ä¼šé¢å¤–è¿›è¡Œå°±ç»ªçŠ¶æ€æ£€æŸ¥
 					sayHelloWorld((ServerSocketChannel) key.channel());
 					iter.remove();
 				}

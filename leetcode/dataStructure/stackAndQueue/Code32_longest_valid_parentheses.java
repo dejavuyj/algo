@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Code32_longest_valid_parentheses {
 
-	// ��ջ,�ռ临�Ӷ�O(n)
+	// 用栈,空间复杂度O(n)
 	public int longestValidParentheses(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -29,7 +29,7 @@ public class Code32_longest_valid_parentheses {
 		return max;
 	}
 
-	// ����ջ,�ռ临�Ӷ�ΪO(1)
+	// 不用栈,空间复杂度为O(1)
 	public int longestValidParentheses2(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;

@@ -83,7 +83,7 @@ public class Code208_implement_trie_prefix_tree {
 		return true;
 	}
 
-	// 前缀提示功能,返回以prefix开头的words
+	// 鍓嶇紑鎻愮ず鍔熻兘,杩斿洖浠refix寮�澶寸殑words
 	public List<String> getWordsWithPrefix(String prefix) {
 		List<String> l = new ArrayList<String>();
 		TrieNode[] ptr = root.children;
@@ -126,11 +126,11 @@ public class Code208_implement_trie_prefix_tree {
 		trie.insert("delta");
 		trie.insert("program");
 		trie.insert("see");
-		// System.out.println(trie.search("apple")); // 返回 true
-		// System.out.println(trie.search("app")); // 返回 false
-		// System.out.println(trie.startsWith("app")); // 返回 true
+		// System.out.println(trie.search("apple")); // 杩斿洖 true
+		// System.out.println(trie.search("app")); // 杩斿洖 false
+		// System.out.println(trie.startsWith("app")); // 杩斿洖 true
 		// trie.insert("app");
-		// System.out.println(trie.search("app")); // 返回 true
+		// System.out.println(trie.search("app")); // 杩斿洖 true
 		List<String> l = trie.getWordsWithPrefix("a");
 		for (String s : l) {
 			System.out.println(s);

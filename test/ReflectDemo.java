@@ -8,7 +8,7 @@ import java.lang.reflect.Modifier;
 
 public class ReflectDemo {
 	/**
-	 * ÎªÁË¿´Çå³şJava·´Éä²¿·Ö´úÂë£¬ËùÓĞÒì³£ÎÒ¶¼×îºóÅ×³öÀ´¸øĞéÄâ»ú´¦Àí£¡
+	 * ä¸ºäº†çœ‹æ¸…æ¥šJavaåå°„éƒ¨åˆ†ä»£ç ï¼Œæ‰€æœ‰å¼‚å¸¸æˆ‘éƒ½æœ€åæŠ›å‡ºæ¥ç»™è™šæ‹Ÿæœºå¤„ç†ï¼
 	 * 
 	 * @param args
 	 * @throws ClassNotFoundException
@@ -26,73 +26,73 @@ public class ReflectDemo {
 			SecurityException, NoSuchFieldException, NoSuchMethodException {
 		// TODO Auto-generated method stub
 
-		// Demo1. Í¨¹ıJava·´Éä»úÖÆµÃµ½ÀàµÄ°üÃûºÍÀàÃû
+		// Demo1. é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ç±»çš„åŒ…åå’Œç±»å
 		Demo1();
 		System.out.println("===============================================");
 
-		// Demo2. ÑéÖ¤ËùÓĞµÄÀà¶¼ÊÇClassÀàµÄÊµÀı¶ÔÏó
+		// Demo2. éªŒè¯æ‰€æœ‰çš„ç±»éƒ½æ˜¯Classç±»çš„å®ä¾‹å¯¹è±¡
 		Demo2();
 		System.out.println("===============================================");
 
-		// Demo3. Í¨¹ıJava·´Éä»úÖÆ£¬ÓÃClass ´´½¨Àà¶ÔÏó[ÕâÒ²¾ÍÊÇ·´Éä´æÔÚµÄÒâÒåËùÔÚ]£¬ÎŞ²Î¹¹Ôì
+		// Demo3. é€šè¿‡Javaåå°„æœºåˆ¶ï¼Œç”¨Class åˆ›å»ºç±»å¯¹è±¡[è¿™ä¹Ÿå°±æ˜¯åå°„å­˜åœ¨çš„æ„ä¹‰æ‰€åœ¨]ï¼Œæ— å‚æ„é€ 
 		Demo3();
 		System.out.println("===============================================");
 
-		// Demo4: Í¨¹ıJava·´Éä»úÖÆµÃµ½Ò»¸öÀàµÄ¹¹Ôìº¯Êı£¬²¢ÊµÏÖ¹¹Ôì´ø²ÎÊµÀı¶ÔÏó
+		// Demo4: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ä¸€ä¸ªç±»çš„æ„é€ å‡½æ•°ï¼Œå¹¶å®ç°æ„é€ å¸¦å‚å®ä¾‹å¯¹è±¡
 		Demo4();
 		System.out.println("===============================================");
 
-		// Demo5: Í¨¹ıJava·´Éä»úÖÆ²Ù×÷³ÉÔ±±äÁ¿, set ºÍ get
+		// Demo5: é€šè¿‡Javaåå°„æœºåˆ¶æ“ä½œæˆå‘˜å˜é‡, set å’Œ get
 		Demo5();
 		System.out.println("===============================================");
 
-		// Demo6: Í¨¹ıJava·´Éä»úÖÆµÃµ½ÀàµÄÒ»Ğ©ÊôĞÔ£º ¼Ì³ĞµÄ½Ó¿Ú£¬¸¸Àà£¬º¯ÊıĞÅÏ¢£¬³ÉÔ±ĞÅÏ¢£¬ÀàĞÍµÈ
+		// Demo6: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ç±»çš„ä¸€äº›å±æ€§ï¼š ç»§æ‰¿çš„æ¥å£ï¼Œçˆ¶ç±»ï¼Œå‡½æ•°ä¿¡æ¯ï¼Œæˆå‘˜ä¿¡æ¯ï¼Œç±»å‹ç­‰
 		Demo6();
 		System.out.println("===============================================");
 
-		// Demo7: Í¨¹ıJava·´Éä»úÖÆµ÷ÓÃÀàÖĞ·½·¨
+		// Demo7: é€šè¿‡Javaåå°„æœºåˆ¶è°ƒç”¨ç±»ä¸­æ–¹æ³•
 		Demo7();
 		System.out.println("===============================================");
 
-		// Demo8: Í¨¹ıJava·´Éä»úÖÆ»ñµÃÀà¼ÓÔØÆ÷
+		// Demo8: é€šè¿‡Javaåå°„æœºåˆ¶è·å¾—ç±»åŠ è½½å™¨
 		Demo8();
 		System.out.println("===============================================");
 
 	}
 
 	/**
-	 * Demo1: Í¨¹ıJava·´Éä»úÖÆµÃµ½ÀàµÄ°üÃûºÍÀàÃû
+	 * Demo1: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ç±»çš„åŒ…åå’Œç±»å
 	 */
 	public static void Demo1() {
 		Person person = new Person();
-		System.out.println("Demo1: °üÃû: "
-				+ person.getClass().getPackage().getName() + "£¬" + "ÍêÕûÀàÃû: "
+		System.out.println("Demo1: åŒ…å: "
+				+ person.getClass().getPackage().getName() + "ï¼Œ" + "å®Œæ•´ç±»å: "
 				+ person.getClass().getName());
 	}
 
 	/**
-	 * Demo2: ÑéÖ¤ËùÓĞµÄÀà¶¼ÊÇClassÀàµÄÊµÀı¶ÔÏó
+	 * Demo2: éªŒè¯æ‰€æœ‰çš„ç±»éƒ½æ˜¯Classç±»çš„å®ä¾‹å¯¹è±¡
 	 * 
 	 * @throws ClassNotFoundException
 	 */
 	public static void Demo2() throws ClassNotFoundException {
-		// ¶¨ÒåÁ½¸öÀàĞÍ¶¼Î´ÖªµÄClass , ÉèÖÃ³õÖµÎªnull, ¿´¿´ÈçºÎ¸øËüÃÇ¸³Öµ³ÉPersonÀà
+		// å®šä¹‰ä¸¤ä¸ªç±»å‹éƒ½æœªçŸ¥çš„Class , è®¾ç½®åˆå€¼ä¸ºnull, çœ‹çœ‹å¦‚ä½•ç»™å®ƒä»¬èµ‹å€¼æˆPersonç±»
 		Class<?> class1 = null;
 		Class<?> class2 = null;
 
-		// Ğ´·¨1, ¿ÉÄÜÅ×³ö ClassNotFoundException [¶àÓÃÕâ¸öĞ´·¨]
+		// å†™æ³•1, å¯èƒ½æŠ›å‡º ClassNotFoundException [å¤šç”¨è¿™ä¸ªå†™æ³•]
 		class1 = Class.forName("test.Person");
-		System.out.println("Demo2:(Ğ´·¨1) °üÃû: " + class1.getPackage().getName()
-				+ "£¬" + "ÍêÕûÀàÃû: " + class1.getName());
+		System.out.println("Demo2:(å†™æ³•1) åŒ…å: " + class1.getPackage().getName()
+				+ "ï¼Œ" + "å®Œæ•´ç±»å: " + class1.getName());
 
-		// Ğ´·¨2
+		// å†™æ³•2
 		class2 = Person.class;
-		System.out.println("Demo2:(Ğ´·¨2) °üÃû: " + class2.getPackage().getName()
-				+ "£¬" + "ÍêÕûÀàÃû: " + class2.getName());
+		System.out.println("Demo2:(å†™æ³•2) åŒ…å: " + class2.getPackage().getName()
+				+ "ï¼Œ" + "å®Œæ•´ç±»å: " + class2.getName());
 	}
 
 	/**
-	 * Demo3: Í¨¹ıJava·´Éä»úÖÆ£¬ÓÃClass ´´½¨Àà¶ÔÏó[ÕâÒ²¾ÍÊÇ·´Éä´æÔÚµÄÒâÒåËùÔÚ]
+	 * Demo3: é€šè¿‡Javaåå°„æœºåˆ¶ï¼Œç”¨Class åˆ›å»ºç±»å¯¹è±¡[è¿™ä¹Ÿå°±æ˜¯åå°„å­˜åœ¨çš„æ„ä¹‰æ‰€åœ¨]
 	 * 
 	 * @throws ClassNotFoundException
 	 * @throws IllegalAccessException
@@ -102,7 +102,7 @@ public class ReflectDemo {
 			InstantiationException, IllegalAccessException {
 		Class<?> class1 = null;
 		class1 = Class.forName("test.Person");
-		// ÓÉÓÚÕâÀï²»ÄÜ´ø²ÎÊı£¬ËùÒÔÄãÒªÊµÀı»¯µÄÕâ¸öÀàPerson£¬Ò»¶¨ÒªÓĞÎŞ²Î¹¹Ôìº¯Êı¹ş¡«
+		// ç”±äºè¿™é‡Œä¸èƒ½å¸¦å‚æ•°ï¼Œæ‰€ä»¥ä½ è¦å®ä¾‹åŒ–çš„è¿™ä¸ªç±»Personï¼Œä¸€å®šè¦æœ‰æ— å‚æ„é€ å‡½æ•°å“ˆï½
 		Person person = (Person) class1.newInstance();
 		person.setAge(20);
 		person.setName("LeeFeng");
@@ -111,7 +111,7 @@ public class ReflectDemo {
 	}
 
 	/**
-	 * Demo4: Í¨¹ıJava·´Éä»úÖÆµÃµ½Ò»¸öÀàµÄ¹¹Ôìº¯Êı£¬²¢ÊµÏÖ´´½¨´ø²ÎÊµÀı¶ÔÏó
+	 * Demo4: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ä¸€ä¸ªç±»çš„æ„é€ å‡½æ•°ï¼Œå¹¶å®ç°åˆ›å»ºå¸¦å‚å®ä¾‹å¯¹è±¡
 	 * 
 	 * @throws ClassNotFoundException
 	 * @throws InvocationTargetException
@@ -127,7 +127,7 @@ public class ReflectDemo {
 		Person person2 = null;
 
 		class1 = Class.forName("test.Person");
-		// µÃµ½Ò»ÏµÁĞ¹¹Ôìº¯Êı¼¯ºÏ
+		// å¾—åˆ°ä¸€ç³»åˆ—æ„é€ å‡½æ•°é›†åˆ
 		Constructor<?>[] constructors = class1.getConstructors();
 
 		person1 = (Person) constructors[0].newInstance();
@@ -143,7 +143,7 @@ public class ReflectDemo {
 	}
 
 	/**
-	 * Demo5: Í¨¹ıJava·´Éä»úÖÆ²Ù×÷³ÉÔ±±äÁ¿, set ºÍ get
+	 * Demo5: é€šè¿‡Javaåå°„æœºåˆ¶æ“ä½œæˆå‘˜å˜é‡, set å’Œ get
 	 * 
 	 * @throws IllegalAccessException
 	 * @throws IllegalArgumentException
@@ -161,14 +161,14 @@ public class ReflectDemo {
 
 		Field personNameField = class1.getDeclaredField("name");
 		personNameField.setAccessible(true);
-		personNameField.set(obj, "ÅÖ»¢ÏÈÉ­");
+		personNameField.set(obj, "èƒ–è™å…ˆæ£®");
 
-		System.out.println("Demo5: ĞŞ¸ÄÊôĞÔÖ®ºóµÃµ½ÊôĞÔ±äÁ¿µÄÖµ£º" + personNameField.get(obj));
+		System.out.println("Demo5: ä¿®æ”¹å±æ€§ä¹‹åå¾—åˆ°å±æ€§å˜é‡çš„å€¼ï¼š" + personNameField.get(obj));
 
 	}
 
 	/**
-	 * Demo6: Í¨¹ıJava·´Éä»úÖÆµÃµ½ÀàµÄÒ»Ğ©ÊôĞÔ£º ¼Ì³ĞµÄ½Ó¿Ú£¬¸¸Àà£¬º¯ÊıĞÅÏ¢£¬³ÉÔ±ĞÅÏ¢£¬ÀàĞÍµÈ
+	 * Demo6: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ç±»çš„ä¸€äº›å±æ€§ï¼š ç»§æ‰¿çš„æ¥å£ï¼Œçˆ¶ç±»ï¼Œå‡½æ•°ä¿¡æ¯ï¼Œæˆå‘˜ä¿¡æ¯ï¼Œç±»å‹ç­‰
 	 * 
 	 * @throws ClassNotFoundException
 	 */
@@ -176,41 +176,41 @@ public class ReflectDemo {
 		Class<?> class1 = null;
 		class1 = Class.forName("test.SuperMan");
 
-		// È¡µÃ¸¸ÀàÃû³Æ
+		// å–å¾—çˆ¶ç±»åç§°
 		Class<?> superClass = class1.getSuperclass();
-		System.out.println("Demo6:  SuperManÀàµÄ¸¸ÀàÃû: " + superClass.getName());
+		System.out.println("Demo6:  SuperManç±»çš„çˆ¶ç±»å: " + superClass.getName());
 
 		System.out.println("===============================================");
 
 		Field[] fields = class1.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++) {
-			System.out.println("ÀàÖĞµÄ³ÉÔ±: " + fields[i]);
+			System.out.println("ç±»ä¸­çš„æˆå‘˜: " + fields[i]);
 		}
 		System.out.println("===============================================");
 
-		// È¡µÃÀà·½·¨
+		// å–å¾—ç±»æ–¹æ³•
 		Method[] methods = class1.getDeclaredMethods();
 		for (int i = 0; i < methods.length; i++) {
-			System.out.println("Demo6,È¡µÃSuperManÀàµÄ·½·¨£º");
-			System.out.println("º¯ÊıÃû£º" + methods[i].getName());
-			System.out.println("º¯Êı·µ»ØÀàĞÍ£º" + methods[i].getReturnType());
-			System.out.println("º¯Êı·ÃÎÊĞŞÊÎ·û£º"
+			System.out.println("Demo6,å–å¾—SuperManç±»çš„æ–¹æ³•ï¼š");
+			System.out.println("å‡½æ•°åï¼š" + methods[i].getName());
+			System.out.println("å‡½æ•°è¿”å›ç±»å‹ï¼š" + methods[i].getReturnType());
+			System.out.println("å‡½æ•°è®¿é—®ä¿®é¥°ç¬¦ï¼š"
 					+ Modifier.toString(methods[i].getModifiers()));
-			System.out.println("º¯Êı´úÂëĞ´·¨£º " + methods[i]);
+			System.out.println("å‡½æ•°ä»£ç å†™æ³•ï¼š " + methods[i]);
 		}
 
 		System.out.println("===============================================");
 
-		// È¡µÃÀàÊµÏÖµÄ½Ó¿Ú,ÒòÎª½Ó¿ÚÀàÒ²ÊôÓÚClass,ËùÒÔµÃµ½½Ó¿ÚÖĞµÄ·½·¨Ò²ÊÇÒ»ÑùµÄ·½·¨µÃµ½¹ş
+		// å–å¾—ç±»å®ç°çš„æ¥å£,å› ä¸ºæ¥å£ç±»ä¹Ÿå±äºClass,æ‰€ä»¥å¾—åˆ°æ¥å£ä¸­çš„æ–¹æ³•ä¹Ÿæ˜¯ä¸€æ ·çš„æ–¹æ³•å¾—åˆ°å“ˆ
 		Class<?> interfaces[] = class1.getInterfaces();
 		for (int i = 0; i < interfaces.length; i++) {
-			System.out.println("ÊµÏÖµÄ½Ó¿ÚÀàÃû: " + interfaces[i].getName());
+			System.out.println("å®ç°çš„æ¥å£ç±»å: " + interfaces[i].getName());
 		}
 
 	}
 
 	/**
-	 * Demo7: Í¨¹ıJava·´Éä»úÖÆµ÷ÓÃÀà·½·¨
+	 * Demo7: é€šè¿‡Javaåå°„æœºåˆ¶è°ƒç”¨ç±»æ–¹æ³•
 	 * 
 	 * @throws ClassNotFoundException
 	 * @throws NoSuchMethodException
@@ -227,21 +227,21 @@ public class ReflectDemo {
 		Class<?> class1 = null;
 		class1 = Class.forName("test.SuperMan");
 
-		System.out.println("Demo7: \nµ÷ÓÃÎŞ²Î·½·¨fly()£º");
+		System.out.println("Demo7: \nè°ƒç”¨æ— å‚æ–¹æ³•fly()ï¼š");
 		Method method = class1.getMethod("fly");
 		method.invoke(class1.newInstance());
 
-		System.out.println("µ÷ÓÃÓĞ²Î·½·¨walk(int m)£º");
+		System.out.println("è°ƒç”¨æœ‰å‚æ–¹æ³•walk(int m)ï¼š");
 		method = class1.getMethod("walk", int.class);
 		method.invoke(class1.newInstance(), 100);
 	}
 
 	/**
-	 * Demo8: Í¨¹ıJava·´Éä»úÖÆµÃµ½Àà¼ÓÔØÆ÷ĞÅÏ¢
+	 * Demo8: é€šè¿‡Javaåå°„æœºåˆ¶å¾—åˆ°ç±»åŠ è½½å™¨ä¿¡æ¯
 	 * 
-	 * ÔÚjavaÖĞÓĞÈıÖÖÀàÀà¼ÓÔØÆ÷¡£[Õâ¶Î×ÊÁÏÍøÉÏ½ØÈ¡] 1£©Bootstrap ClassLoader ´Ë¼ÓÔØÆ÷²ÉÓÃc++±àĞ´£¬Ò»°ã¿ª·¢ÖĞºÜÉÙ¼û¡£
-	 * 2£©Extension ClassLoader ÓÃÀ´½øĞĞÀ©Õ¹ÀàµÄ¼ÓÔØ£¬Ò»°ã¶ÔÓ¦µÄÊÇjre\lib\extÄ¿Â¼ÖĞµÄÀà
-	 * 3£©AppClassLoader ¼ÓÔØclasspathÖ¸¶¨µÄÀà£¬ÊÇ×î³£ÓÃµÄ¼ÓÔØÆ÷¡£Í¬Ê±Ò²ÊÇjavaÖĞÄ¬ÈÏµÄ¼ÓÔØÆ÷¡£
+	 * åœ¨javaä¸­æœ‰ä¸‰ç§ç±»ç±»åŠ è½½å™¨ã€‚[è¿™æ®µèµ„æ–™ç½‘ä¸Šæˆªå–] 1ï¼‰Bootstrap ClassLoader æ­¤åŠ è½½å™¨é‡‡ç”¨c++ç¼–å†™ï¼Œä¸€èˆ¬å¼€å‘ä¸­å¾ˆå°‘è§ã€‚
+	 * 2ï¼‰Extension ClassLoader ç”¨æ¥è¿›è¡Œæ‰©å±•ç±»çš„åŠ è½½ï¼Œä¸€èˆ¬å¯¹åº”çš„æ˜¯jre\lib\extç›®å½•ä¸­çš„ç±»
+	 * 3ï¼‰AppClassLoader åŠ è½½classpathæŒ‡å®šçš„ç±»ï¼Œæ˜¯æœ€å¸¸ç”¨çš„åŠ è½½å™¨ã€‚åŒæ—¶ä¹Ÿæ˜¯javaä¸­é»˜è®¤çš„åŠ è½½å™¨ã€‚
 	 * 
 	 * @throws ClassNotFoundException
 	 */
@@ -250,7 +250,7 @@ public class ReflectDemo {
 		class1 = Class.forName("test.SuperMan");
 		String nameString = class1.getClassLoader().getClass().getName();
 
-		System.out.println("Demo8: Àà¼ÓÔØÆ÷ÀàÃû: " + nameString);
+		System.out.println("Demo8: ç±»åŠ è½½å™¨ç±»å: " + nameString);
 	}
 
 }
@@ -294,7 +294,7 @@ class SuperMan extends Person implements ActionInterface {
 	private boolean BlueBriefs;
 
 	public void fly() {
-		System.out.println("³¬ÈË»á·ÉÒ®¡«¡«");
+		System.out.println("è¶…äººä¼šé£è€¶ï½ï½");
 	}
 
 	public boolean isBlueBriefs() {
@@ -308,7 +308,7 @@ class SuperMan extends Person implements ActionInterface {
 	@Override
 	public void walk(int m) {
 		// TODO Auto-generated method stub
-		System.out.println("³¬ÈË»á×ßÒ®¡«¡«×ßÁË" + m + "Ã×¾Í×ß²»¶¯ÁË£¡");
+		System.out.println("è¶…äººä¼šèµ°è€¶ï½ï½èµ°äº†" + m + "ç±³å°±èµ°ä¸åŠ¨äº†ï¼");
 	}
 }
 

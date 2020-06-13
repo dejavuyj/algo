@@ -60,7 +60,7 @@ public class TestHashMap {
 	}
 
 	private static void testTreeify() {
-		// Ö»ÓĞµ±hash tabµÄsize´óÓÚµÈÓÚ64ºó,²Å»á½øĞĞÊ÷»¯
+		// åªæœ‰å½“hash tabçš„sizeå¤§äºç­‰äº64å,æ‰ä¼šè¿›è¡Œæ ‘åŒ–
 		Map<ConflictObject, Integer> m = new HashMap<ConflictObject, Integer>();
 		for (Integer i = 0; i < 12; i++) {
 			if (i == 8) {
@@ -93,7 +93,7 @@ public class TestHashMap {
 
 	@SuppressWarnings("rawtypes")
 	private static void testLinkedHashMap() {
-		// 10ÊÇ³õÊ¼´óĞ¡£¬0.75ÊÇ×°ÔØÒò×Ó£¬trueÊÇ±íÊ¾°´ÕÕ·ÃÎÊÊ±¼äÅÅĞò
+		// 10æ˜¯åˆå§‹å¤§å°ï¼Œ0.75æ˜¯è£…è½½å› å­ï¼Œtrueæ˜¯è¡¨ç¤ºæŒ‰ç…§è®¿é—®æ—¶é—´æ’åº
 		HashMap<Integer, Integer> m = new LinkedHashMap<>(10, 0.75f, true);
 		m.put(3, 11);
 		m.put(1, 12);

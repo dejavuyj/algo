@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Code215_kth_largest_element_in_a_array {
 
-	// ¶Ñ,Ê±¼ä¸´ÔÓ¶ÈO(nlogk)
+	// å †,æ—¶é—´å¤æ‚åº¦O(nlogk)
 	public int findKthLargest(int[] nums, int k) {
 		PriorityQueue<Integer> q = new PriorityQueue<Integer>(k);
 		for (int i : nums) {
@@ -43,7 +43,7 @@ public class Code215_kth_largest_element_in_a_array {
 		return i;
 	}
 
-	// Ëæ»úÑ¡Ôñ Ê±¼ä¸´ÔÓ¶ÈO(n)
+	// éšæœºé€‰æ‹© æ—¶é—´å¤æ‚åº¦O(n)
 	public int findKthLargest2(int[] nums, int k) {
 		int p = -1;
 		k--;
