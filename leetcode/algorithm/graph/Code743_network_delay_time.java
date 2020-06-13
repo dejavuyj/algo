@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
 public class Code743_network_delay_time {
 
 	public int networkDelayTime(int[][] times, int N, int K) {
-		// graphÍ¼,¼ÇÂ¼¶¥µãºÍ±ßµÄĞÅÏ¢,Èç¹ûÄ³¸ö¶¥µã²»Ö¸ÏòÆäËû¶¥µã,Ôò²»¼ÇÂ¼´Ë¶¥µã
+		// graphå›¾,è®°å½•é¡¶ç‚¹å’Œè¾¹çš„ä¿¡æ¯,å¦‚æœæŸä¸ªé¡¶ç‚¹ä¸æŒ‡å‘å…¶ä»–é¡¶ç‚¹,åˆ™ä¸è®°å½•æ­¤é¡¶ç‚¹
 		Map<Integer, List<int[]>> graph = new HashMap<Integer, List<int[]>>();
 		for (int[] edge : times) {
 			if (!graph.containsKey(edge[0])) {
@@ -18,15 +18,15 @@ public class Code743_network_delay_time {
 			graph.get(edge[0]).add(new int[] { edge[1], edge[2] });
 		}
 
-		// heapĞ¡¶¥¶Ñ,¼ÇÂ¼ÆğÊ¼¶¥µãµ½µ±Ç°¶¥µãµÄ¾àÀëÒÔ¼°µ±Ç°¶¥µãµÄID
+		// heapå°é¡¶å †,è®°å½•èµ·å§‹é¡¶ç‚¹åˆ°å½“å‰é¡¶ç‚¹çš„è·ç¦»ä»¥åŠå½“å‰é¡¶ç‚¹çš„ID
 		PriorityQueue<int[]> heap = new PriorityQueue<int[]>((info1, info2) -> info1[0] - info2[0]);
 		heap.offer(new int[] { 0, K });
 
-		// dist¾àÀëMap,¼ÇÂ¼Ã¿¸ö¶¥µãµ½ÆğÊ¼¶¥µãµÄ×î¶Ì¾àÀë
+		// distè·ç¦»Map,è®°å½•æ¯ä¸ªé¡¶ç‚¹åˆ°èµ·å§‹é¡¶ç‚¹çš„æœ€çŸ­è·ç¦»
 		Map<Integer, Integer> dist = new HashMap<Integer, Integer>();
 
 		while (!heap.isEmpty()) {
-			// È¡³öheapÖĞÀëÆğÊ¼¶¥µã×î¶Ì¾àÀëµÄ¶¥µã
+			// å–å‡ºheapä¸­ç¦»èµ·å§‹é¡¶ç‚¹æœ€çŸ­è·ç¦»çš„é¡¶ç‚¹
 			int[] info = heap.poll();
 			int d = info[0];
 			int node = info[1];
@@ -36,7 +36,7 @@ public class Code743_network_delay_time {
 
 			dist.put(node, d);
 			if (graph.containsKey(node)) {
-				// Ñ­»·´¦Àíµ±Ç°¶¥µãµÄ±ß
+				// å¾ªç¯å¤„ç†å½“å‰é¡¶ç‚¹çš„è¾¹
 				for (int[] edge : graph.get(node)) {
 					int nextId = edge[0];
 					int d2 = edge[1];
@@ -73,7 +73,7 @@ public class Code743_network_delay_time {
 
 		boolean[] checked = new boolean[N + 1];
 		for (int minN = K, newMin = 0; minN > 0; minN = newMin) {
-			// DijkstraËã·¨
+			// Dijkstraç®—æ³•
 			checked[minN] = true;
 			newMin = 0;
 			for (int j = 1; j < N + 1; j++) {
