@@ -1,7 +1,7 @@
 package algorithm;
 
 /**
- * ÕıÔò±í´ïÊ½
+ * æ­£åˆ™è¡¨è¾¾å¼
  */
 public class Pattern {
 
@@ -17,20 +17,20 @@ public class Pattern {
 			return;
 		}
 		int tlen = text.length;
-		if (pj == pattern.length) { // ÕıÔò±í´ïÊ½µ½½áÎ²
-			if (ti == tlen) { // ×Ö·û´®Ò²µ½½áÎ²
+		if (pj == pattern.length) { // æ­£åˆ™è¡¨è¾¾å¼åˆ°ç»“å°¾
+			if (ti == tlen) { // å­—ç¬¦ä¸²ä¹Ÿåˆ°ç»“å°¾
 				matched = true;
 			}
 			return;
 		}
-		if (pattern[pj] == '*') { // *Æ¥ÅäÈÎÒâ¸ö×Ö·û
+		if (pattern[pj] == '*') { // *åŒ¹é…ä»»æ„ä¸ªå­—ç¬¦
 			for (int k = 0; k < tlen - ti; k++) {
 				rmatch(ti + k, pj + 1, text);
 			}
-		} else if (pattern[pj] == '?') { // ?Æ¥Åä0¸ö»òÕß1¸ö×Ö·û
+		} else if (pattern[pj] == '?') { // ?åŒ¹é…0ä¸ªæˆ–è€…1ä¸ªå­—ç¬¦
 			rmatch(ti, pj + 1, text);
 			rmatch(ti + 1, pj + 1, text);
-		} else if (ti < tlen && pattern[pj] == text[ti]) { // ´¿×Ö·ûÆ¥Åä
+		} else if (ti < tlen && pattern[pj] == text[ti]) { // çº¯å­—ç¬¦åŒ¹é…
 			rmatch(ti + 1, pj + 1, text);
 		}
 	}

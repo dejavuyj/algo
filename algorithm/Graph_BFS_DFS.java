@@ -3,11 +3,11 @@ package algorithm;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//ÎŞÏòÍ¼
+//æ— å‘å›¾
 public class Graph_BFS_DFS {
 
-	private int v; // ¶¥µã¸öÊı
-	private LinkedList<Integer>[] adj; // ÁÚ½Ó±í
+	private int v; // é¡¶ç‚¹ä¸ªæ•°
+	private LinkedList<Integer>[] adj; // é‚»æ¥è¡¨
 
 	@SuppressWarnings("unchecked")
 	public Graph_BFS_DFS(int v) {
@@ -18,7 +18,7 @@ public class Graph_BFS_DFS {
 		}
 	}
 
-	// ÎŞÏòÍ¼Ò»Ìõ±ß´æÁ½´Î
+	// æ— å‘å›¾ä¸€æ¡è¾¹å­˜ä¸¤æ¬¡
 	public void addEdge(int s, int t) {
 		adj[s].add(t);
 		adj[t].add(s);

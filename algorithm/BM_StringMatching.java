@@ -1,9 +1,9 @@
 package algorithm;
 
-// BM×Ö·û´®Æ¥ÅäËã·¨
+// BMå­—ç¬¦ä¸²åŒ¹é…ç®—æ³•
 public class BM_StringMatching {
 
-	// ¼ÙÉè×Ö·û¼¯Îªascii±È½Ï¼òµ¥
+	// å‡è®¾å­—ç¬¦é›†ä¸ºasciiæ¯”è¾ƒç®€å•
 	private static final int SIZE = 256;
 
 	private void generateBC(char[] b, int m, int[] bc) {
@@ -11,7 +11,7 @@ public class BM_StringMatching {
 			bc[i] = -1;
 		}
 		for (int i = 0; i < m; i++) {
-			int ascii = (int) b[i]; // ¼ÆËãb[i]µÄASCIIÖµ
+			int ascii = (int) b[i]; // è®¡ç®—b[i]çš„ASCIIå€¼
 			bc[ascii] = i;
 		}
 	}
@@ -19,26 +19,26 @@ public class BM_StringMatching {
 	public int bm(char[] a, char[] b) {
 		int n = a.length;
 		int m = b.length;
-		int[] bc = new int[SIZE]; // ¼ÇÂ¼Ä£Ê½´®ÖĞÃ¿¸ö×Ö·û×îºó³öÏÖµÄÎ»ÖÃ
-		generateBC(b, m, bc); // ¹¹½¨»µ×Ö·û¹şÏ£±í
+		int[] bc = new int[SIZE]; // è®°å½•æ¨¡å¼ä¸²ä¸­æ¯ä¸ªå­—ç¬¦æœ€åå‡ºç°çš„ä½ç½®
+		generateBC(b, m, bc); // æ„å»ºåå­—ç¬¦å“ˆå¸Œè¡¨
 		int[] suffix = new int[m];
 		boolean[] prefix = new boolean[m];
 		generateGS(b, m, suffix, prefix);
-		int i = 0; // i±íÊ¾Ö÷´®ÓëÄ£Ê½´®¶ÔÆëµÄµÚÒ»¸ö×Ö·û
+		int i = 0; // iè¡¨ç¤ºä¸»ä¸²ä¸æ¨¡å¼ä¸²å¯¹é½çš„ç¬¬ä¸€ä¸ªå­—ç¬¦
 		while (i <= n - m) {
 			int j;
-			for (j = m - 1; j >= 0; j--) { // Ä£Ê½´®´ÓºóÍùÇ°Æ¥Åä
-				if (a[i + j] != b[j]) { // »µ×Ö·û¶ÔÓ¦Ä£Ê½´®ÖĞµÄÏÂ±êÊÇj
+			for (j = m - 1; j >= 0; j--) { // æ¨¡å¼ä¸²ä»åå¾€å‰åŒ¹é…
+				if (a[i + j] != b[j]) { // åå­—ç¬¦å¯¹åº”æ¨¡å¼ä¸²ä¸­çš„ä¸‹æ ‡æ˜¯j
 					break;
 				}
 			}
 			if (j < 0) {
-				return i; // Æ¥Åä³É¹¦,·µ»ØÖ÷´®ÓëÄ£Ê½´®µÚÒ»¸öÆ¥ÅäµÄ×Ö·ûµÄÎ»ÖÃ
+				return i; // åŒ¹é…æˆåŠŸ,è¿”å›ä¸»ä¸²ä¸æ¨¡å¼ä¸²ç¬¬ä¸€ä¸ªåŒ¹é…çš„å­—ç¬¦çš„ä½ç½®
 			}
-			int x = j - bc[(int) a[i + j]]; // »µ×Ö·ûÒÆ¶¯Î»Êı
+			int x = j - bc[(int) a[i + j]]; // åå­—ç¬¦ç§»åŠ¨ä½æ•°
 			int y = 0;
 			if (j < m - 1) {
-				// Èç¹ûÓĞºÃºó×ºµÄ»°
+				// å¦‚æœæœ‰å¥½åç¼€çš„è¯
 				y = moveByGS(j, m, suffix, prefix);
 			}
 			i = i + Math.max(x, y);
@@ -46,35 +46,35 @@ public class BM_StringMatching {
 		return -1;
 	}
 
-	// b±íÊ¾Ä£Ê½´®,mÎªÄ£Ê½´®³¤¶È
+	// bè¡¨ç¤ºæ¨¡å¼ä¸²,mä¸ºæ¨¡å¼ä¸²é•¿åº¦
 	private void generateGS(char[] b, int m, int[] suffix, boolean[] prefix) {
-		// ³õÊ¼»¯
+		// åˆå§‹åŒ–
 		for (int i = 0; i < m; i++) {
 			suffix[i] = -1;
 			prefix[i] = false;
 		}
 		for (int i = 0; i < m - 1; i++) { // b[0, i]
 			int j = i;
-			int k = 0; // ¹«¹²ºó×º×Ó´®³¤¶È
-			while (j >= 0 && b[j] == b[m - 1 - k]) { // Óëb[0, m-1]Çó¹«¹²ºó×º×Ó´®
+			int k = 0; // å…¬å…±åç¼€å­ä¸²é•¿åº¦
+			while (j >= 0 && b[j] == b[m - 1 - k]) { // ä¸b[0, m-1]æ±‚å…¬å…±åç¼€å­ä¸²
 				j--;
 				k++;
-				suffix[k] = j + 1; // j+1±íÊ¾¹«¹²ºó×º×Ó´®ÔÚb[0, i]ÖĞµÄÆğÊ¼ÏÂ±ê
+				suffix[k] = j + 1; // j+1è¡¨ç¤ºå…¬å…±åç¼€å­ä¸²åœ¨b[0, i]ä¸­çš„èµ·å§‹ä¸‹æ ‡
 			}
 			if (j == -1) {
-				prefix[k] = true; // ¹«¹²ºó×º×Ó´®Ò²ÊÇÄ£Ê½´®µÄÇ°×º×Ó´®
+				prefix[k] = true; // å…¬å…±åç¼€å­ä¸²ä¹Ÿæ˜¯æ¨¡å¼ä¸²çš„å‰ç¼€å­ä¸²
 			}
 		}
 	}
 
-	// j±íÊ¾»µ×Ö·û¶ÔÓ¦µÄÄ£Ê½´®ÖĞµÄ×Ö·ûÏÂ±ê, m±íÊ¾Ä£Ê½´®³¤¶È
+	// jè¡¨ç¤ºåå­—ç¬¦å¯¹åº”çš„æ¨¡å¼ä¸²ä¸­çš„å­—ç¬¦ä¸‹æ ‡, mè¡¨ç¤ºæ¨¡å¼ä¸²é•¿åº¦
 	private int moveByGS(int j, int m, int[] suffix, boolean[] prefix) {
-		int k = m - 1 - j;// ºÃºó×º³¤¶È
-		// ´æÔÚºÃºó×º
+		int k = m - 1 - j;// å¥½åç¼€é•¿åº¦
+		// å­˜åœ¨å¥½åç¼€
 		if (suffix[k] != -1) {
 			return j - suffix[k] + 1;
 		}
-		// ²éÕÒºÃºó×ºÓëÄ£Ê½´®µÄÇ°×º
+		// æŸ¥æ‰¾å¥½åç¼€ä¸æ¨¡å¼ä¸²çš„å‰ç¼€
 		for (int r = j + 2; r <= m - 1; r++) {
 			if (prefix[m - r] == true) {
 				return r;

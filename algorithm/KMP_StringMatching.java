@@ -1,9 +1,9 @@
 package algorithm;
 
-// KMP×Ö·û´®Æ¥ÅäËã·¨
+// KMPå­—ç¬¦ä¸²åŒ¹é…ç®—æ³•
 public class KMP_StringMatching {
 
-	// b±íÊ¾Ä£Ê½´®£¬m±íÊ¾Ä£Ê½´®µÄ³¤¶È
+	// bè¡¨ç¤ºæ¨¡å¼ä¸²ï¼Œmè¡¨ç¤ºæ¨¡å¼ä¸²çš„é•¿åº¦
 	private static int[] getNexts(char[] b, int m) {
 		int[] next = new int[m];
 		next[0] = -1;
@@ -20,20 +20,20 @@ public class KMP_StringMatching {
 		return next;
 	}
 
-	// a, b·Ö±ğÊÇÖ÷´®ºÍÄ£Ê½´®£»n, m·Ö±ğÊÇÖ÷´®ºÍÄ£Ê½´®µÄ³¤¶È¡£
+	// a, båˆ†åˆ«æ˜¯ä¸»ä¸²å’Œæ¨¡å¼ä¸²ï¼›n, måˆ†åˆ«æ˜¯ä¸»ä¸²å’Œæ¨¡å¼ä¸²çš„é•¿åº¦ã€‚
 	public int kmp(char[] a, char[] b) {
 		int n = a.length;
 		int m = b.length;
 		int[] next = getNexts(b, m);
 		int j = 0;
 		for (int i = 0; i < n; ++i) {
-			while (j > 0 && a[i] != b[j]) { // Ò»Ö±ÕÒµ½a[i]ºÍb[j]
+			while (j > 0 && a[i] != b[j]) { // ä¸€ç›´æ‰¾åˆ°a[i]å’Œb[j]
 				j = next[j - 1] + 1;
 			}
 			if (a[i] == b[j]) {
 				++j;
 			}
-			if (j == m) { // ÕÒµ½Æ¥ÅäÄ£Ê½´®µÄÁË
+			if (j == m) { // æ‰¾åˆ°åŒ¹é…æ¨¡å¼ä¸²çš„äº†
 				return i - m + 1;
 			}
 		}

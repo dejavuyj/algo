@@ -2,11 +2,11 @@ package algorithm;
 
 import java.util.LinkedList;
 
-// ÍØÆËÅÅĞò ÓĞÏòÍ¼
+// æ‹“æ‰‘æ’åº æœ‰å‘å›¾
 public class TopologicalSort {
 
-	private int v; // ¶¥µã¸öÊı
-	private LinkedList<Integer>[] adj; // ÁÚ½Ó±í
+	private int v; // é¡¶ç‚¹ä¸ªæ•°
+	private LinkedList<Integer>[] adj; // é‚»æ¥è¡¨
 
 	@SuppressWarnings("unchecked")
 	public TopologicalSort(int v) {
@@ -17,13 +17,13 @@ public class TopologicalSort {
 		}
 	}
 
-	// ÓĞÏòÍ¼Ò»Ìõ±ß´æÒ»´Î sÏÈÓÚt,±ßs->t
+	// æœ‰å‘å›¾ä¸€æ¡è¾¹å­˜ä¸€æ¬¡ så…ˆäºt,è¾¹s->t
 	public void addEdge(int s, int t) {
 		adj[s].add(t);
 	}
 
 	public void topoSortByKahn() {
-		int[] inDegree = new int[v]; // Í³¼ÆÃ¿¸ö¶¥µãµÄÈë¶È
+		int[] inDegree = new int[v]; // ç»Ÿè®¡æ¯ä¸ªé¡¶ç‚¹çš„å…¥åº¦
 		for (int i = 0; i < v; i++) {
 			for (int j = 0; j < adj[i].size(); j++) {
 				int w = adj[i].get(j); // i->w
@@ -50,13 +50,13 @@ public class TopologicalSort {
 	}
 
 	public void topoSortByDFS() {
-		// ÏÈ¹¹½¨ÄæÁÚ½Ó±í,±ßs->t±íÊ¾sÒÀÀµt,tÏÈÓÚs
+		// å…ˆæ„å»ºé€†é‚»æ¥è¡¨,è¾¹s->tè¡¨ç¤ºsä¾èµ–t,tå…ˆäºs
 		@SuppressWarnings("unchecked")
 		LinkedList<Integer>[] inverseAdj = new LinkedList[v];
-		for (int i = 0; i < v; i++) { // ÉêÇë¿Õ¼ä
+		for (int i = 0; i < v; i++) { // ç”³è¯·ç©ºé—´
 			inverseAdj[i] = new LinkedList<Integer>();
 		}
-		for (int i = 0; i < v; i++) { // Í¨¹ıÁÚ½Ó±íÉú³ÉÄæÁÚ½Ó±í
+		for (int i = 0; i < v; i++) { // é€šè¿‡é‚»æ¥è¡¨ç”Ÿæˆé€†é‚»æ¥è¡¨
 			for (int j = 0; j < adj[i].size(); j++) {
 				int w = adj[i].get(j); // i->w
 				inverseAdj[w].add(i); // w->i
@@ -80,7 +80,7 @@ public class TopologicalSort {
 			visited[w] = true;
 			dfs(w, inverseAdj, visited);
 		}
-		// ÏÈ°ÑvertexÕâ¸ö¶¥µã¿É´ïµÄËùÓĞ¶¥µã¶¼´òÓ¡³öÀ´,ÔÙ´òÓ¡×Ô¼º
+		// å…ˆæŠŠvertexè¿™ä¸ªé¡¶ç‚¹å¯è¾¾çš„æ‰€æœ‰é¡¶ç‚¹éƒ½æ‰“å°å‡ºæ¥,å†æ‰“å°è‡ªå·±
 		System.out.print("->" + vertex);
 	}
 

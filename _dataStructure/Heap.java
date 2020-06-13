@@ -1,9 +1,9 @@
 package _dataStructure;
 
 public class Heap {
-	private int[] a; // ´Ó1¿ªÊ¼´æ´¢Êı¾İ
-	private int n; // ¶Ñ¿ÉÒÔ´æ´¢µÄ×î´óÊı¾İ¸öÊı
-	private int count; // ¶ÑÒÑ¾­´æ´¢µÄÊı¾İ¸öÊı
+	private int[] a; // ä»1å¼€å§‹å­˜å‚¨æ•°æ®
+	private int n; // å †å¯ä»¥å­˜å‚¨çš„æœ€å¤§æ•°æ®ä¸ªæ•°
+	private int count; // å †å·²ç»å­˜å‚¨çš„æ•°æ®ä¸ªæ•°
 
 	private static int swapCount = 0;
 
@@ -22,7 +22,7 @@ public class Heap {
 		System.out.println("swap " + i + ", " + j);
 	}
 
-	// ´ÓÏÂÏòÉÏ¶Ñ»¯
+	// ä»ä¸‹å‘ä¸Šå †åŒ–
 	public void insert(int data) {
 		if (count >= n) {
 			return;
@@ -48,7 +48,7 @@ public class Heap {
 		heapify(a, count, 1);
 	}
 
-	// ´ÓÉÏÍùÏÂ¶Ñ»¯
+	// ä»ä¸Šå¾€ä¸‹å †åŒ–
 	private static void heapify(int[] a, int n, int i) {
 		while (true) {
 			int maxPos = i;
@@ -69,7 +69,7 @@ public class Heap {
 		}
 	}
 
-	// n±íÊ¾Êı¾İµÄ¸öÊı, Êı×éaÖĞµÄÊı¾İ´ÓÏÂ±ê1µ½nµÄÎ»ÖÃ
+	// nè¡¨ç¤ºæ•°æ®çš„ä¸ªæ•°, æ•°ç»„aä¸­çš„æ•°æ®ä»ä¸‹æ ‡1åˆ°nçš„ä½ç½®
 	public static void sort(int[] a, int n) {
 		buildHeap(a, n);
 		int k = n;
