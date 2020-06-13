@@ -18,8 +18,8 @@ class LRUCache {
 	}
 
 	private Map<Integer, Node> m;
-	private Node head; //ĞéÄâÍ·½áµã
-	private Node tail; //ĞéÄâÎ²½áµã
+	private Node head; //è™šæ‹Ÿå¤´ç»“ç‚¹
+	private Node tail; //è™šæ‹Ÿå°¾ç»“ç‚¹
 	private int capacity;
 
 	public LRUCache(int capacity) {
@@ -48,7 +48,7 @@ class LRUCache {
 		if (node == null) {
 			return -1;
 		} else {
-			// ¸ü¸ÄÁ´±íË³Ğò,°ÑnodeÒÆµ½×îÇ°Ãæ
+			// æ›´æ”¹é“¾è¡¨é¡ºåº,æŠŠnodeç§»åˆ°æœ€å‰é¢
 			removeNode(node);
 			addNode(node);
 			return node.value;

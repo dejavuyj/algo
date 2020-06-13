@@ -76,7 +76,7 @@ public class Code36_valid_sudoku {
 		int i, j;
 		char value = cal[jj][ii];
 
-		// Í¬Ò»ĞĞÊÇ·ñÓĞÏàÍ¬µÄÔªËØ
+		// åŒä¸€è¡Œæ˜¯å¦æœ‰ç›¸åŒçš„å…ƒç´ 
 		for (i = 0; i < 9; i++) {
 			if (i == ii)
 				continue;
@@ -85,7 +85,7 @@ public class Code36_valid_sudoku {
 				return true;
 		}
 
-		// Í¬Ò»ÁĞÊÇ·ñÓĞÏàÍ¬µÄÔªËØ
+		// åŒä¸€åˆ—æ˜¯å¦æœ‰ç›¸åŒçš„å…ƒç´ 
 		for (j = 0; j < 9; j++) {
 			if (j == jj)
 				continue;
@@ -94,7 +94,7 @@ public class Code36_valid_sudoku {
 				return true;
 		}
 
-		// Í¬Ò»¿éÊÇ·ñÓĞÏàÍ¬µÄÔªËØ
+		// åŒä¸€å—æ˜¯å¦æœ‰ç›¸åŒçš„å…ƒç´ 
 //		int block_id = findblock(jj, ii);
 //		BlockLimit bl = get_block_limit(block_id);
 		for (j = bl.min_j; j <= bl.max_j; j++) {

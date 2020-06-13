@@ -44,21 +44,21 @@ public class Code52_n_queens_ii {
 
 	public int backtrack(int row, int hills, int next_row, int dales, int count, int n) {
 		/**
-		 * row:µ±Ç°·Å»ÊºóµÄĞĞºÅ
-		 * hills:Ö÷¶Ô½ÇÏßÕ¼¾İÇé¿ö [1 = ±»Õ¼¾İ£¬0 = Î´±»Õ¼¾İ] 
-		 * next_row:ÏÂÒ»ĞĞ±»Õ¼¾İµÄÇé¿ö [1 = ±»Õ¼¾İ£¬0 = Î´±»Õ¼¾İ] 
-		 * dales:´Î¶Ô½ÇÏßÕ¼¾İÇé¿ö [1 = ±»Õ¼¾İ£¬0 = Î´±»Õ¼¾İ] 
-		 * count:ËùÓĞ¿ÉĞĞ½âµÄ¸öÊı
+		 * row:å½“å‰æ”¾çš‡åçš„è¡Œå·
+		 * hills:ä¸»å¯¹è§’çº¿å æ®æƒ…å†µ [1 = è¢«å æ®ï¼Œ0 = æœªè¢«å æ®] 
+		 * next_row:ä¸‹ä¸€è¡Œè¢«å æ®çš„æƒ…å†µ [1 = è¢«å æ®ï¼Œ0 = æœªè¢«å æ®] 
+		 * dales:æ¬¡å¯¹è§’çº¿å æ®æƒ…å†µ [1 = è¢«å æ®ï¼Œ0 = æœªè¢«å æ®] 
+		 * count:æ‰€æœ‰å¯è¡Œè§£çš„ä¸ªæ•°
 		 */
 		int columns = (1 << n) - 1;
 
 		if (row >= n) {
 			count++;
 		} else {
-			// µ±Ç°ĞĞ¿ÉÓÃµÄÁĞ,[1 = Î´±»Õ¼¾İ£¬0 = ±»Õ¼¾İ]
+			// å½“å‰è¡Œå¯ç”¨çš„åˆ—,[1 = æœªè¢«å æ®ï¼Œ0 = è¢«å æ®]
 			int free_columns = columns & ~(hills | next_row | dales);
 			while (free_columns != 0) {
-				// free_columsµÄµÚÒ»¸öÎª'1'µÄÎ»,ÔÚ´ËÁĞ·ÀÖ¹»Êºó
+				// free_columsçš„ç¬¬ä¸€ä¸ªä¸º'1'çš„ä½,åœ¨æ­¤åˆ—é˜²æ­¢çš‡å
 				int curr_column = -free_columns & free_columns;
 
 				//free_columns ^= curr_column;
