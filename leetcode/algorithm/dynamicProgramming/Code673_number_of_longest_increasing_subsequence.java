@@ -6,7 +6,7 @@ public class Code673_number_of_longest_increasing_subsequence {
 
 	int lis = 0;
 
-	// // »ØËİËã·¨Çó×î³¤×ÓĞòÁĞ
+	// // å›æº¯ç®—æ³•æ±‚æœ€é•¿å­åºåˆ—
 	// public int getLis_bt(int[] nums) {
 	// if (nums == null) {
 	// return 0;
@@ -29,7 +29,7 @@ public class Code673_number_of_longest_increasing_subsequence {
 	// }
 	// }
 
-	// ¶¯Ì¬¹æ»®
+	// åŠ¨æ€è§„åˆ’
 	public int findNumberOfLIS(int[] nums) {
 		int N = nums.length;
 		if (N <= 1)

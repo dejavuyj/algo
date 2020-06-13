@@ -4,7 +4,7 @@ public class Code509_fibonacci_number {
 
 	// https://leetcode-cn.com/problems/fibonacci-number/solution/fei-bo-na-qi-shu-by-leetcode/
 
-	// µİ¹é Ê±¼ä¸´ÔÓ¶ÈO(2^n)
+	// é€’å½’ æ—¶é—´å¤æ‚åº¦O(2^n)
 	public int fib(int N) {
 		if (N == 0) {
 			return 0;
@@ -15,7 +15,7 @@ public class Code509_fibonacci_number {
 		}
 	}
 
-	// ¶¯Ì¬¹æ»® Ê±¼ä¸´ÔÓ¶ÈO(n)
+	// åŠ¨æ€è§„åˆ’ æ—¶é—´å¤æ‚åº¦O(n)
 	public int fib2(int N) {
 		if (N <= 1) {
 			return N;
@@ -30,10 +30,10 @@ public class Code509_fibonacci_number {
 		return fib;
 	}
 
-	// ¹«Ê½·¨ Ê±¼ä¸´ÔÓ¶ÈO(logn) µ«ÊÇĞèÒª¼ÆËã¸¡µãÊıµÄ³Ë·½
-	// powĞèÒªO(logn)µÄÊ±¼ä¸´ÔÓ¶È ²Î¼ûCode50_powx_n
+	// å…¬å¼æ³• æ—¶é—´å¤æ‚åº¦O(logn) ä½†æ˜¯éœ€è¦è®¡ç®—æµ®ç‚¹æ•°çš„ä¹˜æ–¹
+	// powéœ€è¦O(logn)çš„æ—¶é—´å¤æ‚åº¦ å‚è§Code50_powx_n
 	public int fib3(int N) {
-		// g2 ²»Ó°Ïìint½á¹ûÖµ,¿ÉÒÔºöÂÔ
+		// g2 ä¸å½±å“intç»“æœå€¼,å¯ä»¥å¿½ç•¥
 		double g1 = (1 + Math.sqrt(5)) / 2;
 		// double g2 = (1 - Math.sqrt(5)) / 2;
 		// System.out.println("Math.pow(g1, N) / Math.sqrt(5) is "
@@ -67,7 +67,7 @@ public class Code509_fibonacci_number {
 		return r;
 	}
 
-	// ¾ØÕóÏà³Ë 2*2
+	// çŸ©é˜µç›¸ä¹˜ 2*2
 	public int fib4(int N) {
 		if (N <= 1) {
 			return N;
@@ -88,7 +88,7 @@ public class Code509_fibonacci_number {
 		return r;
 	}
 
-	// ¾ØÕóÏà³Ë 2*1
+	// çŸ©é˜µç›¸ä¹˜ 2*1
 	public int fib5(int N) {
 		if (N <= 1) {
 			return N;

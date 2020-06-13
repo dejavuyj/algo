@@ -2,7 +2,7 @@ package leetcode.algorithm.dynamicProgramming;
 
 public class Code1143_longest_common_subsequence {
 
-	// ø’º‰∏¥‘”∂»(m*n)
+	// Á©∫Èó¥Â§çÊùÇÂ∫¶(m*n)
 	public int longestCommonSubsequence(String text1, String text2) {
 		int m = text1.length();
 		int n = text2.length();
@@ -22,7 +22,7 @@ public class Code1143_longest_common_subsequence {
 		return dp[m][n];
 	}
 
-	// ø’º‰∏¥‘”∂»min(m,n)
+	// Á©∫Èó¥Â§çÊùÇÂ∫¶min(m,n)
 	public int longestCommonSubsequence2(String text1, String text2) {
 		int m = text1.length();
 		int n = text2.length();
@@ -42,13 +42,13 @@ public class Code1143_longest_common_subsequence {
 		for (int i = 1; i < rowText.length() + 1; i++) {
 			int tmp = 0;
 			for (int j = 1; j < colText.length() + 1; j++) {
-				int prev = tmp; // ∂‘”¶…œ“ª––«∞“ª¡–µƒ÷µ,µ»º€”⁄∂˛Œ¨ ˝◊È÷–µƒdp[i-1][j-1]
+				int prev = tmp; // ÂØπÂ∫î‰∏ä‰∏ÄË°åÂâç‰∏ÄÂàóÁöÑÂÄº,Á≠â‰ª∑‰∫é‰∫åÁª¥Êï∞ÁªÑ‰∏≠ÁöÑdp[i-1][j-1]
 				tmp = dp[j];
 				if (colText.charAt(j - 1) == rowText.charAt(i - 1)) {
 					dp[j] = prev + 1;
 				} else {
-					// dp[j]  Œ™…œ“ª––µ±«∞¡–, œ‡µ±”⁄∂˛Œ¨ ˝◊È÷–µƒdp[i-1][j]
-					// dp[j-1]Œ™µ±«∞––«∞“ª¡–, œ‡µ±”⁄∂˛Œ¨ ˝◊È÷–µƒdp[i][j-1]
+					// dp[j]  ‰∏∫‰∏ä‰∏ÄË°åÂΩìÂâçÂàó, Áõ∏ÂΩì‰∫é‰∫åÁª¥Êï∞ÁªÑ‰∏≠ÁöÑdp[i-1][j]
+					// dp[j-1]‰∏∫ÂΩìÂâçË°åÂâç‰∏ÄÂàó, Áõ∏ÂΩì‰∫é‰∫åÁª¥Êï∞ÁªÑ‰∏≠ÁöÑdp[i][j-1]
 					dp[j] = Math.max(dp[j], dp[j - 1]);
 				}
 			}

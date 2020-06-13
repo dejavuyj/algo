@@ -39,7 +39,7 @@ public class Code122_best_time_to_buy_and_sell_stock_ii {
 		return ans;
 	}
 
-	// ��̬�滮
+	// 动态规划
 	public static int maxProfit3(int[] prices) {
 		if (prices == null) {
 			return 0;
@@ -56,7 +56,7 @@ public class Code122_best_time_to_buy_and_sell_stock_ii {
 		return dp[prices.length - 1][0];
 	}
 
-	// ��̬�滮
+	// 动态规划
 	public static int maxProfit4(int[] prices) {
 		if (prices == null) {
 			return 0;

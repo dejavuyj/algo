@@ -2,7 +2,7 @@ package leetcode.algorithm.dynamicProgramming;
 
 public class Code518_coin_change_2 {
 
-	// Ê¹ÓÃ×éºÏÊı¶ø·ÇÅÅÁĞÊı
+	// ä½¿ç”¨ç»„åˆæ•°è€Œéæ’åˆ—æ•°
 	// https://leetcode-cn.com/problems/coin-change-2/solution/ling-qian-dui-huan-iihe-pa-lou-ti-wen-ti-dao-di-yo/
 	public int change(int amount, int[] coins) {
 		int[] dp = new int[amount + 1];

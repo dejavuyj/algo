@@ -2,7 +2,7 @@ package leetcode.algorithm.dynamicProgramming;
 
 public class Code42_trapping_rain_water {
 
-	// °´ÁĞ,±©Á¦½â·¨,Ê±¼ä¸´ÔÓ¶ÈO(n^2),¿Õ¼ä¸´ÔÓ¶ÈO(1)
+	// æŒ‰åˆ—,æš´åŠ›è§£æ³•,æ—¶é—´å¤æ‚åº¦O(n^2),ç©ºé—´å¤æ‚åº¦O(1)
 	public int trap(int[] height) {
 		int sum = 0;
 		for (int i = 1; i < height.length - 1; i++) {
@@ -27,16 +27,16 @@ public class Code42_trapping_rain_water {
 		return sum;
 	}
 
-	// ¶¯Ì¬¹æ»®,Ê±¼ä¸´ÔÓ¶ÈO(n),¿Õ¼ä¸´ÔÓ¶ÈO(n)
+	// åŠ¨æ€è§„åˆ’,æ—¶é—´å¤æ‚åº¦O(n),ç©ºé—´å¤æ‚åº¦O(n)
 	public int trap2(int[] height) {
 		int sum = 0;
 		int[] leftMax = new int[height.length];
 		int[] rightMax = new int[height.length];
-		// ¼ÇÂ¼Ã¿¸öindex×ó²àµÄ×î¸ßÖµ
+		// è®°å½•æ¯ä¸ªindexå·¦ä¾§çš„æœ€é«˜å€¼
 		for (int i = 1; i < height.length; i++) {
 			leftMax[i] = Math.max(height[i - 1], leftMax[i - 1]);
 		}
-		// ¼ÇÂ¼Ã¿¸öindexÓÒ²àµÄ×î¸ßÖµ
+		// è®°å½•æ¯ä¸ªindexå³ä¾§çš„æœ€é«˜å€¼
 		for (int i = height.length - 2; i >= 0; i--) {
 			rightMax[i] = Math.max(height[i + 1], rightMax[i + 1]);
 		}
@@ -50,7 +50,7 @@ public class Code42_trapping_rain_water {
 		return sum;
 	}
 
-	// Ë«Ö¸Õë,Ê±¼ä¸´ÔÓ¶ÈO(n),¿Õ¼ä¸´ÔÓ¶ÈO(1)
+	// åŒæŒ‡é’ˆ,æ—¶é—´å¤æ‚åº¦O(n),ç©ºé—´å¤æ‚åº¦O(1)
 	public int trap3(int[] height) {
 		int sum = 0;
 		int left = 1;
@@ -59,14 +59,14 @@ public class Code42_trapping_rain_water {
 		int right_max = 0;
 		for (int i = 1; i < height.length - 1; i++) {
 			if (height[left - 1] < height[right + 1]) {
-				// ´Ó×óµ½ÓÒ
+				// ä»å·¦åˆ°å³
 				left_max = Math.max(left_max, height[left - 1]);
 				if (left_max > height[left]) {
 					sum += left_max - height[left];
 				}
 				left++;
 			} else {
-				// ´ÓÓÒµ½×ó
+				// ä»å³åˆ°å·¦
 				right_max = Math.max(right_max, height[right + 1]);
 				if (right_max > height[right]) {
 					sum += right_max - height[right];

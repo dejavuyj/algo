@@ -13,12 +13,11 @@ public class LatchSample {
 			Thread t = new Thread(new SecondBatchWorker(latch));
 			t.start();
 		}
-		// 注意这里也是演示目的的逻辑，并不是推荐的协调方式
 		while (latch.getCount() != 1) {
 			Thread.sleep(100L);
 		}
 		System.out.println("Wait for first batch finish");
-		//latch.countDown();
+		latch.countDown();
 	}
 }
 

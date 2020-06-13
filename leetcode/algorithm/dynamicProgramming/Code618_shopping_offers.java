@@ -22,7 +22,7 @@ public class Code618_shopping_offers {
 			return map.get(needs);
 		}
 
-		// ²»Ê¹ÓÃÀñ°ü
+		// ä¸ä½¿ç”¨ç¤¼åŒ…
 		int ret = dot(price, needs);
 
 		for (List<Integer> s : special) {
@@ -36,7 +36,7 @@ public class Code618_shopping_offers {
 				cn.add(diff);
 			}
 			if (i == needs.size()) {
-				// ¿ÉÒÔÊ¹ÓÃ´ËÀñ°ü
+				// å¯ä»¥ä½¿ç”¨æ­¤ç¤¼åŒ…
 				ret = Math.min(ret, s.get(i) + shopping(price, special, cn, map));
 			}
 		}

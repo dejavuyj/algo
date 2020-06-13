@@ -42,7 +42,7 @@ public class Code300_longest_increasing_subsequence {
 		return maxans;
 	}
 
-	//dp+二分查找
+	//dp+浜屽垎鏌ユ壘
 	public int lengthOfLIS3(int[] nums) {
 		int[] dp = new int[nums.length];
 		int len = 0;
@@ -59,7 +59,7 @@ public class Code300_longest_increasing_subsequence {
 		return len;
 	}
 
-	//dp+二分查找
+	//dp+浜屽垎鏌ユ壘
 	public int lengthOfLIS4(int[] nums) {
 		int[] dp = new int[nums.length];
 		int len = 0;

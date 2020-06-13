@@ -1,11 +1,11 @@
 package leetcode.algorithm.dynamicProgramming;
 
-// µÈ¼ÛÓÚ0-1±³°üÎÊÌâ
+// ç­‰ä»·äº0-1èƒŒåŒ…é—®é¢˜
 public class Code416_partition_equal_subset_sum {
 
 	boolean ret = false;
 
-	// »ØËİ
+	// å›æº¯
 	public boolean canPartition(int[] nums) {
 		int sum = 0;
 		for (int i : nums) {
@@ -35,7 +35,7 @@ public class Code416_partition_equal_subset_sum {
 		}
 	}
 
-	// ¶¯Ì¬¹æ»®
+	// åŠ¨æ€è§„åˆ’
 	public boolean canPartition2(int[] nums) {
 		int sum = 0;
 		for (int i : nums) {
