@@ -1,12 +1,12 @@
 package interview;
 
-// Լɪ������
+// 约瑟夫环问题
 public class Josephus {
 
-	// �������������Ϊ 1-N �� N ��ʿ��Χ����һ���γ�һ��ԲȦ���ӱ��Ϊ 1 ��ʿ����ʼ���α�����1��2��3...�������α�����
-	// ���� m ��ʿ���ᱻɱ�����У�֮���ʿ���ٴ� 1 ��ʼ������ֱ�����ʣ��һʿ���������ʿ���ı�š�
+	// 问题描述：编号为 1-N 的 N 个士兵围坐在一起形成一个圆圈，从编号为 1 的士兵开始依次报数（1，2，3...这样依次报），
+	// 数到 m 的士兵会被杀死出列，之后的士兵再从 1 开始报数。直到最后剩下一士兵，求这个士兵的编号。
 
-	// ������,�ռ临�Ӷ�O(n),ʱ�临�Ӷ�O(m*n)
+	// 用数组,空间复杂度O(n),时间复杂度O(m*n)
 	public int josephus(int n, int m) {
 		if (m == 1 || n < 2) {
 			return n;
@@ -46,7 +46,7 @@ public class Josephus {
 		}
 	}
 
-	// ������,�ռ临�Ӷ�O(n),ʱ�临�Ӷ�O(m*n)
+	// 用链表,空间复杂度O(n),时间复杂度O(m*n)
 	public int josephus2(int n, int m) {
 		if (m == 1 || n < 2) {
 			return n;
@@ -73,7 +73,7 @@ public class Josephus {
 		return cur.value;
 	}
 
-	// �õݹ�,�ռ临�Ӷ�O(n),ʱ�临�Ӷ�O(n)
+	// 用递归,空间复杂度O(n),时间复杂度O(n)
 	public int josephus3(int n, int m) {
 		// if (n == 1) {
 		// return 1;
@@ -82,7 +82,7 @@ public class Josephus {
 		return n == 1 ? 1 : (josephus3(n - 1, m) + m - 1) % n + 1;
 	}
 
-	// ��ʽ
+	// 公式
 	public int josephus4(int n, int m) {
 		if (m == 1 || n < 2) {
 			return n;

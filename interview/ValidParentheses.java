@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class ValidParentheses {
 
-	// Q1: ¸ø¶¨Ò»¸öÖ»°üÀ¨ '('£¬')'µÄ×Ö·û´®£¬ÅĞ¶Ï×Ö·û´®ÊÇ·ñÓĞĞ§¡£×¢£º¿Õ×Ö·û´®ÊôÓÚÓĞĞ§×Ö·û´® leetcode20
-	// ¿Õ¼ä¸´ÔÓ¶ÈO(n)
+	// Q1: ç»™å®šä¸€ä¸ªåªåŒ…æ‹¬ '('ï¼Œ')'çš„å­—ç¬¦ä¸²ï¼Œåˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦æœ‰æ•ˆã€‚æ³¨ï¼šç©ºå­—ç¬¦ä¸²å±äºæœ‰æ•ˆå­—ç¬¦ä¸² leetcode20
+	// ç©ºé—´å¤æ‚åº¦O(n)
 	public boolean isValid(String str) {
 		if (str == null || str.length() == 0) {
 			return true;
@@ -25,7 +25,7 @@ public class ValidParentheses {
 		return stack.empty();
 	}
 
-	// Q1-ÓÅ»¯¿Õ¼ä¸´ÔÓ¶È
+	// Q1-ä¼˜åŒ–ç©ºé—´å¤æ‚åº¦
 	public boolean isValid2(String str) {
 		if (str == null || str.length() == 0) {
 			return true;
@@ -45,8 +45,8 @@ public class ValidParentheses {
 		return leftNum == 0;
 	}
 
-	// Q2: ¸ø¶¨Ò»¸öÖ»°üº¬ '(' ºÍ ')' µÄ×Ö·û´®£¬ÕÒ³ö×î³¤µÄ°üº¬ÓĞĞ§À¨ºÅµÄ×Ó´®µÄ³¤¶È¡£ leetcode32
-	// Q2-ÓÃÕ»,¿Õ¼ä¸´ÔÓ¶ÈO(n)
+	// Q2: ç»™å®šä¸€ä¸ªåªåŒ…å« '(' å’Œ ')' çš„å­—ç¬¦ä¸²ï¼Œæ‰¾å‡ºæœ€é•¿çš„åŒ…å«æœ‰æ•ˆæ‹¬å·çš„å­ä¸²çš„é•¿åº¦ã€‚ leetcode32
+	// Q2-ç”¨æ ˆ,ç©ºé—´å¤æ‚åº¦O(n)
 	public int longestValidParentheses(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -71,7 +71,7 @@ public class ValidParentheses {
 		return max;
 	}
 
-	// Q2-²»ÓÃÕ»,¿Õ¼ä¸´ÔÓ¶ÈÎªO(1)
+	// Q2-ä¸ç”¨æ ˆ,ç©ºé—´å¤æ‚åº¦ä¸ºO(1)
 	public int longestValidParentheses2(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
