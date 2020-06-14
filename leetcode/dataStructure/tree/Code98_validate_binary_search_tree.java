@@ -5,33 +5,7 @@ import java.util.List;
 
 public class Code98_validate_binary_search_tree {
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
-	private static TreeNode createBinaryTreeByArray(Integer[] array, int index) {
-		TreeNode tn = null;
-		if (index < array.length) {
-			Integer value = array[index];
-			if (value == null) {
-				return null;
-			}
-			tn = new TreeNode(value);
-			tn.left = createBinaryTreeByArray(array, 2 * index + 1);
-			tn.right = createBinaryTreeByArray(array, 2 * index + 2);
-			return tn;
-		}
-		return tn;
-	}
-
-	private static boolean isValidBSTCheckBorder(TreeNode node, Integer lower,
-			Integer upper) {
+	private static boolean isValidBSTCheckBorder(TreeNode node, Integer lower, Integer upper) {
 		if (node == null) {
 			return true;
 		}
@@ -80,12 +54,10 @@ public class Code98_validate_binary_search_tree {
 	}
 
 	public static void main(String[] args) {
-		// Integer[] arr = new Integer[] { 6, 2, 8, 0, 4, 7, 9, null, null, 3, 5
-		// };
-		Integer[] arr = new Integer[] { 10, 5, 15, null, null, 13, 20, null,
-				null, null, null, 11, 14 };
+		// Integer[] arr = { 6, 2, 8, 0, 4, 7, 9, null, null, 3, 5 };
+		Integer[] arr = { 10, 5, 15, null, null, 13, 20, null, null, null, null, 11, 14 };
 		// Integer[] arr = new Integer[] { 0 };
-		TreeNode root = createBinaryTreeByArray(arr, 0);
+		TreeNode root = TreeNode.createBinaryTreeByArray(arr, 0);
 		System.out.println(isValidBST(root));
 		for (Integer i : l) {
 			System.out.print(i);

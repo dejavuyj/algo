@@ -2,31 +2,6 @@ package leetcode.dataStructure.tree;
 
 public class Code236_lowest_common_ancestor_of_a_binary_tree {
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
-	private static TreeNode createBinaryTreeByArray(Integer[] array, int index) {
-		TreeNode tn = null;
-		if (index < array.length) {
-			Integer value = array[index];
-			if (value == null) {
-				return null;
-			}
-			tn = new TreeNode(value);
-			tn.left = createBinaryTreeByArray(array, 2 * index + 1);
-			tn.right = createBinaryTreeByArray(array, 2 * index + 2);
-			return tn;
-		}
-		return tn;
-	}
-
 	private static TreeNode ans = null;
 
 	private static boolean recurseTree(TreeNode currentNode, TreeNode p, TreeNode q) {
@@ -72,12 +47,12 @@ public class Code236_lowest_common_ancestor_of_a_binary_tree {
 
 	public static void main(String[] args) {
 		Integer[] arr = new Integer[] { 3, 5, 1, 6, 2, 0, 8, null, null, 7, 4 };
-		TreeNode root = createBinaryTreeByArray(arr, 0);
+		TreeNode root = TreeNode.createBinaryTreeByArray(arr, 0);
 		TreeNode t5 = root.left;
 		TreeNode t1 = root.right;
-		TreeNode t4 = t5.right.right;
+		// TreeNode t4 = t5.right.right;
 
-		 System.out.println(lowestCommonAncestor2(root, t5, t1).val);
-//		System.out.println(lowestCommonAncestor2(root, t5, t4).val);
+		System.out.println(lowestCommonAncestor2(root, t5, t1).val);
+		// System.out.println(lowestCommonAncestor2(root, t5, t4).val);
 	}
 }

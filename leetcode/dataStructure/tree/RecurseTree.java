@@ -12,31 +12,6 @@ public class RecurseTree {
 	private static List<Integer> postList = new ArrayList<Integer>();
 	private static List<Integer> levelList = new ArrayList<Integer>();
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
-	private static TreeNode createBinaryTreeByArray(Integer[] array, int index) {
-		TreeNode tn = null;
-		if (index < array.length) {
-			Integer value = array[index];
-			if (value == null) {
-				return null;
-			}
-			tn = new TreeNode(value);
-			tn.left = createBinaryTreeByArray(array, 2 * index + 1);
-			tn.right = createBinaryTreeByArray(array, 2 * index + 2);
-			return tn;
-		}
-		return tn;
-	}
-
 	private static void prevRecurse(TreeNode root) {
 		if (root != null) {
 			prevList.add(root.val);
@@ -62,7 +37,7 @@ public class RecurseTree {
 	}
 
 	// 按层遍历
-	private static void levelRecurse(TreeNode root) {
+	public static void levelRecurse(TreeNode root) {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		queue.add(root);
 
@@ -77,14 +52,18 @@ public class RecurseTree {
 				queue.add(node.right);
 			}
 		}
+		for (Integer i : levelList) {
+			System.out.print(i);
+			System.out.print(',');
+		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
 		// Integer[] arr = new Integer[] { 6, 2, 8, 0, 4, 7, 9, null, null, 3,
 		// 5};
-		Integer[] arr = new Integer[] { 10, 5, 15, null, null, 13, 20, null,
-				null, null, null, 11, 14 };
-		TreeNode root = createBinaryTreeByArray(arr, 0);
+		Integer[] arr = new Integer[] { 10, 5, 15, null, null, 13, 20, null, null, null, null, 11, 14 };
+		TreeNode root = TreeNode.createBinaryTreeByArray(arr, 0);
 		prevRecurse(root);
 		inRecurse(root);
 		postRecurse(root);
@@ -100,11 +79,6 @@ public class RecurseTree {
 		}
 		System.out.println();
 		for (Integer i : postList) {
-			System.out.print(i);
-			System.out.print(',');
-		}
-		System.out.println();
-		for (Integer i : levelList) {
 			System.out.print(i);
 			System.out.print(',');
 		}

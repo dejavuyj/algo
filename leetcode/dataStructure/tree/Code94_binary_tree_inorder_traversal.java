@@ -6,31 +6,6 @@ import java.util.Stack;
 
 public class Code94_binary_tree_inorder_traversal {
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
-	private static TreeNode createBinaryTreeByArray(Integer[] array, int index) {
-		TreeNode tn = null;
-		if (index < array.length) {
-			Integer value = array[index];
-			if (value == null) {
-				return null;
-			}
-			tn = new TreeNode(value);
-			tn.left = createBinaryTreeByArray(array, 2 * index + 1);
-			tn.right = createBinaryTreeByArray(array, 2 * index + 2);
-			return tn;
-		}
-		return tn;
-	}
-
 	List<Integer> ans = new LinkedList<Integer>();
 
 	public List<Integer> inorderTraversal(TreeNode root) {
@@ -42,7 +17,6 @@ public class Code94_binary_tree_inorder_traversal {
 		return ans;
 	}
 
-	// ÓÃÕ»À´´úÌæµÝ¹é
 	public List<Integer> inorderTraversal2(TreeNode root) {
 		List<Integer> ans = new LinkedList<Integer>();
 		Stack<TreeNode> stack = new Stack<>();
@@ -62,7 +36,7 @@ public class Code94_binary_tree_inorder_traversal {
 	public static void main(String[] args) {
 		Code94_binary_tree_inorder_traversal c = new Code94_binary_tree_inorder_traversal();
 		Integer[] arr = new Integer[] { 1, null, 2, null, null, 3 };
-		TreeNode root = createBinaryTreeByArray(arr, 0);
+		TreeNode root = TreeNode.createBinaryTreeByArray(arr, 0);
 
 		List<Integer> l = c.inorderTraversal2(root);
 		for (Integer i : l) {
