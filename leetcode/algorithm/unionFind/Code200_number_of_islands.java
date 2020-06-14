@@ -31,7 +31,7 @@ public class Code200_number_of_islands {
 		}
 	}
 
-	//²¢²é¼¯Ê¹ÓÃcount
+	//å¹¶æŸ¥é›†ä½¿ç”¨count
 	public int numIslands(char[][] grid) {
 		int n = grid.length;
 		if (n == 0) {
@@ -58,16 +58,16 @@ public class Code200_number_of_islands {
 			for (int i = 0; i < m; i++) {
 				if (grid[j][i] == '1') {
 					grid[j][i] = '0';
-					if (i > 0 && grid[j][i - 1] == '1') { //×ó
+					if (i > 0 && grid[j][i - 1] == '1') { //å·¦
 						union(j * m + i, j * m + i - 1);
 					}
-					if (i < m - 1 && grid[j][i + 1] == '1') { //ÓÒ
+					if (i < m - 1 && grid[j][i + 1] == '1') { //å³
 						union(j * m + i + 1, j * m + i);
 					}
-					if (j > 0 && grid[j - 1][i] == '1') { //ÉÏ
+					if (j > 0 && grid[j - 1][i] == '1') { //ä¸Š
 						union(j * m + i, (j - 1) * m + i);
 					}
-					if (j < n - 1 && grid[j + 1][i] == '1') { //ÏÂ
+					if (j < n - 1 && grid[j + 1][i] == '1') { //ä¸‹
 						union((j + 1) * m + i, j * m + i);
 					}
 				}
