@@ -46,6 +46,5 @@ public class Pattern {
 		String text = "ab2";
 		Pattern c = new Pattern(pattern.toCharArray());
 		System.out.println(c.match(text.toCharArray()));
-		;
 	}
 }
