@@ -19,9 +19,10 @@ public class Code89_gray_code {
 
 	public static void main(String[] args) {
 		Code89_gray_code c = new Code89_gray_code();
-		List<Integer> ansList = c.grayCode(3);
-		for (int i : ansList) {
-			System.out.print(i + ", ");
-		}
+		List<Integer> ansList = c.grayCode(12);
+		// for (int i : ansList) {
+		// System.out.print(i + ", ");
+		// }
+		ansList.stream().forEach(i -> System.out.print(i + ", "));
 	}
 }
