@@ -16,7 +16,6 @@ public class Code7_reverse_integer {
             x = x * -1;
         }
 
-        String str = String.valueOf(x);
         Stack<Integer> stack = new Stack<>();
 
         while (x != 0) {
@@ -51,21 +50,36 @@ public class Code7_reverse_integer {
             x = x * -1;
         }
 
+        int x2 = x;
         int cnt = 0;
-        while (x != 0) {
-            int digit = x % 10;
-            ret += Math.pow(10, cnt) * digit;
+        while (x2 != 0) {
+            x2 /= 10;
             cnt++;
-            x /= 10;
         }
 
-        return ret;
+        if (cnt == 10 && x % 10 > 2) {
+            return 0;
+        }
+        cnt--;
+
+        while (cnt >= 0) {
+            int digit = x % 10;
+            int p = digit * (int) Math.pow(10, cnt);
+            if (ret > Integer.MAX_VALUE - p) {
+                return 0;
+            }
+            ret += p;
+            x /= 10;
+            cnt--;
+        }
+
+        return flag ? ret * -1 : ret;
     }
 
     public static void main(String[] args) {
         Code7_reverse_integer c = new Code7_reverse_integer();
-        int x = 1534236469;
-        int y = c.reverse(x);
+        int x = 123;
+        int y = c.reverse2(x);
         System.out.println(y);
     }
 }
