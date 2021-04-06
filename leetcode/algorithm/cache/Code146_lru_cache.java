@@ -1,6 +1,5 @@
-package leetcode.algorithm.LRUCache;
+package leetcode.algorithm.cache;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
