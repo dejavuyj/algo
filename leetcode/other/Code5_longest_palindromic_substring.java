@@ -44,39 +44,27 @@ public class Code5_longest_palindromic_substring {
         if (s.length() == 1) {
             return s;
         }
-        if (s.length() == 2 && s.charAt(0) == s.charAt(1)) {
-            return s;
-        }
 
         String ret = "";
         int maxLen = 0;
-        for (int i = 1; i < s.length() - 1; i++) {
-            int left = i;
-            if (s.charAt(i-1) == s.charAt(i)) {
-                int currLen = 2;
-                if (currLen > maxLen) {
-                    maxLen = currLen;
-                    ret = s.substring(i-1, i+1);
-                }
-                left--;
+        int cnt = 1;
+        for (float i = 0.5f; i < s.length() - 1; i += 0.5, cnt++) {
+            int left;
+            int right;
+            if ((cnt & 1) == 1) {
+                left = (int) (i - 0.5f);
+                right = (int) (i + 0.5f);
+            } else {
+                left = (int) (i - 1);
+                right = (int) (i + 1);
             }
-            int right = i + 1;
-            if (s.charAt(right) == s.charAt(i)) {
-                int currLen = right - left + 1;
-                if (currLen > maxLen) {
-                    maxLen = currLen;
-                    ret = s.substring(left, right+1);
-                }
-                right++;
-            }
-            left--;
             while (left >= 0
                     && right <= s.length() - 1) {
                 if (s.charAt(left) == s.charAt(right)) {
                     int currLen = right - left + 1;
                     if (currLen > maxLen) {
                         maxLen = currLen;
-                        ret = s.substring(left, right+1);
+                        ret = s.substring(left, right + 1);
                     }
                 } else {
                     break;
