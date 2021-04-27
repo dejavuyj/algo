@@ -49,7 +49,7 @@ public class Code6_zigzag_conversion {
         int zCnt = (sLen % zNum == 0 ? sLen / zNum : sLen / zNum + 1);
         StringBuilder sb = new StringBuilder();
 
-        for (int curRow=0; curRow<numRows; curRow++) {
+        for (int curRow = 0; curRow < numRows; curRow++) {
             for (int i = 0; i < zCnt; i++) {
                 int curIndex = i * zNum + curRow;
                 if (curIndex < sLen) {
