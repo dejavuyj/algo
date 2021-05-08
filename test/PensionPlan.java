@@ -6,13 +6,13 @@ public class PensionPlan {
     private static void simulation() {
         double total = 0;
 //        double anualSave = (double) 1504 * 12 / 10000; // 每年存
-        double anualSave = 40; // 每年存
+        double anualSave = 50; // 每年存
         double anualCost = 25; // 不工作后,每年的花费,没有算上房租的10万
         double annuity = 25; // 65岁后,每年领的养老金
-        int saveYears = 10; // 存多少年
-        double rate = 1.06; // 每年收益率
+        int saveYears = 16; // 存多少年
+        double rate = 1.08; // 每年收益率
 
-        int leftYears = saveYears + 40; // 多少年后
+        int leftYears = saveYears + 30; // 多少年后
         System.out.println("每年存" + anualSave + "万,总共存" + saveYears + "年, 年收益率" + rate);
         System.out.println(saveYears + "年后不工作, 每年花" + anualCost + "万");
         System.out.println("2052年后退休, 每年领养老金" + annuity + "万");
