@@ -11,9 +11,10 @@ public class PensionPlan {
         double annuity = 25; // 65岁后,每年领的养老金
         int saveYears = 10; // 存多少年
         double rate = 1.08; // 每年收益率
+        rate -= 0.03; // 剔除通货膨胀
 
         int leftYears = saveYears + 40; // 多少年后
-        System.out.println("每年存" + anualSave + "万,总共存" + saveYears + "年, 年收益率" + rate);
+        System.out.println("每年存" + anualSave + "万,总共存" + saveYears + "年, 剔除通货膨胀后年收益率" + (int)((rate-1)*100) + "%");
         System.out.println(saveYears + "年后不工作, 每年花" + anualCost + "万");
         System.out.println("2052年后退休, 每年领养老金" + annuity + "万");
 
