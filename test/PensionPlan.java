@@ -9,34 +9,46 @@ public class PensionPlan {
         double anualSave = 55; // 每年存
         double anualCost = 25; // 不工作后,每年的花费,没有算上房租的10万
         double annuity = 25; // 65岁后,每年领的养老金
-        int saveYears = 10; // 存多少年
+        int saveYears = 7; // 存多少年
         double rate = 1.08; // 每年收益率
-        rate -= 0.03; // 剔除通货膨胀
+        double rate2 = rate - 0.03; // 剔除通货膨胀
 
         int leftYears = saveYears + 40; // 多少年后
-        System.out.println("每年存" + anualSave + "万,总共存" + saveYears + "年, 剔除通货膨胀后年收益率" + (int)((rate-1)*100) + "%");
-        System.out.println(saveYears + "年后不工作, 每年花" + anualCost + "万");
-        System.out.println("2052年后退休, 每年领养老金" + annuity + "万");
+        System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
+        System.out.println("年收益率 " + (int)((rate-1)*100) + "%");
+        System.out.println("剔除通货膨胀后, 年收益率 " + (int)((rate2-1)*100) + "%");
+        System.out.println(saveYears + "年后不工作, 每年花 " + anualCost + " 万");
+        System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
 
         int startYear = 2021; // 起始
         total += 70;
+        double total2 = total;
         double previous = total;
+        double previous2 = total;
         for (int j = 0; j < leftYears; j++) {
             int currYear = startYear + j;
-            if (total > 0) {
-                total *= rate;
-            }
-            if (j < saveYears) {
-                total += anualSave;
-            } else {
-                total -= anualCost;
-            }
-            if (currYear >= 2052) {
-                total += annuity;
-            }
-            System.out.println(currYear + "年, 总金额是 " + (int) total + ", 比前一年增加 " + (int) (total - previous));
+//            anualCost *= 1.03;
+            total = getTotal(total, anualSave, anualCost, annuity, saveYears, rate, j, currYear);
+            System.out.print(currYear + "年, 总金额是 " + (int) total + ", 比前一年增加 " + (int) (total - previous));
             previous = total;
+
+            total2 = getTotal(total2, anualSave, anualCost, annuity, saveYears, rate2, j, currYear);
+            System.out.println("   剔除通货膨胀后, 有效金额是 " + (int) total2 + ", 比前一年增加 " + (int) (total2 - previous2));
+            previous2 = total2;
         }
+    }
+
+    private static double getTotal(double total, double anualSave, double anualCost, double annuity, int saveYears, double rate, int j, int currYear) {
+        total *= rate;
+        if (j < saveYears) {
+            total += anualSave;
+        } else {
+            total -= anualCost;
+        }
+        if (currYear >= 2052) {
+            total += annuity;
+        }
+        return total;
     }
 
     private static void simulation_pingan_caifuxinsheng() {
