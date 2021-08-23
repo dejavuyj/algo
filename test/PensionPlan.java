@@ -6,12 +6,13 @@ public class PensionPlan {
     private static void simulation() {
         double total = 0;
 //        double anualSave = (double) 1504 * 12 / 10000; // 每年存
-        double anualSave = 30; // 每年存
-        double anualCost = 15; // 不工作后,每年的花费,没有算上房租的10万
-        double annuity = 5; // 65岁后,每年领的养老金
+        double anualSave = 55; // 每年存
+        double anualCost = 25; // 不工作后,每年的花费,没有算上房租的10万
+        double annuity = 25; // 65岁后,每年领的养老金
         int saveYears = 7; // 存多少年
-        double rate = 1.08; // 每年收益率
+        double rate = 1.1; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
+        double rateShrink = 0.99; // 收益率缩水
 
         int leftYears = saveYears + 40; // 多少年后
         System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
@@ -21,7 +22,7 @@ public class PensionPlan {
         System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
 
         int startYear = 2021; // 起始
-        total = 80;
+        total = 70;
         double total2 = total;
         double previous = total;
         double previous2 = total;
@@ -35,6 +36,11 @@ public class PensionPlan {
             total2 = getTotal(total2, anualSave, anualCost, annuity, saveYears, rate2, j, currYear);
             System.out.println("   剔除通货膨胀后, 有效金额是 " + (int) total2 + ", 比前一年增加 " + (int) (total2 - previous2));
             previous2 = total2;
+
+            if (total > 500 && rate > 1.06) {
+                rate = 1 + (rate-1)*rateShrink;
+                rate2 = 1 + (rate2-1)*rateShrink;
+            }
         }
     }
 
@@ -46,16 +52,20 @@ public class PensionPlan {
             total -= anualCost;
         }
 
+        if (j == saveYears) {
+            System.out.print(" --------- " + currYear + "年开始,不工作了 ");
+        }
+
         if (currYear >= 2052) {
             total += annuity;
         }
 
-//        int costAge = 55;
-//        double cost = 200;
-//        if (currYear == (1987+costAge)) {
-//            System.out.println(" --------- " + costAge + "岁,花 " + cost);
-//            total -= cost;
-//        }
+        int costAge = 55;
+        double cost = 500;
+        if (currYear == (1987+costAge)) {
+            System.out.print(" --------- " + costAge + "岁,花 " + cost + "  ");
+            total -= cost;
+        }
         return total;
     }
 
