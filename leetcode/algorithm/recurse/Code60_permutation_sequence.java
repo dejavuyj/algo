@@ -12,7 +12,7 @@ public class Code60_permutation_sequence {
         this.k = k;
         factorial = new int[n + 1];
         factorial[0] = 1;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n; i++) {
             factorial[i] = factorial[i - 1] * i;
         }
         used = new boolean[n + 1];
@@ -44,8 +44,8 @@ public class Code60_permutation_sequence {
     }
 
     public static void main(String[] args) {
-        int n = 4;
-        int k = 9;
+        int n = 3;
+        int k = 6;
         Code60_permutation_sequence c = new Code60_permutation_sequence();
         String r = c.getPermutation(n, k);
         System.out.println(r);
