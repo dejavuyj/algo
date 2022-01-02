@@ -91,11 +91,19 @@ public class Test {
         System.out.println(ls.equals(li));
     }
 
+    private static void testFloat() {
+        float a = 1;
+        float b = 0.9f;
+        float c = a - b;
+        System.out.println(c);
+    }
+
     public static void main(String[] args) throws Exception {
         // hash();
         // Map m = new ConcurrentHashMap<String, String>(10);
         // m.put("", "");
         // testHoldsLock();
 //		testTypeErasure();
+        testFloat();
     }
 }

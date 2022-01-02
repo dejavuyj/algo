@@ -44,10 +44,23 @@ public class Code55_jump_game {
         return false;
     }
 
+    public boolean canJump3(int[] nums) {
+        int lastIndex = nums.length - 1;
+        for (int i=nums.length-2; i >= 0; i--) {
+            if (nums[i] >= lastIndex - i) {
+                lastIndex = i;
+            } else if (i == 0) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Code55_jump_game c = new Code55_jump_game();
-        int[] M = {2, 0, 0};
-        boolean ans = c.canJump(M);
+        int[] M = {1,3,0,1,4};
+        boolean ans = c.canJump3(M);
         System.out.print(ans);
     }
 }
