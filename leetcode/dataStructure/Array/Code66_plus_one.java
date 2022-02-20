@@ -43,10 +43,46 @@ public class Code66_plus_one {
         return digits;
     }
 
+    public int[] plusOne3(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return digits;
+        }
+
+        int last = digits.length - 1;
+        if (last == 0 && digits[0] == 0) {
+            digits[0] = 1;
+            return digits;
+        }
+
+        return plusOne(digits, last);
+    }
+
+    public int[] plusOne(int[] digits, int last) {
+        int[] result;
+
+        // 需要增加数组长度
+        if (last == 0 && digits[last] + 1 > 9){
+            result = new int[digits.length + 1];
+            result[0] = 1;
+            return result;
+        }
+
+        if (last >=0 && digits[last] + 1 < 10) {
+            // 不需要进位的情况
+            digits[last] += 1;
+            return digits;
+        }
+
+        // 进位的情况，因为每次加一，所以当前位必为0
+        digits[last] = 0;
+        // 递归调用，将前面的执行+1
+        return plusOne(digits, --last);
+    }
+
     public static void main(String[] args) {
         Code66_plus_one c = new Code66_plus_one();
-        int[] M = {9, 9, 9, 9};
-        int[] ans = c.plusOne2(M);
+        int[] M = {9, 9};
+        int[] ans = c.plusOne3(M);
         for (int i : ans) {
             System.out.print(i + ", ");
         }
