@@ -1,5 +1,6 @@
 package leetcode.dataStructure.Array;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Code66_plus_one {
@@ -77,6 +78,26 @@ public class Code66_plus_one {
         digits[last] = 0;
         // 递归调用，将前面的执行+1
         return plusOne(digits, --last);
+    }
+
+    public int[] plusOne4(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return digits;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for(Integer integer:digits) {
+            sb.append(integer);
+        }
+        BigDecimal count = new BigDecimal(sb.toString());
+        count = count.add(new BigDecimal(1));
+        String str = String.valueOf(count);
+        int[] results = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            results[i] = Integer.parseInt(str.substring(i, i+1));
+//            results[i] = (int) str.charAt(i);
+        }
+        return results;
     }
 
     public static void main(String[] args) {
