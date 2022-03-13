@@ -9,7 +9,7 @@ public class PensionPlan {
         double anualSave = 22; // 每年存
         double anualCost = 15; // 不工作后,每年的花费,没有算上房租的10万
         double annuity = 20; // 65岁后,每年领的养老金
-        int saveYears = 10; // 存多少年
+        int saveYears = 5; // 存多少年
         double rate = 1.08; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
@@ -22,8 +22,8 @@ public class PensionPlan {
         System.out.println(saveYears + "年后不工作, 每年花 " + anualCost + " 万");
         System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
 
-        int startYear = 2021; // 起始
-        total = 85;
+        int startYear = 2022; // 起始
+        total = 105;
         double total2 = total;
         double previous = total;
         double previous2 = total;
