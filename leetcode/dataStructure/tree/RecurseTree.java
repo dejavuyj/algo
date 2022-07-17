@@ -7,10 +7,10 @@ import java.util.Queue;
 
 public class RecurseTree {
 
-	private static List<Integer> prevList = new ArrayList<Integer>();
-	private static List<Integer> inList = new ArrayList<Integer>();
-	private static List<Integer> postList = new ArrayList<Integer>();
-	private static List<Integer> levelList = new ArrayList<Integer>();
+	private static List<Integer> prevList = new ArrayList<>();
+	private static List<Integer> inList = new ArrayList<>();
+	private static List<Integer> postList = new ArrayList<>();
+	private static List<Integer> levelList = new ArrayList<>();
 
 	private static void prevRecurse(TreeNode root) {
 		if (root != null) {

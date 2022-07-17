@@ -104,9 +104,10 @@ public class Test {
         // m.put("", "");
         // testHoldsLock();
 //		testTypeErasure();
-        testFloat();
-        String s = "70002";
+//        testFloat();
+        String s = "72001";
         System.out.println(Math.abs(s.hashCode()));
-        System.out.println(Math.abs(s.hashCode()) % 64);
+        System.out.println("hashCode(" + s + ") % 64 = " + Math.abs(s.hashCode()) % 64);
+        System.out.println(s + " % 64 = " + Long.parseLong(s) % 64);
     }
 }
