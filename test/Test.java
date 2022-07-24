@@ -105,7 +105,7 @@ public class Test {
         // testHoldsLock();
 //		testTypeErasure();
 //        testFloat();
-        String s = "72001";
+        String s = "76001";
         System.out.println(Math.abs(s.hashCode()));
         System.out.println("hashCode(" + s + ") % 64 = " + Math.abs(s.hashCode()) % 64);
         System.out.println(s + " % 64 = " + Long.parseLong(s) % 64);
