@@ -3,7 +3,7 @@ package leetcode.dataStructure.tree;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Code105_construct_binary_tree_from_inorder_and_postorder_traversal {
+public class Code106_construct_binary_tree_from_inorder_and_postorder_traversal {
     int post_idx;
     int[] postorder;
     int[] inorder;
@@ -38,7 +38,7 @@ public class Code105_construct_binary_tree_from_inorder_and_postorder_traversal 
     }
 
     public static void main(String[] args) {
-        Code105_construct_binary_tree_from_inorder_and_postorder_traversal c = new Code105_construct_binary_tree_from_inorder_and_postorder_traversal();
+        Code106_construct_binary_tree_from_inorder_and_postorder_traversal c = new Code106_construct_binary_tree_from_inorder_and_postorder_traversal();
         int[] inorder = {9, 3, 15, 20, 7};
         int[] postorder = {9, 15, 7, 20, 3};
         TreeNode root = c.buildTree(postorder, inorder);
