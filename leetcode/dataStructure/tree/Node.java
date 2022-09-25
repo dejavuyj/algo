@@ -1,10 +1,10 @@
 package leetcode.dataStructure.tree;
 
 public class Node {
-	int val;
-	Node left;
-	Node right;
-	Node next;
+	public int val;
+	public Node left;
+	public Node right;
+	public Node next;
 
 	Node(int x) {
 		val = x;
