@@ -23,7 +23,7 @@ public class PensionPlan {
         System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
 
         int startYear = 2022; // 起始
-        total = 70;
+        total = 90;
         double total2 = total;
         double previous = total;
         double previous2 = total;
