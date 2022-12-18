@@ -1,4 +1,4 @@
-package leetcode.algorithm.graph;
+package leetcode.dataStructure.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
