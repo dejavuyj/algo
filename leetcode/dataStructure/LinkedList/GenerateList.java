@@ -17,6 +17,32 @@ public class GenerateList {
         return head;
     }
 
+    public static Node generate(Integer[][] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+        Node head = new Node(array[0][0]);
+        Node pre = head;
+        int size = array.length;
+
+        Node[] nodeArray = new Node[size];
+        nodeArray[0] = head;
+
+        for (int i = 1; i < size; i++) {
+            Node cur = new Node(array[i][0]);
+            pre.next = cur;
+            pre = cur;
+            nodeArray[i] = cur;
+        }
+
+        for (int i = 0; i < size; i++) {
+            Integer randomIndex = array[i][1];
+            nodeArray[i].random = randomIndex == null ? null : nodeArray[randomIndex];
+        }
+
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] array = {1, 2, 3};
 
