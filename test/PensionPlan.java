@@ -6,11 +6,11 @@ public class PensionPlan {
     private static void simulation() {
         double total = 0;
 //        double anualSave = (double) 1504 * 12 / 10000; // 每年存
-        double anualSave = 23; // 每年存
+        double anualSave = 18; // 每年存
         double anualCost = 15; // 不工作后,每年的花费,没有算上房租的10万
         double annuity = 10; // 65岁后,每年领的养老金
-        int saveYears = 10; // 存多少年
-        double rate = 1.07; // 每年收益率
+        int saveYears = 5; // 存多少年
+        double rate = 1.08; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
