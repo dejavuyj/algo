@@ -69,7 +69,6 @@ public class Code225_implement_stack_using_queues {
 		System.out.println(s.top());
 //		s.push(4);
 //		s.push(5);
-		
 
 //		while(!s.empty()) {
 //			System.out.println(s.pop());
