@@ -1,6 +1,5 @@
 package test;
 
-@SuppressWarnings("unused")
 public class PensionPlan {
 
     private static void simulation() {
@@ -9,7 +8,7 @@ public class PensionPlan {
 //        double anualSave = (double) 1504 * 12 / 10000; // 每年存
         double anualSave = 35; // 每年存
         double anualCost = 20; // 不工作后,每年的花费,没有算上房租的8万
-        double annuity = 10; // 65岁后,每年领的养老金
+        double annuity = 15; // 65岁后,每年领的养老金
         int saveYears = 5; // 存多少年
 
         double rate = 1.06; // 每年收益率
@@ -74,6 +73,7 @@ public class PensionPlan {
         return total;
     }
 
+    @SuppressWarnings("unused")
     private static void simulation_pingan_caifuxinsheng() {
         // 平安 财富鑫生 年金保险
         // 按费率表 33岁投保 2万保额 每个月交752 7年后每年领5200
