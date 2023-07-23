@@ -255,11 +255,6 @@ public class ReflectDemo {
 
 }
 
-/**
- * 
- * @author xiaoyaomeng
- *
- */
 class Person {
 	private int age;
 	private String name;

@@ -1,7 +1,6 @@
 package leetcode.algorithm.recurse;
 
 /**
- * @Author YJ
  * @create 2021/3/27 20:56
  */
 public class Code4_median_of_two_sorted_arrays {

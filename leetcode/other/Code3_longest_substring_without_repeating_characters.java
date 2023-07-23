@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author YJ
  * @create 2021/3/21 11:23
  */
 public class Code3_longest_substring_without_repeating_characters {
