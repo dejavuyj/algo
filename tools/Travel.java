@@ -1,4 +1,4 @@
-package test;
+package tools;
 
 public class Travel {
     static String s = "中国旅行\n" +
@@ -9,6 +9,8 @@ public class Travel {
             "\t\t\t\t\t银环岛\n" +
             "\t\t\t\t北极村\n" +
             "\t\t黑河\n" +
+            "\t\t\t爱辉区\n" +
+            "\t\t\t\t黑河市瑷珲历史陈列馆\n" +
             "\t\t\t五大连池市\n" +
             "\t\t\t\t五大连池风景区\n" +
             "\t\t齐齐哈尔\n" +
@@ -102,7 +104,10 @@ public class Travel {
             "\t内蒙古自治区\n" +
             "\t\t呼伦贝尔\n" +
             "\t\t\t新巴尔虎右旗\n" +
+            "\t\t\t\t呼伦湖旅游景区\n" +
             "\t\t\t\t贝尔湖\n" +
+            "\t\t\t满洲里市\n" +
+            "\t\t\t\t中俄边境旅游区-套娃景区\n" +
             "\t\t\t新巴尔虎左旗\n" +
             "\t\t\t\t呼伦贝尔大草原\n" +
             "\t\t\t扎兰屯市\n" +
@@ -111,6 +116,8 @@ public class Travel {
             "\t\t\t阿尔山市\n" +
             "\t\t\t\t阿尔山天池\n" +
             "\t\t锡林格勒盟\n" +
+            "\t\t\t二连浩特市\n" +
+            "\t\t\t\t二连浩特国门景区\n" +
             "\t\t\t正蓝旗\n" +
             "\t\t\t\t元上都遗址\n" +
             "\t\t赤峰\n" +
@@ -118,15 +125,21 @@ public class Travel {
             "\t\t\t\t绍根镇\n" +
             "\t\t\t\t\t苜蓿草场\n" +
             "\t\t通辽\n" +
+            "\t\t\t霍林郭勒市\n" +
+            "\t\t\t\t可汗山景区\n" +
             "\t\t阿拉善盟\n" +
             "\t\t\t额济纳旗\n" +
             "\t\t\t\t黑城遗址\n" +
+            "\t\t\t\t中国酒泉卫星发射中心历史展览馆\n" +
+            "\t\t\t\t东风航天城礼堂\n" +
             "\t\t\t阿拉善右旗\n" +
             "\t\t\t\t巴丹吉林沙漠旅游区\n" +
             "\t\t\t\t\t达格图红海子\n" +
             "\t\t\t\t海森楚鲁景区\n" +
             "\t\t巴彦淖尔\n" +
             "\t\t乌海\n" +
+            "\t\t\t海勃湾区\n" +
+            "\t\t\t\t成吉思汗雕像\n" +
             "\t\t\t沙海-城市交界\n" +
             "\t\t鄂尔多斯\n" +
             "\t\t\t杭锦旗\n" +
@@ -694,6 +707,8 @@ public class Travel {
             "\t\t\t\t径山镇\n" +
             "\t\t\t\t\t小古城村\n" +
             "\t\t\t\t良渚国家考古遗址公园\n" +
+            "\t\t\t\t\t莫角山宫殿区\n" +
+            "\t\t\t\t良渚博物院\n" +
             "\t\t\t\t中国美术学院良渚校区\n" +
             "\t\t\t\t杭州国家版本馆\n" +
             "\t\t\t临平区\n" +
@@ -1186,6 +1201,12 @@ public class Travel {
             "\t\t\t\t伏波山\n" +
             "\t\t\t七星区\n" +
             "\t\t\t\t桂林尧山景区\n" +
+            "\t\t\t\t七星景区\n" +
+            "\t\t\t\t\t龙隐岩\n" +
+            "\t\t\t\t\t\t摩崖石刻\n" +
+            "\t\t\t\t六合圩市场\n" +
+            "\t\t\t\t穿山景区\n" +
+            "\t\t\t\t信昌·桂海晴岚\n" +
             "\t\t\t灵川县\n" +
             "\t\t\t\t漓江\n" +
             "\t\t\t阳朔县\n" +
@@ -1243,6 +1264,8 @@ public class Travel {
             "\t\t鹰潭\n" +
             "\t\t萍乡\n" +
             "\t\t新余\n" +
+            "\t\t\t渝水区\n" +
+            "\t\t\t\t仙女湖风景名胜区\n" +
             "\t\t吉安\n" +
             "\t\t\t井冈山市\n" +
             "\t\t\t\t井冈山\n" +
@@ -1254,11 +1277,14 @@ public class Travel {
             "\t\t\t\t关西围景区\n" +
             "\t湖南\n" +
             "\t\t湘西土家族苗族自治州\n" +
+            "\t\t\t永顺县\n" +
+            "\t\t\t\t芙蓉镇景区\n" +
             "\t\t\t凤凰县\n" +
             "\t\t\t\t凤凰古城\n" +
             "\t\t张家界\n" +
             "\t\t\t武陵源区\n" +
             "\t\t\t\t张家界国家森林公园\n" +
+            "\t\t\t\t武陵源风景名胜区\n" +
             "\t\t\t永定区\n" +
             "\t\t\t\t天门山\n" +
             "\t\t常德\n" +
@@ -1273,7 +1299,7 @@ public class Travel {
             "\t\t长沙\n" +
             "\t\t\t岳麓区\n" +
             "\t\t\t\t橘子洲\n" +
-            "\t\t\t\t\t毛主席雕像\n" +
+            "\t\t\t\t\t毛泽东青年艺术雕塑\n" +
             "\t\t\t\t岳麓山\n" +
             "\t\t\t\t\t爱晚亭\n" +
             "\t\t\t\t梅溪湖\n" +
@@ -1309,6 +1335,7 @@ public class Travel {
             "\t\t衡阳\n" +
             "\t\t\t南岳区\n" +
             "\t\t\t\t南岳衡山\n" +
+            "\t\t\t\t\t金刚舍利塔\n" +
             "\t\t彬州\n" +
             "\t贵州\n" +
             "\t\t遵义\n" +
@@ -1614,8 +1641,13 @@ public class Travel {
             "\t\t西双版纳傣族自治州\n" +
             "\t\t\t景洪市\n" +
             "\t\t\t\t曼飞龙塔\n" +
-            "\t\t\t美食\n" +
+            "\t\t\t勐腊县\n" +
+            "\t\t\t\t中科院西双版纳热带植物园\n" +
+            "\t\t\t\t西双版纳热带雨林国家公园望天树景区\n" +
+            "\t\t\t人文美食\n" +
+            "\t\t\t\t泼水节\n" +
             "\t\t\t\t傣族手抓饭\n" +
+            "\t\t\t\t毫糯索\n" +
             "\t湖北\n" +
             "\t\t十堰\n" +
             "\t\t\t丹江口市\n" +
@@ -1984,6 +2016,7 @@ public class Travel {
             "\t\t\t\t散花楼\n" +
             "\t\t\t金牛区\n" +
             "\t\t\t\t文殊坊\n" +
+            "\t\t\t\t成都露天音乐公园\n" +
             "\t\t\t武侯区\n" +
             "\t\t\t\t清水河公园\n" +
             "\t\t\t\t武侯祠\n" +
@@ -1993,6 +2026,7 @@ public class Travel {
             "\t\t\t\t四川大学望江校区\n" +
             "\t\t\t\t陈锦茶铺\n" +
             "\t\t\t\t锦里古街\n" +
+            "\t\t\t\t玉林街\n" +
             "\t\t\t锦江区\n" +
             "\t\t\t\t合江亭\n" +
             "\t\t\t\t安顺廊桥\n" +
@@ -2002,6 +2036,7 @@ public class Travel {
             "\t\t\t成华区\n" +
             "\t\t\t\t大熊猫繁育研究基地\n" +
             "\t\t\t\t成都动物园\n" +
+            "\t\t\t\t北湖生态公园\n" +
             "\t\t\t龙泉驿区\n" +
             "\t\t\t\t龙泉山城市森林公园\n" +
             "\t\t\t\t\t丹景山狮子堡观景台\n" +
@@ -2095,6 +2130,18 @@ public class Travel {
             "\t\t焦作\n" +
             "\t\t\t修武县\n" +
             "\t\t\t\t大南坡艺术中心\n" +
+            "\t\t\t\t焦作云台山风景名胜区\n" +
+            "\t\t\t\t\t泉瀑峡景区\n" +
+            "\t\t\t\t\t\t云台天瀑\n" +
+            "\t\t\t\t\t茱萸峰景区\n" +
+            "\t\t\t\t\t\t药王洞\n" +
+            "\t\t\t\t\t\t叠彩洞\n" +
+            "\t\t\t\t\t红石峡景区\n" +
+            "\t\t\t\t\t百家岩-孝女塔\n" +
+            "\t\t\t\t\t潭瀑峡景区\n" +
+            "\t\t\t\t\t\t丫字瀑\n" +
+            "\t\t\t\t\t子房湖\n" +
+            "\t\t\t\t\t青龙峡景区峰林峡\n" +
             "\t\t新乡\n" +
             "\t\t\t辉县市\n" +
             "\t\t\t\t万仙山景区\n" +
@@ -2343,6 +2390,16 @@ public class Travel {
             "\t\t酒泉\n" +
             "\t\t\t敦煌市\n" +
             "\t\t\t\t莫高窟\n" +
+            "\t\t\t\t\t61窟 佛坛窟 归义军时期\n" +
+            "\t\t\t\t\t96窟 北大像窟 武则天 初唐\n" +
+            "\t\t\t\t\t158窟 涅槃像\n" +
+            "\t\t\t\t\t217窟 观无量寿经变\n" +
+            "\t\t\t\t\t220窟 复制窟 初唐\n" +
+            "\t\t\t\t\t248窟 释迦苦修像\n" +
+            "\t\t\t\t\t249窟 西王母 飞天\n" +
+            "\t\t\t\t\t259窟 释迦禅定像\n" +
+            "\t\t\t\t\t285窟 (元荣)\n" +
+            "\t\t\t\t\t328窟 左胁侍菩萨\n" +
             "\t\t\t\t月牙泉 鸣沙山\n" +
             "\t\t\t\t玉门关\n" +
             "\t\t\t\t玉门关小方盘城遗址\n" +
@@ -2487,7 +2544,11 @@ public class Travel {
             "\t\t日喀则\n" +
             "\t\t\t定日县\n" +
             "\t\t\t\t珠穆朗玛峰\n" +
-            "\t\t\t\t\t珠峰大本营\n" +
+            "\t\t\t\t\t北坡\n" +
+            "\t\t\t\t\t\t珠峰大本营\n" +
+            "\t\t\t\t\t东部\n" +
+            "\t\t\t\t\t\t措学仁玛\n" +
+            "\t\t\t\t\t\t汤湘营地\n" +
             "\t\t拉萨\n" +
             "\t\t\t当雄县\n" +
             "\t\t\t\t纳木错\n" +
@@ -2559,6 +2620,8 @@ public class Travel {
             "\t\t\t鄯善县\n" +
             "\t\t\t\t库木塔格沙漠景区\n" +
             "\t\t哈密\n" +
+            "\t\t\t伊吾县\n" +
+            "\t\t\t\t幻彩湖景区\n" +
             "\t\t新星市\n" +
             "\t\t克孜勒苏柯尔克孜自治州\n" +
             "\t\t阿克苏地区\n" +
@@ -2596,15 +2659,17 @@ public class Travel {
             "\t\t\t\t巩乃斯镇\n" +
             "\t\t\t\t\t巩乃斯国家森林公园\n" +
             "\t\t\t\t巴音布鲁克大草原\n" +
+            "\t\t\t尉犁县\n" +
+            "\t\t\t\t罗布泊大峡谷\n" +
             "\t\t\t若羌县\n" +
-            "\t\t\t\t罗布泊\n" +
+            "\t\t\t\t罗布泊 (无人区)\n" +
             "\t\t\t\t\t雅丹地下谷\n" +
             "\t\t\t\t楼兰古城\n" +
             "\t\t\t\t米兰遗址\n" +
             "\t\t需办理《边境管理区通行证》的地区名录\n" +
             "散客不能办?\n" +
-            "中华人民共和国行政区划\n" +
             "民政部 - 行政区划地图(县级以上)\n" +
+            "中华人民共和国行政区划\n" +
             "从浣花溪开始，先后经百花潭公园、散花楼和万里桥，于城东合江亭，再经安顺廊桥、九眼桥，到望江楼";
 
     public static int search(String str, String strRes) {
