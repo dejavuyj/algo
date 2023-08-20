@@ -3,12 +3,22 @@ package tools;
 public class PensionPlan {
 
     private static void simulation() {
+//        boolean single = true;
+        boolean single = false;
         int startYear = 2023; // 起始
-        double total = 170;
-//        double anualSave = (double) 1504 * 12 / 10000; // 每年存
-        double anualSave = 35; // 每年存
-        double anualCost = 20; // 不工作后,每年的花费,没有算上房租的8万
-        double annuity = 15; // 65岁后,每年领的养老金
+        double total, anualSave, anualCost, annuity;
+        if (single) {
+            total = 92;
+//            anualSave = (double) 1504 * 12 / 10000; // 每年存
+            anualSave = 16; // 每年存
+            anualCost = 16 - 7.0f / 2 ; // 不工作后,每年的花费, 房租7万
+            annuity = 5; // 65岁后,每年领的养老金
+        } else {
+            total = 170;
+            anualSave = 35; // 每年存
+            anualCost = 20 ; // 不工作后,每年的花费, 房租7万
+            annuity = 15; // 65岁后,每年领的养老金
+        }
         int saveYears = 5; // 存多少年
 
         double rate = 1.06; // 每年收益率
@@ -16,7 +26,7 @@ public class PensionPlan {
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
 
-        int leftYears = saveYears + 40; // 多少年后
+        int leftYears = saveYears + 60; // 多少年后
         System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
         System.out.println("年收益率 " + (int)((rate-1)*100) + "%");
         System.out.println("剔除通货膨胀后, 年收益率 " + (int)((rate2-1)*100) + "%");
@@ -46,6 +56,13 @@ public class PensionPlan {
 
     private static double getTotal(double total, double anualSave, double anualCost, double annuity, int saveYears, double rate, int j, int currYear) {
         total *= rate;
+        if (currYear == 2035) {
+            System.out.print(" --------- " + currYear + "年, 房贷还清, anualCost - 5 ");
+        }
+        if (currYear >= 2035) {
+            anualCost -= 5;
+        }
+
         if (j < saveYears) {
             total += anualSave;
         } else {
@@ -59,7 +76,6 @@ public class PensionPlan {
         if (currYear == 2052) {
             System.out.print(" --------- " + currYear + "年开始,领退休金 ");
         }
-
         if (currYear >= 2052) {
             total += annuity;
         }

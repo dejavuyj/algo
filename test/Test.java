@@ -98,6 +98,22 @@ public class Test {
         System.out.println(c);
     }
 
+    private static void complementation() {
+        String s = "76001";
+        System.out.println(Math.abs(s.hashCode()));
+        System.out.println("hashCode(" + s + ") % 64 = " + Math.abs(s.hashCode()) % 64);
+        System.out.println(s + " % 64 = " + Long.parseLong(s) % 64);
+    }
+
+    private static void countCharacterNum() {
+        String s = "水印内容水x印内容水印 Vus_rzjvs5l4i 2023-08-08 14:21:37";
+        int cnt = 0;
+        for (char c : s.toCharArray()) {
+            cnt += Character.isIdeographic(c) ? 2 : 1;
+        }
+        System.out.println(cnt / 2);
+    }
+
     public static void main(String[] args) throws Exception {
         // hash();
         // Map m = new ConcurrentHashMap<String, String>(10);
@@ -105,9 +121,6 @@ public class Test {
         // testHoldsLock();
 //		testTypeErasure();
 //        testFloat();
-        String s = "76001";
-        System.out.println(Math.abs(s.hashCode()));
-        System.out.println("hashCode(" + s + ") % 64 = " + Math.abs(s.hashCode()) % 64);
-        System.out.println(s + " % 64 = " + Long.parseLong(s) % 64);
+        countCharacterNum();
     }
 }
