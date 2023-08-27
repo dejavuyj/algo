@@ -40,7 +40,7 @@ public class PensionPlan {
             int currYear = startYear + j;
 //            anualCost *= 1.03;
             total = getTotal(total, anualSave, anualCost, annuity, saveYears, rate, j, currYear);
-            System.out.print(currYear + "年, 总金额是 " + (int) total + ", 比前一年增加 " + (int) (total - previous));
+            System.out.print(currYear + "年底, 总金额是 " + (int) total + ", 比前一年增加 " + (int) (total - previous));
             previous = total;
 
             total2 = getTotal(total2, anualSave, anualCost, annuity, saveYears, rate2, j, currYear);
