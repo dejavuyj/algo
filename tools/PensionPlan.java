@@ -19,7 +19,7 @@ public class PensionPlan {
             anualCost = 20 ; // 不工作后,每年的花费, 房租7万
             annuity = 15; // 65岁后,每年领的养老金
         }
-        int saveYears = 5; // 存多少年
+        int saveYears = 3; // 存多少年
 
         double rate = 1.06; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
