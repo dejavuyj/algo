@@ -788,8 +788,10 @@ public class Travel {
             "\t\t\t\t\t白堤\n" +
             "\t\t\t\t\t孤山公园\n" +
             "\t\t\t\t\t\t西泠印社(孤山社址)\n" +
+            "\t\t\t\t\t\t浙江省博物馆(孤山馆区)\n" +
+            "\t\t\t\t\t\t\t富春山居图\n" +
             "\t\t\t\t\t浴鹄湾\n" +
-            "\t\t\t\t\t万松书院\n" +
+            "\t\t\t\t\t万松书院 (梁祝)\n" +
             "\t\t\t\t\t杭州植物园\n" +
             "\t\t\t\t\t玉皇山\n" +
             "\t\t\t\t\t\t紫来洞\n" +
@@ -798,6 +800,7 @@ public class Travel {
             "\t\t\t\t\t灵隐寺\n" +
             "\t\t\t\t\t龙井村\n" +
             "\t\t\t\t\t下满觉陇\n" +
+            "\t\t\t\t\t六和塔文化公园\n" +
             "\t\t\t\t西溪湿地\n" +
             "\t\t\t\t\t步行\n" +
             "\t\t\t\t留下历史文化街区\n" +
@@ -810,6 +813,7 @@ public class Travel {
             "\t\t\t\t\t坐船\n" +
             "\t\t\t\t\t杭州京杭大运河博物馆\n" +
             "\t\t\t\t\t拱宸桥\n" +
+            "\t\t\t\t小河公园\n" +
             "\t\t\t上城区\n" +
             "\t\t\t\t钱学森故居\n" +
             "\t\t\t\t吴山景区\n" +
@@ -1124,7 +1128,7 @@ public class Travel {
             "\t\t\t\t澄湖村\n" +
             "\t\t\t\t八卦村\n" +
             "\t\t\t鼎湖区\n" +
-            "\t\t\t\t鼎湖山\n" +
+            "\t\t\t\t鼎湖山风景名胜区\n" +
             "\t\t\t\t\t飞水潭\n" +
             "\t\t\t\t\t庆云寺\n" +
             "\t\t\t\t肇庆万达国家度假区\n" +
@@ -1222,25 +1226,37 @@ public class Travel {
             "\t\t\t\t\t梧桐山国际艺术展览中心\n" +
             "\t\t\t盐田区\n" +
             "\t\t\t\t灯塔图书馆\n" +
+            "\t\t\t\t沙头角中英街\n" +
+            "\t\t\t\t\t中英街警世钟\n" +
             "\t\t珠海\n" +
             "\t\t\t香洲区\n" +
+            "\t\t\t\t海滨公园\n" +
+            "\t\t\t\t横山洲岛\n" +
             "\t\t\t\t港珠澳大桥\n" +
-            "\t\t\t\t横琴\n" +
+            "\t\t\t\t横琴国际休闲旅游岛\n" +
             "\t\t\t\t\t长隆国际海洋度假区\n" +
             "\t\t湛江\n" +
             "\t香港\n" +
             "\t\t新界\n" +
-            "\t\t\t万宜水库\n" +
-            "\t\t\t破边洲\n" +
-            "\t\t\t汀九桥\n" +
-            "\t\t\t麦理浩径\n" +
-            "\t\t九龙\n" +
-            "\t\t\t旺角\n" +
-            "\t\t\t油麻地庙街\n" +
-            "\t\t\t天星小轮\n" +
+            "\t\t\t葵青区\n" +
+            "\t\t\t\t汀九桥\n" +
+            "\t\t\t西贡区\n" +
+            "\t\t\t\t万宜水库\n" +
+            "\t\t\t\t破边洲\n" +
+            "\t\t\t\t麦理浩径\n" +
+            "\t\t\t大埔区\n" +
+            "\t\t\t\t新娘潭瀑布\n" +
+            "\t\t九龙半岛\n" +
+            "\t\t\t油尖旺区\n" +
+            "\t\t\t\t油麻地庙街\n" +
+            "\t\t\t\t旺角\n" +
             "\t\t香港岛\n" +
-            "\t\t\t维多利亚港\n" +
-            "\t\t\t大浪湾\n" +
+            "\t\t\t东区\n" +
+            "\t\t\t\t维多利亚港\n" +
+            "\t\t\t中西区\n" +
+            "\t\t\t\t天星小轮\n" +
+            "\t\t\t南区\n" +
+            "\t\t\t\t大浪湾\n" +
             "\t澳门\n" +
             "\t\t澳门旅游塔\n" +
             "\t\t大三巴牌坊\n" +
@@ -1449,8 +1465,11 @@ public class Travel {
             "\t\t\t\t湖南省博物馆\n" +
             "\t\t\t\t长沙市博物馆\n" +
             "\t\t\t\t湖南广电大楼\n" +
+            "\t\t\t\t湖南烈士公园\n" +
             "\t\t\t天心区\n" +
             "\t\t\t\t黄兴步行街\n" +
+            "\t\t\t\t步行街八角亭\n" +
+            "\t\t\t\t杜甫江阁\n" +
             "\t\t\t雨花区\n" +
             "\t\t\t\t湖南省森林植物园\n" +
             "\t\t\t美食\n" +
@@ -1797,6 +1816,7 @@ public class Travel {
             "\t\t\t\t\t朝阳楼\n" +
             "\t\t\t蒙自市\n" +
             "\t\t\t\t碧色寨火车站\n" +
+            "\t\t\t\t国立西南联合大学蒙自分校纪念馆\n" +
             "\t\t\t红河县\n" +
             "\t\t\t\t作夫村\n" +
             "\t\t\t元阳县\n" +
@@ -2054,6 +2074,7 @@ public class Travel {
             "\t\t\t\t\t李时珍百草园\n" +
             "\t\t\t\t\t高山铺村\n" +
             "\t\t\t\t\t黄冈鄂人谷生态度假村\n" +
+            "\t\t\t\t\t鹞鹰岩水库\n" +
             "\t\t\t\t刘河镇\n" +
             "\t\t\t\t\t胡凉亭\n" +
             "\t\t\t\t青石镇\n" +
@@ -2195,7 +2216,7 @@ public class Travel {
             "\t\t\t\t\t安澜索桥\n" +
             "\t\t\t\t\t南桥\n" +
             "\t\t\t\t\t松茂古道\n" +
-            "\t\t\t\t\t伏龙观\n" +
+            "\t\t\t\t\t伏龙观 (奉祀李冰父子)\n" +
             "\t\t\t\t\t二王庙\n" +
             "\t\t\t\t大熊猫繁育野放研究中心\n" +
             "\t\t\t\t灌县古城\n" +
@@ -2578,6 +2599,8 @@ public class Travel {
             "\t\t咸阳\n" +
             "\t\t\t泾阳县\n" +
             "\t\t\t\t贞陵\n" +
+            "\t\t\t兴平市\n" +
+            "\t\t\t\t汉武帝茂陵\n" +
             "\t\t渭南\n" +
             "\t\t\t华阴市\n" +
             "\t\t\t\t西岳华山\n" +
@@ -2716,7 +2739,7 @@ public class Travel {
             "\t\t\t\t大佛寺 (西夏国寺)\n" +
             "\t\t\t\t张掖钟鼓楼\n" +
             "\t\t\t民乐县\n" +
-            "\t\t\t\t扁都口\n" +
+            "\t\t\t\t扁都口生态休闲旅游区 (油菜花)\n" +
             "\t\t\t\t瓦房城水库\n" +
             "\t\t\t山丹县\n" +
             "\t\t\t\t山丹马场\n" +
@@ -2748,6 +2771,10 @@ public class Travel {
             "\t\t\t正宁县\n" +
             "\t\t\t\t黄帝冢\n" +
             "\t\t临夏回族自治州\n" +
+            "\t\t\t永靖县\n" +
+            "\t\t\t\t刘家峡水库\n" +
+            "\t\t\t\t刘家峡恐龙国家地质公园\n" +
+            "\t\t\t\t炳灵寺石窟\n" +
             "\t\t定西\n" +
             "\t\t平凉\n" +
             "\t\t\t崆峒区\n" +
@@ -2936,7 +2963,7 @@ public class Travel {
             "\t\t\t\t乾隆御笔格登山纪功碑\n" +
             "\t\t\t\t草原石人风景区\n" +
             "\t\t\t特克斯县\n" +
-            "\t\t\t\t八卦城\n" +
+            "\t\t\t\t八卦城 (航拍)\n" +
             "\t\t\t\t月亮湖\n" +
             "\t\t\t\t花海喀拉峻\n" +
             "\t\t\t\t喀拉峻风景区\n" +
