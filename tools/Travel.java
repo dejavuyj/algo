@@ -1,5 +1,14 @@
 package tools;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import lombok.Builder;
+import lombok.Data;
+
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Travel {
     static String s = "中国旅行\n" +
             "\t黑龙江\n" +
@@ -231,6 +240,8 @@ public class Travel {
             "\t\t石家庄\n" +
             "\t\t\t平山县\n" +
             "\t\t\t\t西柏坡\n" +
+            "\t\t\t赵县\n" +
+            "\t\t\t\t赵州桥景区\n" +
             "\t\t衡水\n" +
             "\t\t沧州\n" +
             "\t\t邢台\n" +
@@ -256,6 +267,7 @@ public class Travel {
             "\t\t\t颐和园\n" +
             "\t\t\t\t十七孔桥\n" +
             "\t\t\t\t昆明湖\n" +
+            "\t\t\t北京市南水北调干线管理处明渠末端闸\n" +
             "\t\t\t军事博物馆\n" +
             "\t\t\t中华世纪坛\n" +
             "\t\t\t香山公园\n" +
@@ -648,6 +660,8 @@ public class Travel {
             "\t\t铜陵\n" +
             "\t\t芜湖\n" +
             "\t\t宣城\n" +
+            "\t\t\t宣州区\n" +
+            "\t\t\t\t敬亭山-韩愈文化园\n" +
             "\t\t\t绩溪县\n" +
             "\t\t\t\t龙川村\n" +
             "\t\t\t\t胡适故居\n" +
@@ -823,6 +837,7 @@ public class Travel {
             "\t\t\t萧山区\n" +
             "\t\t\t\t湘湖国家旅游度假区\n" +
             "\t\t\t\t\t採莲桥\n" +
+            "\t\t\t\t三江口\n" +
             "\t\t\t淳安县\n" +
             "\t\t\t\t千岛湖\n" +
             "\t\t\t\t\t中心湖区游船\n" +
@@ -831,6 +846,7 @@ public class Travel {
             "\t\t\t桐庐县\n" +
             "\t\t\t建德市\n" +
             "\t\t\t\t新叶古村\n" +
+            "\t\t\t\t新安江水电站\n" +
             "\t\t\t富阳区\n" +
             "\t\t\t\t龙门古镇\n" +
             "\t\t绍兴\n" +
@@ -1274,16 +1290,16 @@ public class Travel {
             "\t\t屏东县\n" +
             "\t\t\t垦丁海岸\n" +
             "\t海南\n" +
-            "\t\t环岛骑行 (10月~3月 不热)\n" +
-            "\t\t\t517骑行驿站(海口)\n" +
-            "\t\t\t木兰湾沿海旅游公路\n" +
-            "\t\t\t十八行村(文昌)\n" +
             "\t\t临高县\n" +
             "\t\t澄迈县\n" +
             "\t\t海口\n" +
             "\t\t\t美兰区\n" +
             "\t\t\t\t东寨港红树林旅游区\n" +
-            "\t\t文昌\n" +
+            "\t\t\t环岛骑行 (10月~3月 不热)\n" +
+            "\t\t\t\t517骑行驿站(海口)\n" +
+            "\t\t\t\t木兰湾沿海旅游公路\n" +
+            "\t\t\t\t十八行村(文昌)\n" +
+            "\t\t文昌市\n" +
             "\t\t\t文昌航天城\n" +
             "\t\t儋州市\n" +
             "\t\t\t东坡书院\n" +
@@ -1295,6 +1311,7 @@ public class Travel {
             "\t\t\t潭门镇\n" +
             "\t\t东方市\n" +
             "\t\t昌江黎族自治县\n" +
+            "\t\t白沙黎族自治县\n" +
             "\t\t琼中黎族苗族自治县\n" +
             "\t\t万宁市\n" +
             "\t\t\t大洲岛\n" +
@@ -1560,6 +1577,11 @@ public class Travel {
             "\t\t\t\t天河潭旅游度假区\n" +
             "\t\t\t\t花溪红岩溪谷营地\n" +
             "\t\t\t\t镇山村\n" +
+            "\t\t\t人文美食\n" +
+            "\t\t\t\t辣子鸡\n" +
+            "\t\t\t\t酸汤鱼\n" +
+            "\t\t\t\t虾酸牛肉\n" +
+            "\t\t\t\t冰浆 (糯米)\n" +
             "\t\t六盘水\n" +
             "\t\t\t美食\n" +
             "\t\t\t\t烙锅\n" +
@@ -1622,11 +1644,6 @@ public class Travel {
             "\t\t\t\t\t侗歌\n" +
             "\t\t\t\t地扪侗寨\n" +
             "\t\t\t\t\t地扪生态博物馆\n" +
-            "\t\t人文美食\n" +
-            "\t\t\t辣子鸡\n" +
-            "\t\t\t酸汤鱼\n" +
-            "\t\t\t虾酸牛肉\n" +
-            "\t\t\t冰浆 (糯米)\n" +
             "\t云南\n" +
             "\t\t怒江傈傈族自治州\n" +
             "\t\t迪庆藏族自治州\n" +
@@ -1662,6 +1679,8 @@ public class Travel {
             "\t\t\t\t\t得月楼\n" +
             "\t\t\t\t束河古镇\n" +
             "\t\t昭通\n" +
+            "\t\t\t永善县\n" +
+            "\t\t\t\t溪洛渡大坝\n" +
             "\t\t\t镇雄县\n" +
             "\t\t\t\t五德大锅圈天坑群\n" +
             "\t\t德宏傣族景颇族自治州\n" +
@@ -1846,6 +1865,8 @@ public class Travel {
             "\t\t\t\t武当山\n" +
             "\t\t\t\t\t遇真宫(南水北调 原址垫高15米)\n" +
             "\t\t\t\t中国南水北调博物馆\n" +
+            "\t\t\t\t南水北调中线工程纪念园\n" +
+            "\t\t\t\t\t穿黄工程\n" +
             "\t\t襄阳\n" +
             "\t\t\t襄城区\n" +
             "\t\t\t\t襄阳古城\n" +
@@ -1885,6 +1906,7 @@ public class Travel {
             "\t\t\t\t美食\n" +
             "\t\t\t\t\t秭归脐橙\n" +
             "\t\t\t夷陵区\n" +
+            "\t\t\t\t老黄陵庙\n" +
             "\t\t\t\t三峡大坝\n" +
             "\t\t\t\t三峡大瀑布\n" +
             "\t\t\t\t三峡人家风景区\n" +
@@ -1918,10 +1940,11 @@ public class Travel {
             "\t\t\t\t荆州古城\n" +
             "\t\t\t\t\t宾阳楼\n" +
             "\t\t\t\t\t关羽像\n" +
-            "\t\t潜江\n" +
+            "\t\t\t\t万寿园-万寿宝塔\n" +
+            "\t\t潜江市\n" +
             "\t\t\t小龙虾雕塑\n" +
-            "\t\t天门\n" +
-            "\t\t仙桃\n" +
+            "\t\t天门市\n" +
+            "\t\t仙桃市\n" +
             "\t\t孝感\n" +
             "\t\t武汉\n" +
             "\t\t\t东西湖区\n" +
@@ -2158,12 +2181,6 @@ public class Travel {
             "\t\t武隆区\n" +
             "\t\t\t天生三桥\n" +
             "\t四川\n" +
-            "\t\t318国道 川藏线\n" +
-            "\t\t\t骑行川藏线 2150公里 25天左右\n" +
-            "\t\t\t\t成都57川藏服务站 \n" +
-            "(4+2 保障车 领队 教练 到拉萨70%完成率)\n" +
-            "\t\t\t\t布珠民宿三姐妹 (雅江县 相格宗)\n" +
-            "\t\t\t\t\t客房墙壁 骑行者留言\n" +
             "\t\t甘孜藏族自治州\n" +
             "\t\t\t色达县\n" +
             "\t\t\t\t色达喇荣五明佛学院 (航拍)\n" +
@@ -2241,16 +2258,16 @@ public class Travel {
             "\t\t\t\t美食\n" +
             "\t\t\t\t\t军囤锅魁\n" +
             "\t\t\t\t\t九尺板鸭\n" +
+            "\t\t\t崇州市\n" +
+            "\t\t\t\t元通古镇\n" +
+            "\t\t\t\t\t美食街\n" +
+            "\t\t\t大邑县\n" +
+            "\t\t\t\t西岭雪山\n" +
             "\t\t\t青白江区\n" +
             "\t\t\t\t城厢古镇\n" +
             "\t\t\t\t\t西街\n" +
             "\t\t\t\t长流河公园\n" +
             "\t\t\t\t凤凰湖 (樱花)\n" +
-            "\t\t\t大邑县\n" +
-            "\t\t\t\t西岭雪山\n" +
-            "\t\t\t崇州市\n" +
-            "\t\t\t\t元通古镇\n" +
-            "\t\t\t\t\t美食街\n" +
             "\t\t\t青羊区\n" +
             "\t\t\t\t杜甫草堂\n" +
             "\t\t\t\t宽窄巷子\n" +
@@ -2279,6 +2296,12 @@ public class Travel {
             "\t\t\t\t陈锦茶铺\n" +
             "\t\t\t\t锦里古街\n" +
             "\t\t\t\t玉林街\n" +
+            "\t\t\t\t318国道 川藏线\n" +
+            "\t\t\t\t\t骑行川藏线 2150公里 25天左右\n" +
+            "\t\t\t\t\t\t成都57川藏服务站 \n" +
+            "(4+2 保障车 领队 教练 到拉萨70%完成率)\n" +
+            "\t\t\t\t\t\t布珠民宿三姐妹 (雅江县 相格宗)\n" +
+            "\t\t\t\t\t\t\t客房墙壁 骑行者留言\n" +
             "\t\t\t锦江区\n" +
             "\t\t\t\t合江亭\n" +
             "\t\t\t\t安顺廊桥\n" +
@@ -2300,10 +2323,20 @@ public class Travel {
             "\t\t\t\t平乐古镇\n" +
             "\t\t\t\t天台山风景名胜区\n" +
             "\t\t\t\t\t长虹瀑布\n" +
+            "\t\t\t双流区\n" +
             "\t\t\t简阳市\n" +
             "\t\t\t\t三岔湖景区\n" +
             "\t\t\t\t東·壹·美术馆\n" +
             "\t\t\t\t成都天府国际机场\n" +
+            "\t\t\t人文饮食\n" +
+            "\t\t\t\t川剧\n" +
+            "\t\t\t\t茶馆\n" +
+            "\t\t\t\t火锅\n" +
+            "\t\t\t\t串串\n" +
+            "\t\t\t\t担担面\n" +
+            "\t\t\t\t抄手\n" +
+            "\t\t\t\t开水白菜\n" +
+            "\t\t\t\t包浆豆腐\n" +
             "\t\t德阳\n" +
             "\t\t\t广汉市\n" +
             "\t\t\t\t三星堆\n" +
@@ -2361,15 +2394,6 @@ public class Travel {
             "\t\t\t会理市\n" +
             "\t\t\t\t会理古城\n" +
             "\t\t攀枝花\n" +
-            "\t\t人文饮食\n" +
-            "\t\t\t川剧\n" +
-            "\t\t\t茶馆\n" +
-            "\t\t\t火锅\n" +
-            "\t\t\t串串\n" +
-            "\t\t\t担担面\n" +
-            "\t\t\t抄手\n" +
-            "\t\t\t开水白菜\n" +
-            "\t\t\t包浆豆腐\n" +
             "\t河南\n" +
             "\t\t安阳\n" +
             "\t\t\t林州市\n" +
@@ -2382,12 +2406,14 @@ public class Travel {
             "\t\t\t\t中国文字博物馆\n" +
             "\t\t鹤壁\n" +
             "\t\t濮阳\n" +
-            "\t\t济源\n" +
+            "\t\t济源市\n" +
             "\t\t\t王屋镇\n" +
             "\t\t\t\t王屋山世界地质公园\n" +
             "\t\t\t小浪底镇\n" +
             "\t\t\t\t黄河小浪底水利枢纽风景区\n" +
             "\t\t焦作\n" +
+            "\t\t\t解放区\n" +
+            "\t\t\t\t南水北调·天河公园\n" +
             "\t\t\t修武县\n" +
             "\t\t\t\t大南坡艺术中心\n" +
             "\t\t\t\t焦作云台山风景名胜区\n" +
@@ -2412,6 +2438,8 @@ public class Travel {
             "\t\t三门峡\n" +
             "\t\t\t陕州区\n" +
             "\t\t\t\t天鹅湖国家城市湿地公园\n" +
+            "\t\t\t湖滨区\n" +
+            "\t\t\t\t三门峡大坝风景区\n" +
             "\t\t洛阳\n" +
             "\t\t\t新安县\n" +
             "\t\t\t\t函谷关遗址 (汉代)\n" +
@@ -2448,6 +2476,11 @@ public class Travel {
             "\t\t郑州\n" +
             "\t\t\t巩义市\n" +
             "\t\t\t\t北宋皇陵·永厚陵文化遗址公园\n" +
+            "\t\t\t荥阳市\n" +
+            "\t\t\t\t丰乐樱花园\n" +
+            "\t\t\t\t\t南水北调中线 穿黄工程\n" +
+            "\t\t\t惠济区\n" +
+            "\t\t\t\t黄河博物馆\n" +
             "\t\t\t二七区\n" +
             "\t\t\t\t郑州市人民公园\n" +
             "\t\t\t金水区\n" +
@@ -2481,6 +2514,8 @@ public class Travel {
             "\t\t漯河\n" +
             "\t\t周口\n" +
             "\t\t南阳\n" +
+            "\t\t\t淅川县\n" +
+            "\t\t\t\t南水北调中线工程渠首\n" +
             "\t\t\t卧龙区\n" +
             "\t\t\t\t南阳卧龙岗景区\n" +
             "\t\t\t\t\t南阳卧龙岗武侯祠\n" +
@@ -2922,6 +2957,7 @@ public class Travel {
             "\t\t塔城地区\n" +
             "\t\t\t沙湾市\n" +
             "\t\t\t\t新疆安集海大峡谷景区\n" +
+            "\t\t白杨市\n" +
             "\t\t胡杨河市\n" +
             "\t\t阿勒泰地区\n" +
             "\t\t\t布尔津县\n" +
@@ -3034,10 +3070,10 @@ public class Travel {
             "\t\t\t\t\t雅丹地下谷\n" +
             "\t\t\t\t楼兰古城\n" +
             "\t\t\t\t米兰遗址\n" +
-            "\t\t需办理《边境管理区通行证》的地区名录\n" +
+            "需办理《边境管理区通行证》的地区名录\n" +
             "散客不能办?\n" +
-            "中华人民共和国行政区划\n" +
             "民政部 - 行政区划地图(县级以上)\n" +
+            "中华人民共和国行政区划\n" +
             "从浣花溪开始，先后经百花潭公园、散花楼和万里桥，于城东合江亭，再经安顺廊桥、九眼桥，到望江楼";
 
     public static int search(String str, String strRes) {
@@ -3052,27 +3088,156 @@ public class Travel {
         return n;
     }
 
+    @Data
+    @Builder
+    private static class ProvinceDirectlyControlCounties {
+        String province;
+        List<String> counties;
+    }
+
+    private static void recordToMap(int level, String parentNodeName, JSONObject jo, Map<Integer, Map<String, List<String>>> nodeMap) {
+        if (jo == null || jo.values().size() == 0) {
+            return;
+        }
+
+        Map<String, List<String>> currentLevelSubMap = nodeMap.getOrDefault(level, new HashMap<>());
+        nodeMap.put(level, currentLevelSubMap);
+
+        for (Map.Entry<String, Object> entry0 : jo.entrySet()) {
+            String connector = "".equals(parentNodeName) ? "" : "-";
+            String currentNodeName = parentNodeName + connector + entry0.getKey();
+
+            JSONObject o1 = (JSONObject) entry0.getValue();
+
+            List<String> currentNodeSubList = currentLevelSubMap.getOrDefault(currentNodeName, new ArrayList<>());
+            currentLevelSubMap.put(currentNodeName, currentNodeSubList);
+
+            for (Map.Entry<String, Object> entry1 : o1.entrySet()) {
+                String subNodeName = entry1.getKey();
+                currentNodeSubList.add(subNodeName);
+            }
+
+            recordToMap(level + 1, currentNodeName, o1, nodeMap);
+        }
+    }
+
     public static void main(String[] args) {
+        String rootName = "中国旅行";
         String[] item = s.split("\n");
         int levelNum = 20;
         int[] levelCounts = new int[levelNum];
+
+        List<Stack<String>> levelStackList = new ArrayList<>();
+        for (int i = 0; i < levelNum; i++) {
+            levelStackList.add(new Stack<>());
+        }
+
+        JSONObject jo = new JSONObject();
+        jo.put(rootName, new JSONObject());
+
+        Map<Integer, Map<String, List<String>>> nodeMap = new HashMap<>();
+
         for (String s : item) {
             int level = search(s, "\t");
             levelCounts[level]++;
+
+            String currentNodeName = s.replaceAll("\t", "");
+
+            Stack<String> currentLevelStack = levelStackList.get(level);
+            if (level > 0 || currentNodeName.equals(rootName)) {
+                currentLevelStack.push(currentNodeName);
+            }
+
+            JSONObject parent = jo;
+            for (int i = 0; i < level && parent != null; i++) {
+                String levelIName = levelStackList.get(i).peek();
+                parent = parent.getJSONObject(levelIName);
+            }
+            if (parent != null && level > 0) {
+                JSONObject o = new JSONObject();
+                parent.put(currentNodeName, o);
+            }
         }
+
+        recordToMap(1, "", jo.getJSONObject(rootName), nodeMap);
+
+        Set<String> specialLevelOneNodeSet = new HashSet<>(Arrays.asList("北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"));
+        List<JSONObject> specialLevelOneNodesList = jo.getJSONObject(rootName).entrySet().stream()
+                .filter(e -> specialLevelOneNodeSet.contains(e.getKey()))
+                .map(e -> JSON.parseObject(JSON.toJSONString(e))).collect(Collectors.toList());
+        int specialLevelOneSubNodeNums = specialLevelOneNodesList.stream().map(JSONObject::values).map(Collection::toArray).map(a -> a[0]).map(e -> (JSONObject) e).mapToInt(JSONObject::size).sum();
+
+        ProvinceDirectlyControlCounties henan = ProvinceDirectlyControlCounties.builder().province("河南").counties(Arrays.asList("济源市")).build();
+        ProvinceDirectlyControlCounties hubei = ProvinceDirectlyControlCounties.builder().province("湖北").counties(Arrays.asList("仙桃市", "潜江市", "天门市", "神农架林区")).build();
+        ProvinceDirectlyControlCounties hainan = ProvinceDirectlyControlCounties.builder().province("海南").counties(Arrays.asList("五指山市", "文昌市", "琼海市", "万宁市", "东方市", "定安县", "屯昌县", "澄迈县", "临高县", "琼中黎族苗族自治县", "保亭黎族苗族自治县", "白沙黎族自治县", "昌江黎族自治县", "乐东黎族自治县", "陵水黎族自治县")).build();
+        ProvinceDirectlyControlCounties xinjiang = ProvinceDirectlyControlCounties.builder().province("新疆维吾尔自治区").counties(Arrays.asList("石河子市", "阿拉尔市", "图木舒克市", "五家渠市", "北屯市", "铁门关市", "双河市", "可克达拉市", "昆玉市", "胡杨河市", "新星市", "白杨市")).build();
+        List<ProvinceDirectlyControlCounties> provinceDirectlyControlCountiesList = Arrays.asList(henan, hubei, hainan, xinjiang);
+        Set<String> provinceDirectlyControlCountiesNameSet = provinceDirectlyControlCountiesList.stream().flatMap(pdc -> {
+            String province = pdc.getProvince();
+            return pdc.getCounties().stream().map(c -> province + "-" + c);
+        }).collect(Collectors.toSet());
+
         int totalCount = 0;
-        for (int i = 0; i < levelNum; i++) {
+//        int printLevelNum = 5;
+        int printLevelNum = levelNum;
+        for (int i = 0; i < printLevelNum; i++) {
             if (i > 0 && levelCounts[i] != 0) {
-                String explain = "";
+                String explain = i + "级节点 " + levelCounts[i] + " 个";
                 if (i == 1) {
-                    explain = ",  包括23个省、5个自治区、4个直辖市、2个特别行政区";
+                    explain += ",  包括23个省、5个自治区、4个直辖市、2个特别行政区";
                 } else if (i == 2) {
-                    explain = ", 包括333个地级区划, 30个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市的区县, 以及港澳台的下级节点";
+                    explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个节点";
+                } else if (i == 3) {
+                    explain += ", 加上32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个节点, 县级行政区总数量 " + (levelCounts[3] + 32 + specialLevelOneSubNodeNums) + " 个";
                 }
-                System.out.println(i + "级节点 " + levelCounts[i] + " 个" + explain);
+                System.out.println(explain);
                 totalCount += levelCounts[i];
             }
         }
-        System.out.println("总节点数: " + totalCount);
+        System.out.println("总节点数: " + totalCount + "\n");
+
+        // 各level重名节点
+        List<Set<String>> levelSetList = new ArrayList<>();
+        for (Stack<String> stack : levelStackList) {
+            Set<String> set = new HashSet<>();
+            Enumeration<String> stackElements = stack.elements();
+            while (stackElements.hasMoreElements()) {
+                set.add(stackElements.nextElement());
+            }
+            levelSetList.add(set);
+        }
+
+        // 地级行政区, 二级节点里, 去除 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的下级节点
+        Map<String, List<String>> prefecturalMap = new HashMap<>();
+        nodeMap.get(2).forEach((k, v) -> {
+            String levelOneName = k.substring(0, k.indexOf("-"));
+            if (!specialLevelOneNodeSet.contains(levelOneName) && !provinceDirectlyControlCountiesNameSet.contains(k)) {
+                prefecturalMap.put(k, v);
+            }
+        });
+
+        List<String> head = new ArrayList<>(Collections.singletonList("s"));
+        List<String> data = new ArrayList<>(Collections.singletonList("n"));
+
+        long prefecturalTotalSubCnt = 0;
+        long[] levelTwoSubCountArray = new long[30];
+        for (int i = 0; i < 30; i++) {
+            final int fSubCountNum = i;
+            levelTwoSubCountArray[i] = prefecturalMap.entrySet().stream().filter(e -> e.getValue().size() == fSubCountNum).count();
+
+            if (levelTwoSubCountArray[i] != 0) {
+                head.add(String.valueOf(i));
+                data.add(String.valueOf(levelTwoSubCountArray[i]));
+                prefecturalTotalSubCnt += i*levelTwoSubCountArray[i];
+            }
+        }
+        List<Map.Entry<String, List<String>>> sortedPrefecturallist = new ArrayList<>(prefecturalMap.entrySet());
+        sortedPrefecturallist.sort((o1, o2) -> o2.getValue().size() - (o1.getValue().size()));
+
+        System.out.println("333个地级区划, 子节点总数" + prefecturalTotalSubCnt
+                + ", 平均每个地级区划子节点数量" + new DecimalFormat("#0.00").format(prefecturalTotalSubCnt/333.0) + "个, 按子节点数量统计:");
+        String[][] datas = new String[1][];
+        datas[0] = data.toArray(new String[0]);
+        PrintTable.printTable(head.toArray(new String[0]), datas);
     }
 }
