@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.text.DecimalFormat;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Travel {
@@ -49,7 +50,7 @@ public class Travel {
             "\t\t\t\t哈尔滨工业大学\n" +
             "\t\t七台河\n" +
             "\t\t鸡西\n" +
-            "\t\t牡丹江市\n" +
+            "\t\t牡丹江\n" +
             "\t\t\t宁安市\n" +
             "\t\t\t\t渤海上京\n" +
             "\t\t\t\t镜泊湖国家级风景名胜区\n" +
@@ -63,7 +64,7 @@ public class Travel {
             "\t\t\t\t\t冰雪渔猎文化旅游节\n" +
             "\t\t四平\n" +
             "\t\t长春\n" +
-            "\t\t吉林市\n" +
+            "\t\t吉林\n" +
             "\t\t\t永吉县\n" +
             "\t\t\t\t万昌镇\n" +
             "\t\t\t丰满区\n" +
@@ -128,6 +129,7 @@ public class Travel {
             "\t\t\t\t棒棰岛风景区\n" +
             "\t内蒙古自治区\n" +
             "\t\t呼伦贝尔\n" +
+            "\t\t\t根河市\n" +
             "\t\t\t新巴尔虎右旗\n" +
             "\t\t\t\t呼伦湖旅游景区\n" +
             "\t\t\t\t贝尔湖\n" +
@@ -140,7 +142,7 @@ public class Travel {
             "\t\t兴安盟\n" +
             "\t\t\t阿尔山市\n" +
             "\t\t\t\t阿尔山天池\n" +
-            "\t\t锡林格勒盟\n" +
+            "\t\t锡林郭勒盟\n" +
             "\t\t\t二连浩特市\n" +
             "\t\t\t\t二连浩特国门景区\n" +
             "\t\t\t正蓝旗\n" +
@@ -285,6 +287,7 @@ public class Travel {
             "\t\t\t毛主席纪念堂\n" +
             "\t\t\t国家博物馆\n" +
             "\t\t\t正阳门 北京坊\n" +
+            "\t\t\t永定门\n" +
             "\t\t\t雍和宫\n" +
             "\t\t\t天坛\n" +
             "\t\t\t保利艺术博物馆\n" +
@@ -862,7 +865,7 @@ public class Travel {
             "\t\t\t\t天一阁博物院\n" +
             "\t\t\t鄞州区\n" +
             "\t\t\t\t东钱湖风景名胜区\n" +
-            "\t\t舟山市\n" +
+            "\t\t舟山\n" +
             "\t\t\t嵊泗县\n" +
             "\t\t\t\t嵊山岛\n" +
             "\t\t\t\t\t后头湾村\n" +
@@ -882,7 +885,7 @@ public class Travel {
             "\t\t\t江山市\n" +
             "\t\t\t\t江郎山风景区\n" +
             "\t\t\t\t\t一线天\n" +
-            "\t\t金华市\n" +
+            "\t\t金华\n" +
             "\t\t\t义乌市\n" +
             "\t\t\t\t三挺路夜市\n" +
             "\t\t\t\t义乌横塘公园\n" +
@@ -892,7 +895,7 @@ public class Travel {
             "\t\t\t\t舞龙峡瀑布\n" +
             "\t\t\t美食\n" +
             "\t\t\t\t金华火腿\n" +
-            "\t\t台州市\n" +
+            "\t\t台州\n" +
             "\t\t\t仙居县\n" +
             "\t\t\t\t神仙居\n" +
             "\t\t\t临海市\n" +
@@ -905,7 +908,7 @@ public class Travel {
             "\t\t\t\t\t家烧鲳鱼年糕\n" +
             "\t\t\t玉环市\n" +
             "\t\t\t\t玉环岛\n" +
-            "\t\t丽水市\n" +
+            "\t\t丽水\n" +
             "\t\t\t遂昌县\n" +
             "\t\t\t\t成屏一级水库\n" +
             "\t\t\t\t诗里湖山\n" +
@@ -913,7 +916,7 @@ public class Travel {
             "\t\t\t缙云县\n" +
             "\t\t\t\t仙都景区\n" +
             "\t\t\t龙泉市\n" +
-            "\t\t温州市\n" +
+            "\t\t温州\n" +
             "\t\t\t乐清市\n" +
             "\t\t\t\t雁荡山世界地质公园\n" +
             "\t\t\t洞头区\n" +
@@ -933,7 +936,7 @@ public class Travel {
             "\t\t\t\t塘下镇 汽摩配件\n" +
             "\t\t\t\t飞云江大桥\n" +
             "\t福建\n" +
-            "\t\t南平市\n" +
+            "\t\t南平\n" +
             "\t\t\t武夷山市\n" +
             "\t\t\t\t武夷山风景名胜区\n" +
             "\t\t\t\t\t青龙大瀑布\n" +
@@ -956,7 +959,7 @@ public class Travel {
             "\t\t\t\t\t\t小皓海滩\n" +
             "\t\t\t\t\t花竹村\n" +
             "\t\t\t\t东壁村\n" +
-            "\t\t三明市\n" +
+            "\t\t三明\n" +
             "\t\t\t泰宁县\n" +
             "\t\t\t\t泰宁古镇\n" +
             "\t\t\t\t\t古街\n" +
@@ -1017,7 +1020,7 @@ public class Travel {
             "\t\t\t\t南海乡\n" +
             "\t\t\t\t\t塘屿岛\n" +
             "\t\t\t\t\t\t海坛天神\n" +
-            "\t\t龙岩市\n" +
+            "\t\t龙岩\n" +
             "\t\t\t漳平市\n" +
             "\t\t\t\t永福镇\n" +
             "\t\t\t\t\t樱花茶园\n" +
@@ -1245,6 +1248,11 @@ public class Travel {
             "\t\t\t\t沙头角中英街\n" +
             "\t\t\t\t\t中英街警世钟\n" +
             "\t\t珠海\n" +
+            "\t\t\t斗门区\n" +
+            "\t\t\t\t霞山公园\n" +
+            "\t\t\t\t珠海御温泉度假区\n" +
+            "\t\t\t金湾区\n" +
+            "\t\t\t\t珠海国际航展中心 (每两年举行一次 11月)\n" +
             "\t\t\t香洲区\n" +
             "\t\t\t\t海滨公园\n" +
             "\t\t\t\t横山洲岛\n" +
@@ -1301,7 +1309,7 @@ public class Travel {
             "\t\t\t\t十八行村(文昌)\n" +
             "\t\t文昌市\n" +
             "\t\t\t文昌航天城\n" +
-            "\t\t儋州市\n" +
+            "\t\t儋州\n" +
             "\t\t\t东坡书院\n" +
             "\t\t屯昌县\n" +
             "\t\t定安县\n" +
@@ -1332,10 +1340,12 @@ public class Travel {
             "\t\t\t\t\t蜈支洲岛\n" +
             "\t\t陵水黎族自治县\n" +
             "\t\t\t分界洲岛景区\n" +
-            "\t\t三沙市\n" +
-            "\t\t\t永兴岛\n" +
-            "\t\t\t西沙群岛\n" +
-            "\t\t\t南沙群岛\n" +
+            "\t\t三沙\n" +
+            "\t\t\t西沙区\n" +
+            "\t\t\t\t永兴岛\n" +
+            "\t\t\t\t西沙群岛\n" +
+            "\t\t\t南沙区\n" +
+            "\t\t\t\t南沙群岛\n" +
             "\t广西壮族自治区\n" +
             "\t\t百色\n" +
             "\t\t\t右江区\n" +
@@ -1512,7 +1522,7 @@ public class Travel {
             "\t\t\t南岳区\n" +
             "\t\t\t\t南岳衡山\n" +
             "\t\t\t\t\t金刚舍利塔\n" +
-            "\t\t彬州\n" +
+            "\t\t郴州\n" +
             "\t贵州\n" +
             "\t\t遵义\n" +
             "\t\t\t赤水市\n" +
@@ -1645,7 +1655,7 @@ public class Travel {
             "\t\t\t\t地扪侗寨\n" +
             "\t\t\t\t\t地扪生态博物馆\n" +
             "\t云南\n" +
-            "\t\t怒江傈傈族自治州\n" +
+            "\t\t怒江傈僳族自治州\n" +
             "\t\t迪庆藏族自治州\n" +
             "\t\t\t德钦县\n" +
             "\t\t\t\t雨崩\n" +
@@ -1995,7 +2005,7 @@ public class Travel {
             "\t\t\t江夏区\n" +
             "\t\t\t\t武汉纺织大学 阳光校区\n" +
             "\t\t\t\t汤逊湖\n" +
-            "\t\t\t饮食\n" +
+            "\t\t\t美食\n" +
             "\t\t\t\t热干面\n" +
             "\t\t\t\t豆皮\n" +
             "\t\t咸宁\n" +
@@ -2543,7 +2553,7 @@ public class Travel {
             "\t\t朔州\n" +
             "\t\t\t应县\n" +
             "\t\t\t\t应县木塔\n" +
-            "\t\t忻州市\n" +
+            "\t\t忻州\n" +
             "\t\t\t偏关县\n" +
             "\t\t\t\t山西省老牛湾景区\n" +
             "\t\t\t\t\t黄河 长城交汇\n" +
@@ -2707,7 +2717,7 @@ public class Travel {
             "\t\t汉中\n" +
             "\t\t安康\n" +
             "\t宁夏回族自治区\n" +
-            "\t\t石嘴山市\n" +
+            "\t\t石嘴山\n" +
             "\t\t银川\n" +
             "\t\t\t贺兰县\n" +
             "\t\t\t\t拜寺口双塔\n" +
@@ -2757,7 +2767,7 @@ public class Travel {
             "\t\t\t\t\t东风二号\n" +
             "\t\t\t肃州区\n" +
             "\t\t\t\t酒泉六分湿地景区\n" +
-            "\t\t嘉峪关市\n" +
+            "\t\t嘉峪关\n" +
             "\t\t\t嘉峪关\n" +
             "\t\t张掖\n" +
             "\t\t\t肃南裕固族自治县\n" +
@@ -2826,7 +2836,7 @@ public class Travel {
             "\t\t\t\t扎尕那\n" +
             "\t\t天水\n" +
             "\t\t\t麦积山石窟\n" +
-            "\t\t陇南市\n" +
+            "\t\t陇南\n" +
             "\t\t\t宕昌县\n" +
             "\t\t\t\t官鹅沟\n" +
             "\t\t\t\t\t官鹅天瀑\n" +
@@ -2842,6 +2852,7 @@ public class Travel {
             "\t\t\t\t无极龙凤宫\n" +
             "\t\t\t乌兰县\n" +
             "\t\t\t\t茶卡盐湖 (天空之境 朝霞, 晚霞, 星空)\n" +
+            "\t\t\t乌素特(水上)雅丹地质公园\n" +
             "\t\t\t大柴达木湖\n" +
             "\t\t\t\t大柴旦翡翠湖\n" +
             "\t\t海北藏族自治州\n" +
@@ -2961,7 +2972,12 @@ public class Travel {
             "\t\t胡杨河市\n" +
             "\t\t阿勒泰地区\n" +
             "\t\t\t布尔津县\n" +
-            "\t\t\t\t喀纳斯湖\n" +
+            "\t\t\t\t喀纳斯景区 (秋季 只有20天 9月份)\n" +
+            "\t\t\t\t\t喀纳斯湖\n" +
+            "\t\t\t\t\t神仙湾\n" +
+            "\t\t\t\t\t月亮湾\n" +
+            "\t\t\t\t\t卧龙湾\n" +
+            "\t\t\t\t禾木新村\n" +
             "\t\t北屯市\n" +
             "\t\t石河子市\n" +
             "\t\t博尔塔拉蒙古自治州\n" +
@@ -3095,7 +3111,40 @@ public class Travel {
         List<String> counties;
     }
 
-    private static void recordToMap(int level, String parentNodeName, JSONObject jo, Map<Integer, Map<String, List<String>>> nodeMap) {
+    private static void collectNodes() {
+        jo.put(rootName, new JSONObject());
+        for (int i = 0; i < levelNum; i++) {
+            levelStackList.add(new Stack<>());
+        }
+        String[] item = s.split("\n");
+        for (String s : item) {
+            int level = search(s, "\t");
+            levelCounts[level]++;
+
+//            if (level > 6) System.out.println(s);
+
+            String currentNodeName = s.replaceAll("\t", "");
+            Stack<String> currentLevelStack = levelStackList.get(level);
+            if (level > 0 || currentNodeName.equals(rootName)) {
+                currentLevelStack.push(currentNodeName);
+            }
+
+            JSONObject parent = jo;
+            for (int i = 0; i < level && parent != null; i++) {
+                String levelIName = levelStackList.get(i).peek();
+                parent = parent.getJSONObject(levelIName);
+            }
+            if (parent != null && level > 0) {
+                parent.put(currentNodeName, new JSONObject());
+            }
+        }
+    }
+
+    private static void recordToMap() {
+        recordToMap(1, "", jo.getJSONObject(rootName));
+    }
+
+    private static void recordToMap(int level, String parentNodeName, JSONObject jo) {
         if (jo == null || jo.values().size() == 0) {
             return;
         }
@@ -3117,65 +3166,15 @@ public class Travel {
                 currentNodeSubList.add(subNodeName);
             }
 
-            recordToMap(level + 1, currentNodeName, o1, nodeMap);
+            recordToMap(level + 1, currentNodeName, o1);
         }
     }
 
-    public static void main(String[] args) {
-        String rootName = "中国旅行";
-        String[] item = s.split("\n");
-        int levelNum = 20;
-        int[] levelCounts = new int[levelNum];
-
-        List<Stack<String>> levelStackList = new ArrayList<>();
-        for (int i = 0; i < levelNum; i++) {
-            levelStackList.add(new Stack<>());
-        }
-
-        JSONObject jo = new JSONObject();
-        jo.put(rootName, new JSONObject());
-
-        Map<Integer, Map<String, List<String>>> nodeMap = new HashMap<>();
-
-        for (String s : item) {
-            int level = search(s, "\t");
-            levelCounts[level]++;
-
-            String currentNodeName = s.replaceAll("\t", "");
-
-            Stack<String> currentLevelStack = levelStackList.get(level);
-            if (level > 0 || currentNodeName.equals(rootName)) {
-                currentLevelStack.push(currentNodeName);
-            }
-
-            JSONObject parent = jo;
-            for (int i = 0; i < level && parent != null; i++) {
-                String levelIName = levelStackList.get(i).peek();
-                parent = parent.getJSONObject(levelIName);
-            }
-            if (parent != null && level > 0) {
-                JSONObject o = new JSONObject();
-                parent.put(currentNodeName, o);
-            }
-        }
-
-        recordToMap(1, "", jo.getJSONObject(rootName), nodeMap);
-
-        Set<String> specialLevelOneNodeSet = new HashSet<>(Arrays.asList("北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"));
+    private static void printLevels() {
         List<JSONObject> specialLevelOneNodesList = jo.getJSONObject(rootName).entrySet().stream()
                 .filter(e -> specialLevelOneNodeSet.contains(e.getKey()))
                 .map(e -> JSON.parseObject(JSON.toJSONString(e))).collect(Collectors.toList());
         int specialLevelOneSubNodeNums = specialLevelOneNodesList.stream().map(JSONObject::values).map(Collection::toArray).map(a -> a[0]).map(e -> (JSONObject) e).mapToInt(JSONObject::size).sum();
-
-        ProvinceDirectlyControlCounties henan = ProvinceDirectlyControlCounties.builder().province("河南").counties(Arrays.asList("济源市")).build();
-        ProvinceDirectlyControlCounties hubei = ProvinceDirectlyControlCounties.builder().province("湖北").counties(Arrays.asList("仙桃市", "潜江市", "天门市", "神农架林区")).build();
-        ProvinceDirectlyControlCounties hainan = ProvinceDirectlyControlCounties.builder().province("海南").counties(Arrays.asList("五指山市", "文昌市", "琼海市", "万宁市", "东方市", "定安县", "屯昌县", "澄迈县", "临高县", "琼中黎族苗族自治县", "保亭黎族苗族自治县", "白沙黎族自治县", "昌江黎族自治县", "乐东黎族自治县", "陵水黎族自治县")).build();
-        ProvinceDirectlyControlCounties xinjiang = ProvinceDirectlyControlCounties.builder().province("新疆维吾尔自治区").counties(Arrays.asList("石河子市", "阿拉尔市", "图木舒克市", "五家渠市", "北屯市", "铁门关市", "双河市", "可克达拉市", "昆玉市", "胡杨河市", "新星市", "白杨市")).build();
-        List<ProvinceDirectlyControlCounties> provinceDirectlyControlCountiesList = Arrays.asList(henan, hubei, hainan, xinjiang);
-        Set<String> provinceDirectlyControlCountiesNameSet = provinceDirectlyControlCountiesList.stream().flatMap(pdc -> {
-            String province = pdc.getProvince();
-            return pdc.getCounties().stream().map(c -> province + "-" + c);
-        }).collect(Collectors.toSet());
 
         int totalCount = 0;
 //        int printLevelNum = 5;
@@ -3186,9 +3185,11 @@ public class Travel {
                 if (i == 1) {
                     explain += ",  包括23个省、5个自治区、4个直辖市、2个特别行政区";
                 } else if (i == 2) {
-                    explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个节点";
+                    explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个子节点";
                 } else if (i == 3) {
-                    explain += ", 加上32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个节点, 县级行政区总数量 " + (levelCounts[3] + 32 + specialLevelOneSubNodeNums) + " 个";
+                    explain += ", 加上32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个子节点, 县级行政区总数量 " + (levelCounts[3] + 32 + specialLevelOneSubNodeNums) + " 个";
+                } else if (i == 4) {
+                    explain += ", 大部分是景点";
                 }
                 System.out.println(explain);
                 totalCount += levelCounts[i];
@@ -3206,18 +3207,31 @@ public class Travel {
             }
             levelSetList.add(set);
         }
+    }
 
-        // 地级行政区, 二级节点里, 去除 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的下级节点
-        Map<String, List<String>> prefecturalMap = new HashMap<>();
+    private static void printSubCnt() {
+        ProvinceDirectlyControlCounties henan = ProvinceDirectlyControlCounties.builder().province("河南").counties(Arrays.asList("济源市")).build();
+        ProvinceDirectlyControlCounties hubei = ProvinceDirectlyControlCounties.builder().province("湖北").counties(Arrays.asList("仙桃市", "潜江市", "天门市", "神农架林区")).build();
+        ProvinceDirectlyControlCounties hainan = ProvinceDirectlyControlCounties.builder().province("海南").counties(Arrays.asList("五指山市", "文昌市", "琼海市", "万宁市", "东方市", "定安县", "屯昌县", "澄迈县", "临高县", "琼中黎族苗族自治县", "保亭黎族苗族自治县", "白沙黎族自治县", "昌江黎族自治县", "乐东黎族自治县", "陵水黎族自治县")).build();
+        ProvinceDirectlyControlCounties xinjiang = ProvinceDirectlyControlCounties.builder().province("新疆维吾尔自治区").counties(Arrays.asList("石河子市", "阿拉尔市", "图木舒克市", "五家渠市", "北屯市", "铁门关市", "双河市", "可克达拉市", "昆玉市", "胡杨河市", "新星市", "白杨市")).build();
+        List<ProvinceDirectlyControlCounties> provinceDirectlyControlCountiesList = Arrays.asList(henan, hubei, hainan, xinjiang);
+        Set<String> provinceDirectlyControlCountiesNameSet = provinceDirectlyControlCountiesList.stream().flatMap(pdc -> {
+            String province = pdc.getProvince();
+            return pdc.getCounties().stream().map(c -> province + "-" + c);
+        }).collect(Collectors.toSet());
+
+        // 333个地级行政区划, 二级节点, 去除32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市以及港澳台的下级节点
         nodeMap.get(2).forEach((k, v) -> {
             String levelOneName = k.substring(0, k.indexOf("-"));
+            String prefecturalName = k.substring(k.indexOf("-") + 1);
             if (!specialLevelOneNodeSet.contains(levelOneName) && !provinceDirectlyControlCountiesNameSet.contains(k)) {
-                prefecturalMap.put(k, v);
+//                prefecturalMap.put(k, v);
+                prefecturalMap.put(prefecturalName, v);
             }
         });
 
-        List<String> head = new ArrayList<>(Collections.singletonList("s"));
-        List<String> data = new ArrayList<>(Collections.singletonList("n"));
+        List<String> subCntHead = new ArrayList<>(Collections.singletonList("s"));
+        List<String> subCntData = new ArrayList<>(Collections.singletonList("n"));
 
         long prefecturalTotalSubCnt = 0;
         long[] levelTwoSubCountArray = new long[30];
@@ -3226,18 +3240,71 @@ public class Travel {
             levelTwoSubCountArray[i] = prefecturalMap.entrySet().stream().filter(e -> e.getValue().size() == fSubCountNum).count();
 
             if (levelTwoSubCountArray[i] != 0) {
-                head.add(String.valueOf(i));
-                data.add(String.valueOf(levelTwoSubCountArray[i]));
+                subCntHead.add(String.valueOf(i));
+                subCntData.add(String.valueOf(levelTwoSubCountArray[i]));
                 prefecturalTotalSubCnt += i*levelTwoSubCountArray[i];
             }
         }
         List<Map.Entry<String, List<String>>> sortedPrefecturallist = new ArrayList<>(prefecturalMap.entrySet());
         sortedPrefecturallist.sort((o1, o2) -> o2.getValue().size() - (o1.getValue().size()));
 
-        System.out.println("333个地级区划, 子节点总数" + prefecturalTotalSubCnt
+        System.out.println("333个地级区划, 子节点(区县)总数" + prefecturalTotalSubCnt
                 + ", 平均每个地级区划子节点数量" + new DecimalFormat("#0.00").format(prefecturalTotalSubCnt/333.0) + "个, 按子节点数量统计:");
-        String[][] datas = new String[1][];
-        datas[0] = data.toArray(new String[0]);
-        PrintTable.printTable(head.toArray(new String[0]), datas);
+        PrintTable.printTable(subCntHead, subCntData);
+    }
+
+    private static void printPercent() {
+        // 直辖市 + 333个地级市
+        Map<String, List<String>> centralDirectlyControlCityAndPrefecturalMap = new HashMap<>();
+        nodeMap.get(1).forEach((k, v) -> {
+            if (AdministrativeDivision.centralDirectlyControlCitySet.contains(k)) {
+                prefecturalMap.put(k, v);
+            }
+        });
+        centralDirectlyControlCityAndPrefecturalMap.putAll(prefecturalMap);
+
+        Map<String, Double> prefecturalCompletePercentageMap = new HashMap<>();
+        // 实际管辖数量
+        Map<String, Integer> prefecturalSubNumMap = AdministrativeDivision.getPrefecturalSubNumMap();
+        prefecturalSubNumMap.forEach((k, v) -> {
+            List<String> recordedList = centralDirectlyControlCityAndPrefecturalMap.get(k);
+            if (recordedList == null) {
+                System.out.println(k + ", 没有被记录");
+                return;
+            }
+            double percent = v == 0 ? 1 : (double)recordedList.size() / v;
+            prefecturalCompletePercentageMap.put(k, percent);
+        });
+        List<Map.Entry<String, Double>> sortedPrefecturalCompletePercentagelist = new ArrayList<>(prefecturalCompletePercentageMap.entrySet());
+        sortedPrefecturalCompletePercentagelist.sort((o1, o2) -> -o2.getValue().compareTo(o1.getValue()));
+
+        Map<String, Long> percentMap = sortedPrefecturalCompletePercentagelist.stream().mapToDouble(Map.Entry::getValue).mapToObj(p -> String.format("%.1f", p)).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        TreeMap<String, Long> sortedPercentMap = new TreeMap<>(percentMap);
+        List<String> percentCntHead = new ArrayList<>();
+        List<String> percentCntData = new ArrayList<>();
+        sortedPercentMap.forEach((k, v) -> {
+            percentCntHead.add(k);
+            percentCntData.add(v.toString());
+        });
+
+        System.out.println("333个地级区划加4个直辖市, 按子节点完成率统计:");
+        PrintTable.printTable(percentCntHead, percentCntData);
+    }
+
+    private static int levelNum = 20;
+    private static String rootName = "中国旅行";
+    private static JSONObject jo = new JSONObject();
+    private static int[] levelCounts = new int[levelNum];
+    private static List<Stack<String>> levelStackList = new ArrayList<>();
+    private static Map<String, List<String>> prefecturalMap = new HashMap<>();
+    private static Map<Integer, Map<String, List<String>>> nodeMap = new HashMap<>();
+    private static Set<String> specialLevelOneNodeSet = new HashSet<>(Arrays.asList("北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"));
+
+    public static void main(String[] args) {
+        collectNodes();
+        recordToMap();
+        printLevels();
+        printSubCnt();
+        printPercent();
     }
 }

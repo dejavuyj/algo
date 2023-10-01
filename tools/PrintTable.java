@@ -1,6 +1,7 @@
 package tools;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PrintTable {
@@ -9,6 +10,13 @@ public class PrintTable {
         String[] heads = {"name", "gender", "age", "greed", "job"};
         String[][] data = {{"Jack", "male", "27", "college", "developer"}, {"Jim", "male", "32", "college", "manager"}};
         printTable(heads, data);
+    }
+
+    //按表格打印数据
+    public static void printTable(List<String> head, List<String> data) {
+        String[][] datas = new String[1][];
+        datas[0] = data.toArray(new String[0]);
+        PrintTable.printTable(head.toArray(new String[0]), datas);
     }
 
     //按表格打印数据
