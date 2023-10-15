@@ -150,5 +150,4 @@ public class PrintTable {
         }
         System.out.print(" ");
     }
-
 }
