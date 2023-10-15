@@ -362,7 +362,7 @@ public class AdministrativeDivision {
             "大兴安岭地区\n" +
             "Da Hinggan Ling\n" +
             "0457\n" +
-            "7\n" +
+            "3\n" +
             "黑P\n" +
             "加格达奇区\n" +
             "哈尔滨市\n" +
