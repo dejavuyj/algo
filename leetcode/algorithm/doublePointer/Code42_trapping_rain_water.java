@@ -1,4 +1,4 @@
-package leetcode.algorithm.dynamicProgramming;
+package leetcode.algorithm.doublePointer;
 
 public class Code42_trapping_rain_water {
 

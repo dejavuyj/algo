@@ -1,4 +1,4 @@
-package leetcode.dataStructure.string;
+package leetcode.algorithm.doublePointer;
 
 public class Code151_reverse_words_in_a_string {
 

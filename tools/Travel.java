@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.NumberFormat;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -126,7 +127,7 @@ public class Travel {
                 if (i == 1) {
                     explain += ",  包括23个省、5个自治区、4个直辖市、2个特别行政区";
                 } else if (i == 2) {
-                    explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市, 以及港澳台的" + specialLevelOneSubNodeNums + "个子节点";
+                    explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个子节点";
                 } else if (i == 3) {
                     explain += ", 包括 北京/上海/天津/重庆 四个直辖市, 以及港澳台的孙节点";
                 } else if (i == 4) {
@@ -180,7 +181,7 @@ public class Travel {
             }
         }
         List<Map.Entry<String, List<String>>> sortedlist = new ArrayList<>(map.entrySet());
-        sortedlist.sort((o1, o2) -> -(o2.getValue().size() - (o1.getValue().size())));
+        sortedlist.sort((o1, o2) -> (o2.getValue().size() - (o1.getValue().size())));
 
         PrintTable.printTable(subCntHead, subCntData);
     }
@@ -302,7 +303,12 @@ public class Travel {
 //        System.out.println();
 //        cl.forEach(System.out::println);
 
-        System.out.println(collectNums + "个县级区划, 按子节点数量统计:");
+        Set<String> nodup = countiesMap.keySet().stream().map(c -> c.substring(c.lastIndexOf("-") + 1)).collect(Collectors.toSet());
+
+        long hasChildrenCnt = countiesMap.entrySet().stream().filter(e -> e.getValue().size() > 0).count();
+
+        System.out.println(collectNums + "个县级行政区, 有子节点的数量: " + hasChildrenCnt
+                + ", 占比 " + NumberFormat.getPercentInstance().format((float) hasChildrenCnt / collectNums) + ", 按子节点数量统计:");
         printTable(countiesMap);
     }
 

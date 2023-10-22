@@ -2,13 +2,18 @@ package tools;
 
 public class PensionPlan {
 
+    public static void main(String[] args) {
+        simulation();
+//        simulation_pingan_caifuxinsheng();
+    }
+
     private static void simulation() {
-//        boolean single = true;
-        boolean single = false;
+        boolean single = true;
+//        boolean single = false;
         int startYear = 2023; // 起始
         double total, anualSave, anualCost, annuity;
         if (single) {
-            total = 92;
+            total = 82;
 //            anualSave = (double) 1504 * 12 / 10000; // 每年存
             anualSave = 16; // 每年存
             anualCost = 16 - 7.0f / 2 ; // 不工作后,每年的花费, 房租7万
@@ -119,10 +124,5 @@ public class PensionPlan {
         }
 
         System.out.println("总收益" + (total - totalPay) + "万");
-    }
-
-    public static void main(String[] args) {
-        simulation();
-//        simulation_pingan_caifuxinsheng();
     }
 }
