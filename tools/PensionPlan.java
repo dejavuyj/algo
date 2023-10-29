@@ -8,42 +8,55 @@ public class PensionPlan {
     }
 
     private static void simulation() {
-        boolean single = true;
-//        boolean single = false;
+//        boolean single = true;
+        boolean single = false;
         int startYear = 2023; // 起始
+        int saveYears; // 存多少年
         double total, anualSave, anualCost, annuity;
         if (single) {
             total = 82;
 //            anualSave = (double) 1504 * 12 / 10000; // 每年存
-            anualSave = 16; // 每年存
+            anualSave = 18; // 每年存
             anualCost = 16 - 7.0f / 2 ; // 不工作后,每年的花费, 房租7万
             annuity = 5; // 65岁后,每年领的养老金
+            saveYears = 5;
         } else {
-            total = 170;
-            anualSave = 35; // 每年存
-            anualCost = 20 ; // 不工作后,每年的花费, 房租7万
+            total = 162;
+            anualSave = 30; // 每年存
+            anualCost = 28 - 7; // 不工作后,每年的花费, 房租7万
             annuity = 15; // 65岁后,每年领的养老金
+            saveYears = 5;
         }
-        int saveYears = 5; // 存多少年
 
-        double rate = 1.06; // 每年收益率
+        double rate = 1.07; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
 
         int leftYears = saveYears + 60; // 多少年后
+
         System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
         System.out.println("年收益率 " + (int)((rate-1)*100) + "%");
         System.out.println("剔除通货膨胀后, 年收益率 " + (int)((rate2-1)*100) + "%");
         System.out.println(saveYears + "年后不工作, 每年花 " + anualCost + " 万");
         System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
+        System.out.println(startYear + "年初, 初始金额 " + (int)total + " 万");
 
         double total2 = total;
         double previous = total;
         double previous2 = total;
         for (int j = 0; j < leftYears; j++) {
             int currYear = startYear + j;
-//            anualCost *= 1.03;
+            if (currYear == 2028) {
+                System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 2.4 : 4.8) );
+                anualCost += single ? 2.4 : 4.8;
+            }
+
+            if (currYear == 2035 || currYear == 2046) {
+                System.out.print(" --------- " + currYear + "年, 房贷还清, anualCost - 5 ");
+                anualCost -= 5;
+            }
+
             total = getTotal(total, anualSave, anualCost, annuity, saveYears, rate, j, currYear);
             System.out.print(currYear + "年底, 总金额是 " + (int) total + ", 比前一年增加 " + (int) (total - previous));
             previous = total;
@@ -61,12 +74,6 @@ public class PensionPlan {
 
     private static double getTotal(double total, double anualSave, double anualCost, double annuity, int saveYears, double rate, int j, int currYear) {
         total *= rate;
-        if (currYear == 2035) {
-            System.out.print(" --------- " + currYear + "年, 房贷还清, anualCost - 5 ");
-        }
-        if (currYear >= 2035) {
-            anualCost -= 5;
-        }
 
         if (j < saveYears) {
             total += anualSave;
