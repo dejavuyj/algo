@@ -63,7 +63,7 @@ public class Travel {
             int level = search(s, "\t");
             levelCounts[level]++;
 
-//            if (level == 0) System.out.println(s);
+//            if (level == 7) System.out.println(s);
 
             String currentNodeName = s.replaceAll("\t", "");
             Stack<String> currentLevelStack = levelStackList.get(level);
