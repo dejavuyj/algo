@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * 前缀树, 字典树
+ */
 public class Code208_implement_trie_prefix_tree {
 
 	static final int ALPHABET_SIZE = 26;

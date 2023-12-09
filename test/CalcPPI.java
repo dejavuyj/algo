@@ -26,6 +26,8 @@ public class CalcPPI {
                 {1920, 1080, 5.15f}, // 小米5s
                 {2160, 1080, 5.99f}, // 小米MIX2
                 {2340, 1080, 6.67f}, // 小米10U
+                {2520, 1080, 6.56f}, // 小米MIX Fold3 外屏
+                {2160, 1916, 8.03f}, // 小米MIX Fold3 内屏
         };
         float[][] arrays_pad = {
                 // 平板电脑
@@ -33,6 +35,11 @@ public class CalcPPI {
                 {2048, 1536, 7.9f}, // iPad mini2
                 {1920, 1200, 11}, // 红米平板SE
                 {2880, 1800, 11} // 小米6 (pro)
+        };
+        float[][] arrays_ink = {
+                // 电子书阅读器
+                {1024, 768, 6f}, // kindle paperwhite 2
+                {1680, 1264, 7f}, // 得到阅读器F7
         };
         System.out.println("PC:");
         for (float[] a : arrays_pc) {
@@ -46,6 +53,11 @@ public class CalcPPI {
         }
         System.out.println("\n平板电脑:");
         for (float[] a : arrays_pad) {
+            float x = a[0], y = a[1], screenSize = a[2];
+            System.out.println((int) x + "x" + (int) y + " \t" + screenSize + "英寸, \tppi is : " + calcPPI(x, y, screenSize));
+        }
+        System.out.println("\n电子书阅读器:");
+        for (float[] a : arrays_ink) {
             float x = a[0], y = a[1], screenSize = a[2];
             System.out.println((int) x + "x" + (int) y + " \t" + screenSize + "英寸, \tppi is : " + calcPPI(x, y, screenSize));
         }
