@@ -129,7 +129,7 @@ public class Travel {
                 } else if (i == 2) {
                     explain += ", 包括333个地级区划, 32个省直辖县级行政单位, 北京/上海/天津/重庆 四个直辖市,以及港澳台的" + specialLevelOneSubNodeNums + "个子节点";
                 } else if (i == 3) {
-                    explain += ", 包括 北京/上海/天津/重庆 四个直辖市, 以及港澳台的孙节点";
+                    explain += ", 主要是县级行政区, 包括 北京/上海/天津/重庆 四个直辖市, 以及港澳台的孙节点";
                 } else if (i == 4) {
                     explain += ", 大部分是景点";
                 }
