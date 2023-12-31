@@ -116,6 +116,5 @@ public class SplitBillMatch {
         System.out.println();
         System.out.println();
         c.selectBestBacktrack(new ArrayList<>(), 0);
-
     }
 }
