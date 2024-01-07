@@ -34,7 +34,8 @@ public class CalcPPI {
                 {1024, 768, 7.9f}, // iPad mini1
                 {2048, 1536, 7.9f}, // iPad mini2
                 {1920, 1200, 11}, // 红米平板SE
-                {2880, 1800, 11} // 小米6 (pro)
+                {2880, 1800, 11}, // 小米6 (pro)
+                {1800, 1200, 10} // Surface Go
         };
         float[][] arrays_ink = {
                 // 电子书阅读器

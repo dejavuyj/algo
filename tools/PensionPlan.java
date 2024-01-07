@@ -10,45 +10,37 @@ public class PensionPlan {
     private static void simulation() {
 //        boolean single = true;
         boolean single = false;
-        int startYear = 2023; // 起始
+        int startYear = 2024; // 起始
         int saveYears; // 存多少年
         double total, anualSave, anualCost, annuity;
         if (single) {
             total = 82;
 //            anualSave = (double) 1504 * 12 / 10000; // 每年存
             anualSave = 18; // 每年存
-            anualCost = 16 - 7.0f / 2 ; // 不工作后,每年的花费, 房租7万
+            anualCost = 16 - 7.0f / 2; // 不工作后,每年的花费, 房租7万
             annuity = 5; // 65岁后,每年领的养老金
             saveYears = 5;
         } else {
-            boolean mf = false;
-//            boolean mf = true;
-            if (!mf) {
-                total = 162;
-                anualCost = 27 - 7; // 不工作后,每年的花费, 房租7万
-            } else {
-                total = 400;
-                anualCost = 27; // 不工作后,每年的花费
-            }
-
-            anualSave = 29; // 每年存
+            total = 200;
+            anualCost = 27 - 7; // 不工作后,每年的花费, 房租7万
+            anualSave = 35; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
-            saveYears = 3;
+            saveYears = 2;
         }
 
         double rate = 1.15; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
-        double rateShrink = 0.99; // 收益率缩水
-//        double rateShrink = 1; // 收益率不缩水
+//        double rateShrink = 0.99; // 收益率缩水
+        double rateShrink = 1; // 收益率不缩水
 
         int leftYears = saveYears + 60; // 多少年后
 
         System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
-        System.out.println("年收益率 " + (int)((rate-1)*100) + "%");
-        System.out.println("剔除通货膨胀后, 年收益率 " + (int)((rate2-1)*100) + "%");
+        System.out.println("年收益率 " + (int) ((rate - 1) * 100) + "%");
+        System.out.println("剔除通货膨胀后, 年收益率 " + (int) ((rate2 - 1) * 100) + "%");
         System.out.println(saveYears + "年后不工作, 每年花 " + anualCost + " 万");
         System.out.println("2052年后退休, 每年领养老金 " + annuity + " 万");
-        System.out.println(startYear + "年初, 初始金额 " + (int)total + " 万");
+        System.out.println(startYear + "年初, 初始金额 " + (int) total + " 万");
 
         double total2 = total;
         double previous = total;
@@ -56,7 +48,7 @@ public class PensionPlan {
         for (int j = 0; j < leftYears; j++) {
             int currYear = startYear + j;
             if (currYear == 2028) {
-                System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 2.4 : 4.8) );
+                System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 2.4 : 4.8));
                 anualCost += single ? 2.4 : 4.8;
             }
 
@@ -74,8 +66,8 @@ public class PensionPlan {
             previous2 = total2;
 
             if (total > 500 && rate > 1.07) {
-                rate = 1 + (rate-1)*rateShrink;
-                rate2 = 1 + (rate2-1)*rateShrink;
+                rate = 1 + (rate - 1) * rateShrink;
+                rate2 = 1 + (rate2 - 1) * rateShrink;
             }
         }
     }
