@@ -33,6 +33,7 @@ public class Travel {
         String province = pdc.getProvince();
         return pdc.getCounties().stream().map(c -> province + "-" + c);
     }).collect(Collectors.toSet());
+    private static Set<String> straightCitySet = new HashSet<>(Arrays.asList("广东-东莞", "广东-中山", "海南-儋州", "甘肃-嘉峪关"));
 
     public static int search(String str, String strRes) {
         int n = 0;//计数器
@@ -256,10 +257,12 @@ public class Travel {
 
         // 县级行政区
         nodeMap.get(3).forEach((k, v) -> {
-            // 跳过直辖市, 港澳台, 省直辖县级行政单位
+            // 跳过直辖市, 港澳台, 省直辖县级行政单位, 直筒子市
             String levelOneName = k.substring(0, k.indexOf("-"));
             String levelTwoName = k.substring(0, k.lastIndexOf("-"));
-            if (specialLevelOneNodeSet.contains(levelOneName) || provinceDirectlyControlCountiesNameSet.contains(levelTwoName)) {
+            if (specialLevelOneNodeSet.contains(levelOneName)
+                    || provinceDirectlyControlCountiesNameSet.contains(levelTwoName)
+                    || straightCitySet.contains(levelTwoName)) {
                 return;
             }
 

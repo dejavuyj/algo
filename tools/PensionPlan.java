@@ -14,12 +14,12 @@ public class PensionPlan {
         int saveYears; // 存多少年
         double total, anualSave, anualCost, annuity;
         if (single) {
-            total = 82;
+            total = 109;
 //            anualSave = (double) 1504 * 12 / 10000; // 每年存
             anualSave = 18; // 每年存
             anualCost = 16 - 7.0f / 2; // 不工作后,每年的花费, 房租7万
             annuity = 5; // 65岁后,每年领的养老金
-            saveYears = 5;
+            saveYears = 2;
         } else {
             total = 200;
             anualCost = 27 - 7; // 不工作后,每年的花费, 房租7万
