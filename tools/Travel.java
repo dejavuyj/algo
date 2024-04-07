@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -163,7 +164,7 @@ public class Travel {
             }
         });
 
-        System.out.println("333个地级区划, 按子节点数量统计:");
+        System.out.println("333个地级区划, 按一级子节点数量统计:");
         printTable(prefecturalMap);
     }
 
@@ -315,6 +316,75 @@ public class Travel {
         printTable(countiesMap);
     }
 
+    private static void sortCity() {
+        // 直辖市 + 港澳 + 所有省级行政区的一级子节点, 统计它们的所有子节点数量并排序
+        AtomicInteger taiwanSubcnt = new AtomicInteger();
+        Map<String, JSONObject> targetCityMap = new HashMap<>();
+        ((JSONObject) jo.get(rootName)).forEach((levelOneName, value) -> {
+            JSONObject levelOneObject = (JSONObject) value;
+
+            if (levelOneName.equals("台湾")) {
+                taiwanSubcnt.set(levelOneObject.size());
+            }
+
+            // 直辖市 + 港澳
+            if (specialLevelOneNodeSet.contains(levelOneName) && !levelOneName.equals("台湾")) {
+                targetCityMap.put(levelOneName, levelOneObject);
+            } else {
+                // 其他城市
+                levelOneObject.forEach((cityName, l2o) -> {
+                    JSONObject l2Object = (JSONObject) l2o;
+//                    targetCityMap.put(levelOneName + "-" + cityName, l2Object);
+                    targetCityMap.put(cityName, l2Object);
+                });
+            }
+        });
+
+        Map<String, Integer> cityTotalSubNumMap = new HashMap<>();
+        targetCityMap.forEach((cityName, cityObject) -> {
+            if (cityObject.size() == 0) {
+                cityTotalSubNumMap.put(cityName, 0);
+            } else {
+                int leafCnt = getLeafCount(cityObject) - 1;
+                cityTotalSubNumMap.put(cityName, leafCnt);
+            }
+        });
+
+        List<Map.Entry<String, Integer>> sortedlist = new ArrayList<>(cityTotalSubNumMap.entrySet());
+        sortedlist.sort((o1, o2) -> (o2.getValue() - (o1.getValue())));
+
+        String msg = String.format("%s个一级城市, 包括333个地级区划, 32个省直辖县级行政单位, 4个直辖市, 2个特别行政区, 台湾的%s个子节点", cityTotalSubNumMap.size(), taiwanSubcnt);
+        System.out.println(msg);
+
+        List<String> headList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
+
+        int printSize = 20;
+        System.out.println("总子节点数量最多的 " + printSize + " 个一级城市:");
+        for (int i = 0; i < printSize; i++) {
+            headList.add(sortedlist.get(i).getKey());
+            dataList.add(sortedlist.get(i).getValue().toString());
+        }
+        PrintTable.printTable(headList, dataList);
+
+//        for (int i = 0; i < printSize; i++) {
+//            System.out.print(sortedlist.get(i).getKey() + ":" + sortedlist.get(i).getValue() + "  ");
+//        }
+    }
+
+    private static int getLeafCount(JSONObject jsonObject) {
+        if (jsonObject.size() == 0) {
+            return 1;
+        } else {
+            AtomicInteger leafCnt = new AtomicInteger(1);
+            jsonObject.forEach((k, v) -> {
+                JSONObject jv = (JSONObject) v;
+                leafCnt.addAndGet(getLeafCount(jv));
+            });
+            return leafCnt.get();
+        }
+    }
+
     private static boolean isNormalNode(String nodeName) {
         return !nodeName.contains("美食");
     }
@@ -326,5 +396,6 @@ public class Travel {
 //        printSubCnt(); // 地级市子节点数量
 //        printPercent(); // 地级市+直辖区, 完成率
         printCounties(); // 县级统计
+        sortCity(); // 所有一级城市的总子节点数量
     }
 }

@@ -3,8 +3,11 @@ package tools;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class PrintTable {
+
+    private static boolean need_padding;
 
     public static void main(String[] args) {
         String[] heads = {"name", "gender", "age", "greed", "job"};
@@ -14,6 +17,7 @@ public class PrintTable {
 
     //按表格打印数据
     public static void printTable(List<String> head, List<String> data) {
+        need_padding = false;
         String[][] datas = new String[1][];
         datas[0] = data.toArray(new String[0]);
         PrintTable.printTable(head.toArray(new String[0]), datas);
@@ -79,6 +83,9 @@ public class PrintTable {
             System.out.print("+");
             for (int k = 0; k < len; k++) {
                 System.out.print("-");
+                if (need_padding && (i + 1) % 20  == 0) {
+                    System.out.print("-");;
+                }
             }
         }
         System.out.print("+");
@@ -89,7 +96,18 @@ public class PrintTable {
         if (str == null || "".equals(str)) {
             return 0;
         }
-        return str.length() + 2;
+        int len;
+        if (Character.isDigit(str.charAt(0))) {
+            len = str.length() + 2;
+        } else {
+            need_padding = true;
+            if (str.length() < 3) {
+                len = str.length() * 2 + 1;
+            } else {
+                len = str.length() * 2 - 1;
+            }
+        }
+        return len;
     }
 
     //打印表头内容
@@ -118,6 +136,11 @@ public class PrintTable {
                 executePrintData(actLength, dataLength, data[j][i]);
                 if (i == rowNum - 1) {
                     System.out.print("|");
+                }
+
+                int step = new Random().nextBoolean() ? 3 : 4;
+                if (need_padding && (i + 1) % step  == 0) {
+                    System.out.print(" ");;
                 }
             }
 
