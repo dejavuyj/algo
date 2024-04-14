@@ -84,7 +84,7 @@ public class PrintTable {
             for (int k = 0; k < len; k++) {
                 System.out.print("-");
                 if (need_padding && (i + 1) % 20  == 0) {
-                    System.out.print("-");;
+                    System.out.print("-");
                 }
             }
         }

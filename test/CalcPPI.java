@@ -10,6 +10,7 @@ public class CalcPPI {
     public static void main(String[] args) {
         float[][] arrays_pc = {
                 // pc
+                {800, 600, 14}, // 台式机显示器
                 {1024, 768, 17}, // 台式机显示器
                 {1366, 768, 14}, // 联想G460 / Y410P
                 {1920, 1080, 14}, // 联想x1
