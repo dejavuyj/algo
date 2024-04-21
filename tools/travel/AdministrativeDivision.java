@@ -1,4 +1,4 @@
-package tools;
+package tools.travel;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,10 @@
-package tools;
+package tools.travel;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.Builder;
 import lombok.Data;
+import tools.PrintTable;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -60,7 +61,7 @@ public class Travel {
         for (int i = 0; i < levelNum; i++) {
             levelStackList.add(new Stack<>());
         }
-        List<String> nodes = Files.readAllLines(Paths.get("tools/TravelNodes"), StandardCharsets.UTF_8);
+        List<String> nodes = Files.readAllLines(Paths.get("tools/travel/TravelNodes"), StandardCharsets.UTF_8);
         for (String s : nodes) {
             int level = search(s, "\t");
             levelCounts[level]++;
