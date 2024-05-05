@@ -233,7 +233,7 @@ public class Travel {
         String[] countyTypes = {"区", "县", "市", "自治县", "旗", "自治旗", "特区", "林区"};
         int[] countyTypeTotalNums = {977, 1299, 397, 117, 49, 3, 1, 1};
         int[] countyTypeCollectNums = {0, 0, 0, 0, 0, 3, 1, 1};
-        int[] countyTypeLackNums = {0, 0, 0, 0, 0, 3, 1, 1};
+        int[] countyTypeLackNums = {0, 0, 0, 0, 0, 0, 0, 0};
         Set<String> specialCounties = new HashSet<>(Arrays.asList("莫力达瓦达斡尔族自治旗", "鄂伦春自治旗", "鄂温克族自治旗", "六枝特区", "神农架林区"));
         Map<String, List<String>> countiesMap = new HashMap<>();
         nodeMap.get(2).forEach((k, v) -> {

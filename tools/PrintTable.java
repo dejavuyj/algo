@@ -1,13 +1,10 @@
 package tools;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class PrintTable {
 
-    private static boolean need_padding;
+    private static Set<Integer> paddingRowIndexSet = new HashSet<>();
 
     public static void main(String[] args) {
         String[] heads = {"name", "gender", "age", "greed", "job"};
@@ -17,7 +14,6 @@ public class PrintTable {
 
     //按表格打印数据
     public static void printTable(List<String> head, List<String> data) {
-        need_padding = false;
         String[][] datas = new String[1][];
         datas[0] = data.toArray(new String[0]);
         PrintTable.printTable(head.toArray(new String[0]), datas);
@@ -42,11 +38,21 @@ public class PrintTable {
         //每列数据宽度
         Map<Integer, Integer> rowWidthMap = getRowWidthMap(rowNum, lineNum, heads, data);
 
+        if (!Character.isDigit(heads[0].charAt(0))) {
+            int idx = 2;
+            paddingRowIndexSet.add(idx);
+            while (idx < rowNum) {
+                idx += 4;
+                paddingRowIndexSet.add(idx);
+                idx += 3;
+                paddingRowIndexSet.add(idx);
+            }
+        }
+
         //打印表头
         printHead(rowNum, rowWidthMap, heads);
         //打印数据
         printData(rowNum, lineNum, rowWidthMap, data);
-
     }
 
     //获取列宽度-每列取最大
@@ -65,7 +71,7 @@ public class PrintTable {
         for (int i = 0; i < lineNum; i++) {
             for (int j = 0; j < rowNum; j++) {
                 int len = length(data[i][j]);
-                //System.out.println("[" + i + "," + j + "]:" + data[i][j] + ",width：" + len);
+//                System.out.println("[" + i + "," + j + "]:" + data[i][j] + ",width：" + len);
                 if (null == rowWidthMap.get(j)) {
                     rowWidthMap.put(j, len);
                 } else if (rowWidthMap.get(j) < len) {
@@ -83,9 +89,9 @@ public class PrintTable {
             System.out.print("+");
             for (int k = 0; k < len; k++) {
                 System.out.print("-");
-                if (need_padding && (i + 1) % 20  == 0) {
-                    System.out.print("-");
-                }
+            }
+            if (paddingRowIndexSet.contains(i)) {
+                System.out.print("-");
             }
         }
         System.out.print("+");
@@ -100,11 +106,13 @@ public class PrintTable {
         if (Character.isDigit(str.charAt(0))) {
             len = str.length() + 2;
         } else {
-            need_padding = true;
+            len = str.length() * 2;
             if (str.length() < 3) {
-                len = str.length() * 2 + 1;
+                len += 1;
+            } else if (str.length() < 8) {
+                len -= 1;
             } else {
-                len = str.length() * 2 - 1;
+                len -= 3;
             }
         }
         return len;
@@ -138,9 +146,8 @@ public class PrintTable {
                     System.out.print("|");
                 }
 
-                int step = new Random().nextBoolean() ? 3 : 4;
-                if (need_padding && (i + 1) % step  == 0) {
-                    System.out.print(" ");;
+                if (paddingRowIndexSet.contains(i)) {
+                    System.out.print(" ");
                 }
             }
 
