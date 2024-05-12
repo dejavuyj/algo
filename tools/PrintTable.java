@@ -38,7 +38,7 @@ public class PrintTable {
         //每列数据宽度
         Map<Integer, Integer> rowWidthMap = getRowWidthMap(rowNum, lineNum, heads, data);
 
-        if (!Character.isDigit(heads[0].charAt(0))) {
+        if (isChinese(heads[0].charAt(0))) {
             int idx = 2;
             paddingRowIndexSet.add(idx);
             while (idx < rowNum) {
@@ -103,7 +103,7 @@ public class PrintTable {
             return 0;
         }
         int len;
-        if (Character.isDigit(str.charAt(0))) {
+        if (!isChinese(str.charAt(0))) {
             len = str.length() + 2;
         } else {
             len = str.length() * 2;
@@ -180,4 +180,20 @@ public class PrintTable {
         }
         System.out.print(" ");
     }
+    /**
+     * 判断字符是否为汉字
+     * @param c
+     * @return
+     */
+    private static boolean isChinese(char c) {
+        Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
+        if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
+                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B
+                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS
+                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION) {
+            return true;
+        }
+        return false;
+    }
+
 }

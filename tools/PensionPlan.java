@@ -21,9 +21,9 @@ public class PensionPlan {
             annuity = 5; // 65岁后,每年领的养老金
             saveYears = 2;
         } else {
-            total = 200;
+            total = 260;
             anualCost = 27 - 7; // 不工作后,每年的花费, 房租7万
-            anualSave = 33; // 每年存
+            anualSave = 16; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
             saveYears = 3;
         }

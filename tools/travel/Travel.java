@@ -173,8 +173,8 @@ public class Travel {
         List<String> subCntHead = new ArrayList<>();
         List<String> subCntData = new ArrayList<>();
 
-        long[] levelTwoSubCountArray = new long[30];
-        for (int i = 0; i < 30; i++) {
+        long[] levelTwoSubCountArray = new long[40];
+        for (int i = 0; i < 40; i++) {
             final int fSubCountNum = i;
             levelTwoSubCountArray[i] = map.entrySet().stream().filter(e -> e.getValue().size() == fSubCountNum).count();
 
@@ -214,6 +214,8 @@ public class Travel {
         });
         List<Map.Entry<String, Double>> sortedPrefecturalCompletePercentagelist = new ArrayList<>(prefecturalCompletePercentageMap.entrySet());
         sortedPrefecturalCompletePercentagelist.sort((o1, o2) -> -o2.getValue().compareTo(o1.getValue()));
+        List<Map.Entry<String, List<String>>> sortedCentralDirectlyControlCityAndPrefecturallist = new ArrayList<>(centralDirectlyControlCityAndPrefecturalMap.entrySet());
+        sortedCentralDirectlyControlCityAndPrefecturallist.sort((o1, o2) -> o2.getValue().size() - o1.getValue().size());
 
         Map<String, Long> percentMap = sortedPrefecturalCompletePercentagelist.stream().mapToDouble(Map.Entry::getValue).mapToObj(p -> String.format("%.1f", p)).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         TreeMap<String, Long> sortedPercentMap = new TreeMap<>(percentMap);
@@ -395,7 +397,7 @@ public class Travel {
         recordToMap();
         printLevels(); // 各层级节点数
 //        printSubCnt(); // 地级市子节点数量
-//        printPercent(); // 地级市+直辖区, 完成率
+//        printPercent(); // 地级市+直辖市, 完成率
         printCounties(); // 县级统计
         sortCity(); // 所有一级城市的总子节点数量
     }
