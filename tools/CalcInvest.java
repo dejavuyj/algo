@@ -8,13 +8,15 @@ public class CalcInvest {
     }
 
     public static void main(String[] args) {
-        double earnings = 115519.76;
-        double currentPrice = 25.85;
-        double quantity = 9500;
+        // 长江电力
+        double earnings = 114562;
+        double currentPrice = 25.58;
+        double quantity = 21400;
 //        double quantity = 30000;
         double costPrice = calcCostPrice(earnings, currentPrice, quantity);
         System.out.printf("%.4f%n", costPrice);
 
+        // 华能水电
         earnings = 81575.63;
         currentPrice = 9.84;
         quantity = 67700;

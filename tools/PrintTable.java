@@ -109,9 +109,9 @@ public class PrintTable {
             len = str.length() * 2;
             if (str.length() < 3) {
                 len += 1;
-            } else if (str.length() < 8) {
+            } else if (5 < str.length() && str.length() < 8) {
                 len -= 1;
-            } else {
+            } else if (str.length() >= 8) {
                 len -= 3;
             }
         }
