@@ -41,7 +41,8 @@ public class CalcPPI {
     private final static float[][] arrays_ink = {
             // 电子书阅读器
             {1024, 768, 6f}, // kindle paperwhite 2
-            {1680, 1264, 7f}, // 得到阅读器F7
+            {1680, 1264, 7f}, // 得到阅读器F7 / 小米电纸书7英寸
+            {1440, 720, 5.84f}, // 墨案迷你阅 Plus
     };
 
     public static void main(String[] args) {
