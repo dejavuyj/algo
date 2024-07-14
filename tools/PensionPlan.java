@@ -28,7 +28,7 @@ public class PensionPlan {
             saveYears = 3;
         }
 
-        double rate = 1.15; // 每年收益率
+        double rate = 1.12; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
