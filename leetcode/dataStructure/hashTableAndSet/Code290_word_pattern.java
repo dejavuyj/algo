@@ -3,7 +3,7 @@ package leetcode.dataStructure.hashTableAndSet;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Code292_word_pattern {
+public class Code290_word_pattern {
 
 	public boolean wordPattern(String pattern, String s) {
 		Map<Character, String> p2s = new HashMap<>();
@@ -32,7 +32,7 @@ public class Code292_word_pattern {
 	}
 
 	public static void main(String[] args) {
-		Code292_word_pattern c = new Code292_word_pattern();
+		Code290_word_pattern c = new Code290_word_pattern();
 		String pattern = "abba";
 		String s = "dog dog dog dog";
 		System.out.println(c.wordPattern(pattern, s));
