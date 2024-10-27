@@ -10,7 +10,7 @@ public class PensionPlan {
     private static void simulation() {
 //        boolean single = true;
         boolean single = false;
-        int startYear = 2024; // 起始
+        int startYear = 2025; // 起始
         int saveYears; // 存多少年
         double total, anualSave, anualCost, annuity;
         if (single) {
@@ -21,11 +21,11 @@ public class PensionPlan {
             annuity = 5; // 65岁后,每年领的养老金
             saveYears = 2;
         } else {
-            total = 260;
-            anualCost = 27 - 7; // 不工作后,每年的花费, 房租7万
-            anualSave = 10; // 每年存
+            total = 240;
+            anualCost = 25 - 5; // 不工作后,每年的花费, 房租5万
+            anualSave = 5; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
-            saveYears = 3;
+            saveYears = 2;
         }
 
         double rate = 1.12; // 每年收益率
@@ -33,7 +33,7 @@ public class PensionPlan {
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
 
-        int leftYears = saveYears + 60; // 多少年后
+        int endYear = 2087; // 到哪一年
 
         System.out.println("每年存 " + anualSave + " 万,总共存 " + saveYears + " 年");
         System.out.println("年收益率 " + (int) ((rate - 1) * 100) + "%");
@@ -45,16 +45,20 @@ public class PensionPlan {
         double total2 = total;
         double previous = total;
         double previous2 = total;
-        for (int j = 0; j < leftYears; j++) {
-            int currYear = startYear + j;
+        for (int currYear = startYear, j = 0; currYear <= endYear; currYear++, j++) {
             if (currYear == 2028) {
                 System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 2.4 : 4.8));
                 anualCost += single ? 2.4 : 4.8;
             }
 
-            if (currYear == 2035 || currYear == 2046) {
-                System.out.print(" --------- " + currYear + "年, 房贷还清, anualCost - 5 ");
+            if (currYear == 2035) {
+                System.out.println(" --------- " + currYear + "年, 房贷还清, anualCost - 5 ");
                 anualCost -= 5;
+            }
+
+            if (currYear == 2046) {
+                System.out.println(" --------- " + currYear + "年, 房贷还清, anualCost - 3 ");
+                anualCost -= 3;
             }
 
             total = getTotal(total, anualSave, anualCost, annuity, saveYears, rate, j, currYear);
