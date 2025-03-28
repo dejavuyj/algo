@@ -20,6 +20,7 @@ public class CalcPPI {
     };
     private final static float[][] arrays_mobilePhone = {
             // 手机
+            {176, 220, 1.8f}, // 摩托罗拉E375
             {640, 360, 3.2f}, // 诺基亚5230
             {1280, 720, 4.65f}, // 三星GALAXY NEXUS
             {1920, 1080, 5f}, // 小米4
