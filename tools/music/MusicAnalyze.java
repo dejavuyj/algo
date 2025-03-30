@@ -54,8 +54,8 @@ public class MusicAnalyze {
 
         Map<String, List<String>> authorMusicMap = new HashMap<>();
         StringBuilder prompt = new StringBuilder();
-//        prompt.append("以下是我在喜欢并收藏的作者和歌曲, 请根据歌曲统计不同风格的数量\n");
-        prompt.append("以下是我在喜欢并收藏的作者和歌曲, 请根据歌曲的名称与演唱艺人信息，专业、深刻且幽默风趣地锐评下我的听歌品味，并解析下我的内心世界\n");
+//        prompt.append("以下是我喜欢并收藏的作者和歌曲, 请根据歌曲统计不同风格的数量\n");
+        prompt.append("以下是我喜欢并收藏的作者和歌曲, 请根据歌曲的名称与演唱艺人信息，专业、深刻且幽默风趣地锐评下我的听歌品味，并解析下我的内心世界\n");
         for (int i = 0; i < authorList.size(); i++) {
             String author = authorList.get(i);
             String music = musicList.get(i);
