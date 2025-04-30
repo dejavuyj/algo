@@ -21,14 +21,14 @@ public class PensionPlan {
             annuity = 5; // 65岁后,每年领的养老金
             saveYears = 2;
         } else {
-            total = 240;
+            total = 260;
             anualCost = 30 - 5; // 不工作后,每年的花费, 房租5万
             anualSave = 7; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
-            saveYears = 5;
+            saveYears = 4;
         }
 
-        double rate = 1.12; // 每年收益率
+        double rate = 1.15; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水

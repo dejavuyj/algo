@@ -67,10 +67,10 @@ public class MusicAnalyze {
         Map<String, List<String>> countSortAuthorMusicMap = new LinkedHashMap<>();
         authorMusicMap.entrySet().stream().sorted(Collections.reverseOrder(Comparator.comparingInt(o -> o.getValue().size()))).forEachOrdered(e -> {
                 if (e.getValue().size() >= 5) {
-                    countSortAuthorMusicMap.put(e.getKey(), e.getValue());
+                    countSortAuthorMusicMap.put(e.getKey() + " " + e.getValue().size() + "首", e.getValue());
                 }
         });
-//        System.out.println(JSON.toJSONString(countSortAuthorMusicMap, SerializerFeature.PrettyFormat));
         System.out.println(prompt.toString());
+        System.out.println(JSON.toJSONString(countSortAuthorMusicMap, SerializerFeature.PrettyFormat));
     }
 }
