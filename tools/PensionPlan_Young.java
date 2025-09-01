@@ -10,7 +10,7 @@ public class PensionPlan_Young {
     private static void simulation() {
 //        boolean single = true;
         boolean single = false;
-        int startYear = 2023; // 起始
+        int startYear = 2025; // 起始
         int saveYears; // 存多少年
         double total, anualSave, anualCost, annuity;
         if (single) {
@@ -22,13 +22,13 @@ public class PensionPlan_Young {
             saveYears = 5;
         } else {
             total = 0;
-            anualSave = 15; // 每年存
-            anualCost = 0; // 不工作后,每年的花费, 房租7万
+            anualSave = 1; // 每年存
+            anualCost = 0;
             annuity = 0; // 65岁后,每年领的养老金
             saveYears = 10;
         }
 
-        double rate = 1.1; // 每年收益率
+        double rate = 1.01; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
 //        double rateShrink = 0.99; // 收益率缩水
         double rateShrink = 1; // 收益率不缩水
