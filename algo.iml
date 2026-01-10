@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="fastjson-1.2.70" level="project" />
+    <orderEntry type="library" name="lombok-1.18.42" level="project" />
   </component>
 </module>
