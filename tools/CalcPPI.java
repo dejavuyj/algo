@@ -17,6 +17,7 @@ public class CalcPPI {
             {2560, 1440, 27f}, // 27寸 2k屏
             {3440, 1440, 34f}, // 小米曲面屏
             {3840, 2160, 27f}, // 27寸 4k屏
+            {2560, 1600, 16f}, // 联想拯救者 R9000P
     };
     private final static float[][] arrays_mobilePhone = {
             // 手机
