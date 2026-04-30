@@ -22,13 +22,13 @@ public class PensionPlan {
             saveYears = 2;
         } else {
             total = 300;
-            anualCost = 35 - 5; // 不工作后,每年的花费, 房租5万
+            anualCost = 30 - 5; // 不工作后,每年的花费, 房租5万
             anualSave = 8; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
-            saveYears = 3;
+            saveYears = 0;
         }
 
-        double rate = 1.2; // 每年收益率
+        double rate = 1.15; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
         double rateShrink = 0.99; // 收益率缩水
 //        double rateShrink = 1; // 收益率不缩水
@@ -47,8 +47,8 @@ public class PensionPlan {
         double previous2 = total;
         for (int currYear = startYear, j = 0; currYear <= endYear; currYear++, j++) {
             if (currYear == 2028) {
-                System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 2.4 : 4.8));
-                anualCost += single ? 2.4 : 4.8;
+                System.out.println(" --------- " + currYear + "年, 开始赡养父母, anualCost + " + (single ? 1.2 : 2.4));
+                anualCost += single ? 1.2 : 2.4;
             }
 
             if (currYear == 2035) {
