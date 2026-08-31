@@ -72,7 +72,7 @@ public class CalcPPI {
             data.add(device[3]);
             data.add(String.valueOf(ppi));
             datas.add(data);
-//            System.out.printf("%s\t%d x %d\t%.1f英寸, ppi is : %d%n", model, (int)x, (int)y, size, ppi);
+//            System.out.printf("-%s\t%d x %d\t%.1f英寸, ppi is : %d%n", model, (int)x, (int)y, size, ppi);
         }
         PrintTable.printTableForList(tableHead, datas);
         System.out.println();
