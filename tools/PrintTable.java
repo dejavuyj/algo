@@ -13,6 +13,15 @@ public class PrintTable {
     }
 
     //按表格打印数据
+    public static void printTableForList(List<String> head, List<List<String>> data) {
+        String[][] datas = new String[data.size()][];
+        for (int i = 0; i < data.size(); i++) {
+            datas[i] = data.get(i).toArray(new String[0]);
+        }
+        PrintTable.printTable(head.toArray(new String[0]), datas);
+    }
+
+    //按表格打印数据
     public static void printTable(List<String> head, List<String> data) {
         String[][] datas = new String[1][];
         datas[0] = data.toArray(new String[0]);
@@ -102,7 +111,8 @@ public class PrintTable {
         if (str == null || "".equals(str)) {
             return 0;
         }
-        int len;
+        float len = 0;
+
         if (!isChinese(str.charAt(0))) {
             len = str.length() + 2;
         } else {
@@ -115,7 +125,12 @@ public class PrintTable {
                 len -= 3;
             }
         }
-        return len;
+
+//        for (char c : str.toCharArray()) {
+//            len += isChinese(c) ? 2 : 1.2;
+//        }
+
+        return (int)len;
     }
 
     //打印表头内容

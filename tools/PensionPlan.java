@@ -23,15 +23,15 @@ public class PensionPlan {
         } else {
             total = 300;
             anualCost = 30 - 5; // 不工作后,每年的花费, 房租5万
-            anualSave = 8; // 每年存
+            anualSave = 15; // 每年存
             annuity = 15; // 65岁后,每年领的养老金
-            saveYears = 0;
+            saveYears = 2;
         }
 
         double rate = 1.15; // 每年收益率
         double rate2 = rate - 0.02; // 剔除通货膨胀
-        double rateShrink = 0.99; // 收益率缩水
-//        double rateShrink = 1; // 收益率不缩水
+//        double rateShrink = 0.99; // 收益率缩水
+        double rateShrink = 1; // 收益率不缩水
 
         int endYear = 2087; // 到哪一年
 
